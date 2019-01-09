@@ -1,0 +1,69 @@
+.\"                                      Hey, EMACS: -*- nroff -*-
+.TH POWERTWEAKD 8 "20 January 2002"
+.\" Please adjust this date whenever revising the manpage.
+.\"
+.\" Some roff macros, for reference:
+.\" .nh        disable hyphenation
+.\" .hy        enable hyphenation
+.\" .ad l      left justify
+.\" .ad b      justify to both left and right margins
+.\" .nf        disable filling
+.\" .fi        enable filling
+.\" .br        insert line break
+.\" .sp <n>    insert n+1 empty lines
+.\" for manpage-specific macros, see man(7)
+.SH NAME
+powertweakd \- Powertweak daemon
+.SH SYNOPSIS
+.B powertweakd
+.RI [ --config-file " file"]
+.RI [ --no-daemon ]
+.RI [ --no-info ]
+.RI [ --profile-dir " dir" ]
+.SH DESCRIPTION
+The
+.B powertweakd
+daemon applies configuration tweaks to the system.  It is primarily
+intended to be controlled using the
+.B powertweak
+or 
+.B gpowertweak
+programs.
+.SH OPTIONS
+.TP
+.B \-c, \-\-config-file
+Specify the file to read settings from.
+.TP
+.B \-\-no\-daemon
+Run in the foreground rather than as a daemon.
+.TP
+.B \-\-no\-info
+Do not use information-only tweaks.
+.TP
+.B \-p, \-\-profile\-dir  
+Specify the directory in which profile information can be found
+.TP
+.B \-\-version
+Show the version of program then exit.
+.SH FILES
+.TP
+.B /etc/powertweak/tweaks
+Default configuration file.  When the set of currently active tweaks
+is saved they will be stored in this file.  On startup
+.B powertweakd
+will parse this file (unless another is specified with the -c or
+--config-file options) and apply the tweaks defined to the system.
+.SH SECURITY CONSIDERATIONS
+.B powertweakd
+can be used to make hardware and kernel level changes to your system
+configuration.  These changes may adversely affect system performance
+and may lead to system crashes or data corruption.  Due caution should
+therefore be exercised when using this program.
+.SH SEE ALSO
+.BR powertweak (8),
+.BR gpowertweak (8).
+.SH AUTHOR
+.B powertweakd 
+was written by Dave Jones <davej@suse.de> and others.  This manual
+page was written by Mark Brown <broonie@sirena.org.uk>.
+

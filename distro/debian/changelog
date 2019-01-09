@@ -1,0 +1,455 @@
+powertweak (0.99.4-17svenud) unstable; urgency=low
+
+  * svenud@ozemail.com.au - pre 0.99.5 work
+
+ -- Mark Brown <broonie@debian.org>  Thu, 30 Mar 2003 20:02:45 +0000
+
+powertweak (0.99.4-17) unstable; urgency=low
+
+  * Add partial German translation from the DDTP.
+  * Correct Replaces for powertweak-gtk.
+
+ -- Mark Brown <broonie@debian.org>  Thu, 13 Mar 2003 20:02:45 +0000
+
+powertweak (0.99.4-16) unstable; urgency=low
+
+  * Add replaces for powertweak.xpm to powertweak-gtk (closes: #184038).
+
+ -- Mark Brown <broonie@debian.org>  Sun,  9 Mar 2003 17:29:57 +0000
+
+powertweak (0.99.4-15) unstable; urgency=low
+
+  * Convert to po-debconf.
+  * Convert to debhelper 4.
+
+ -- Mark Brown <broonie@debian.org>  Wed,  5 Mar 2003 22:11:17 +0000
+
+powertweak (0.99.4-14) unstable; urgency=low
+
+  * Bump the delay before restarting the daemon when installing
+    powertweak-extra up to three seconds (closes: #178274).  A proper 
+    fix would be to make the daemon handle being started and then 
+    rapidly stopped, of course.
+
+ -- Mark Brown <broonie@debian.org>  Sat, 25 Jan 2003 12:16:10 +0000
+
+powertweak (0.99.4-13) unstable; urgency=low
+
+  * Use config.{sub,guess} from autotools-dev (closes: #176546).
+
+ -- Mark Brown <broonie@debian.org>  Mon, 13 Jan 2003 22:11:28 +0000
+
+powertweak (0.99.4-12) unstable; urgency=low
+
+  * Don't ask about cpuid device creation, just do it and warn the user.
+  * Only recommend makedev, don't depend on it (closes: #175599).
+  * Depend on debconf >= 1.2.9 so that the daemon gets stopped when using
+    dpkg-reconfigure.
+
+ -- Mark Brown <broonie@debian.org>  Wed,  8 Jan 2003 23:07:25 +0000
+
+powertweak (0.99.4-11) unstable; urgency=low
+
+  * Don't build the text mode front end.  This anticipates the next upstream
+    release and avoids build failures with GCC 3.x (closes: #104734).
+
+ -- Mark Brown <broonie@debian.org>  Sun,  1 Sep 2002 12:57:05 +0100
+
+powertweak (0.99.4-10) unstable; urgency=low
+
+  * Restart powertweakd in powertweak-extra maintainer scripts so it will
+    detect changes in avaliable plugins (closes: #149213).
+
+ -- Mark Brown <broonie@debian.org>  Sat,  8 Jun 2002 11:58:30 +0100
+
+powertweak (0.99.4-9) unstable; urgency=low
+
+  * libxml2 appears to have decided that it doesn't need a stable API
+    - update include paths to keep up (closes: #142114).
+
+ -- Mark Brown <broonie@debian.org>  Wed, 10 Apr 2002 17:35:26 +0100
+
+powertweak (0.99.4-8) unstable; urgency=low
+
+  * Fix off by one memory allocation error which was causing segfaults
+    on some systems (closes: #140351).  Thanks to Felix Kühling
+    <fxkuehl@gmx.de> for a machine to test on.
+
+ -- Mark Brown <broonie@debian.org>  Sun, 31 Mar 2002 21:53:57 +0100
+
+powertweak (0.99.4-7) unstable; urgency=low
+
+  * Use defaults when calling update-rc.d (closes: #129506).
+  * Faff around with uname to work out if we're on i386 (closes: #130092).
+  * Provide man page for powertweakd from upstream CVS.
+
+ -- Mark Brown <broonie@debian.org>  Sun, 20 Jan 2002 18:36:45 +0000
+
+powertweak (0.99.4-6) unstable; urgency=low
+
+  * Check for MAKEDEV before calling it in case someone has been silly enough
+    to remove a required package.
+
+ -- Mark Brown <broonie@debian.org>  Mon,  7 Jan 2002 22:18:01 +0000
+
+powertweak (0.99.4-5) unstable; urgency=low
+
+  * Only try to install CPU device files on i386.
+
+ -- Mark Brown <broonie@debian.org>  Mon, 31 Dec 2001 11:08:49 +0000
+
+powertweak (0.99.4-4) unstable; urgency=low
+
+  * Call Make_CPU_menuname() once per file rather than for every single tweak
+    and reorganize CPU iteration a bit (closes: #122923).
+  * Fix paths in menu entries (closes: #123681).
+  * Install icon and point at it in the powertweak-gtk menu file.
+
+ -- Mark Brown <broonie@sirena.org.uk>  Wed, 12 Dec 2001 22:46:22 +0000
+
+powertweak (0.99.4-3) unstable; urgency=low
+
+  * Use = instead of == in init script for POSIXness (closes: #121552).
+
+ -- Mark Brown <broonie@debian.org>  Thu, 29 Nov 2001 01:14:44 +0000
+
+powertweak (0.99.4-2) unstable; urgency=low
+
+  * Make daemon usage optional and note this in debconf (closes: #122034).
+  * Correct spelling in package descriptons (thanks to Matt Zimmerman
+    <mdz@debian.org>).
+
+ -- Mark Brown <broonie@debian.org>  Sun, 28 Oct 2001 01:15:21 +0000
+
+powertweak (0.99.4-1) unstable; urgency=low
+
+  * New upstream release.
+
+ -- Mark Brown <broonie@debian.org>  Sat, 20 Oct 2001 02:00:24 +0100
+
+powertweak (0.99.2-4) unstable; urgency=low
+
+  * Call db_stop in the powertweakd postinst (closes: #111840). 
+  * Use correct pid fle in init script.
+  * Include German translation of debconf template for powertweakd from
+    Sebastian Feltel <sebastian@feltel.de> (closes: #112138).
+  * Depend on makedev version with support for CPU access devices.
+
+ -- Mark Brown <broonie@debian.org>  Wed, 19 Sep 2001 15:47:13 +0100
+
+powertweak (0.99.2-3) unstable; urgency=low
+
+  * Remove pointless shlibs files.
+  * Use a versioned dependancy on the current revision of powertweak in
+    order to avoid potential ABI issues.
+  * Remove __unused workaround since there's a real fix upstream.
+  * Update README.Debian to reflect the current reality.
+
+ -- Mark Brown <broonie@debian.org>  Fri,  7 Sep 2001 18:33:06 +0100
+
+powertweak (0.99.2-2) unstable; urgency=low
+
+  * Ask before creating device files.
+
+ -- Mark Brown <broonie@debian.org>  Thu,  6 Sep 2001 11:19:50 +0100
+
+powertweak (0.99.2-1) unstable; urgency=low
+
+  * New upstream release.
+  * powertweakd no longer displays version information on startup
+    (closes: #85045).
+  * Upstream now links against libxml2 properly so drop build
+    dependancy on libxml-dev.
+
+ -- Mark Brown <broonie@debian.org>  Wed, 29 Aug 2001 03:09:54 +0100
+
+powertweak (0.99.1-3) unstable; urgency=low
+
+  * powertweak-gtk now conflicts with and replaces pre-split powertweak
+    packages (closes: #65674).
+  * Add reload target to powertweakd init script.
+  * Create CPU access devices in powertweakd postinst (closes: #110170).
+
+ -- Mark Brown <broonie@debian.org>  Sun, 26 Aug 2001 20:40:10 +0100
+
+powertweak (0.99.1-2) unstable; urgency=low
+
+  * Add build dependancy on libncurses5-dev (closes: #109133).
+  * Add build dependancy on libxml-dev (closes: #109138).
+  * Apply temporary workaround for namespace collisions with __unused 
+    from James Troup (closes: #109137).
+  * Add a stop target to the powertweakd init script (closes: #83453).
+  * The restart target in the powertweakd init script is no longer
+    a synonym for start.
+  * Since previous versions won't stop powertweakd before upgrade try to
+    stop it in the preinst.
+
+ -- Mark Brown <broonie@debian.org>  Sat, 18 Aug 2001 18:10:53 +0100
+
+powertweak (0.99.1-1) unstable; urgency=low
+
+  * New upstream release.
+  * New (potentially temporary) maintainer.
+  * Upstream fixes mean powertweak now doesn't nuke shared memory 
+    settings (closes: #88806).
+  * Tweak to XML from Rob Andrews to avoid errors on BX chipsets.
+  * Now builds from source (closes: #87052).
+  * Install GTK front end in /usr instead of /usr/X11.
+  * Updated to policy 3.5.6.
+
+ -- Mark Brown <broonie@debian.org>  Sun, 12 Aug 2001 13:20:22 +0100
+
+powertweak (0.99.0-6.2) unstable; urgency=low
+
+  * NMU with permission from Sudhakar Chandrasekharan.
+  * Added a build dependency on libgpmg1-dev.
+  * Added an empty "powertweak" binary package that depends on all
+    the other powertweak* packages.
+  * Removed the debian/*.ex files from the source.
+
+ -- Adrian Bunk <bunk@fs.tum.de>  Thu,  8 Mar 2001 13:39:03 +0100
+
+powertweak (0.99.0-6.1) unstable; urgency=medium
+
+  * NMU
+  * Changed the problem with the not defined SA_LEN using fixes
+    from the upstream CVS. (closes: #87052)
+  * #include <unistd.h> in src/textmode/tvision/classes/ticks.cc
+    (needed to get it compiling).
+  * Changed the build dependency from libxml-dev to libxml2-dev.
+  * debian/copyright: The location of the upstream sources is
+    http://www.powertweak.org, not http://linux.powertweak.com.
+
+ -- Adrian Bunk <bunk@fs.tum.de>  Sat, 24 Feb 2001 02:04:21 +0100
+
+powertweak (0.99.0-6) unstable; urgency=low
+
+  * Fixing conflict with older powertweak binary package (closes: Bug#83025)
+  * Removing logrotate stuff (closes: Bug#83162)
+
+ -- Sudhakar Chandrasekharan <thaths@netscape.com>  Mon, 22 Jan 2001 13:24:55 -0800
+
+powertweak (0.99.0-5) unstable; urgency=low
+
+  * Making packages powertweakd and powertweak-text conflict with older
+    versions of powertweak
+
+ -- Sudhakar Chandrasekharan <thaths@netscape.com>  Tue, 16 Jan 2001 17:41:47 -0800
+
+powertweak (0.99.0-4) unstable; urgency=low
+
+  * Fixing bug # 82061
+
+ -- Sudhakar Chandrasekharan <thaths@netscape.com>  Fri, 12 Jan 2001 16:36:22 -0800
+
+powertweak (0.99.0-3) unstable; urgency=low
+
+  * Fixing bug # 81976 by adding a replaces line
+
+ -- Sudhakar Chandrasekharan <thaths@netscape.com>  Fri, 12 Jan 2001 11:16:02 -0800
+
+powertweak (0.99.0-2) unstable; urgency=low
+
+  * Fixed lintian errors
+
+ -- Sudhakar Chandrasekharan <thaths@netscape.com>  Fri, 29 Dec 2000 15:55:37 -0800
+
+powertweak (0.99.0-1) unstable; urgency=low
+
+  * Moving to latest upstream version
+  * This version is based on a totally new code base.
+  * Upstream source is now split into 4 binary packages - powertweakd,
+    powertweak-text, powertweak-gtk and powertweak-extra
+
+ -- Sudhakar Chandrasekharan <thaths@netscape.com>  Wed, 27 Dec 2000 15:55:09 -0800
+
+powertweak (0.1.16-2) unstable; urgency=low
+
+  * Fixing bug # 65535.  Now have proper path to pci.ids file
+
+ -- Sudhakar Chandrasekharan <thaths@netscape.com>  Mon, 12 Jun 2000 11:42:45 -0700
+
+powertweak (0.1.16-1) unstable; urgency=low
+
+  * Moving to latest upstream source.  Packaging changes include:
+    + Splitting into two packages powertweak and gpowertweak
+    + Changing sections - Source=admin, powertweak=admin and
+      gpoertweak=utils.
+      ***Note to package installer: Please do the needful.***
+
+ -- Sudhakar Chandrasekharan <thaths@netscape.com>  Mon,  5 Jun 2000 15:45:20 -0700
+
+powertweak (0.1.15-1) unstable; urgency=low
+
+  * Moving to latest upstream source
+
+ -- Sudhakar Chandrasekharan <thaths@netscape.com>  Thu,  1 Jun 2000 14:02:26 -0700
+
+powertweak (0.1.13-1) unstable; urgency=low
+
+  * Moving to latest upstream source
+
+ -- Sudhakar Chandrasekharan <thaths@netscape.com>  Mon, 17 Apr 2000 13:32:29 -0700
+
+powertweak (0.1.12-1) unstable; urgency=low
+
+  * Moved to latest upstream source
+
+ -- Sudhakar Chandrasekharan <thaths@netscape.com>  Fri, 14 Apr 2000 13:10:17 -0700
+
+powertweak (0.1.11-2) unstable; urgency=low
+
+  * Tagged /etc/powertweak.config as a conffile
+
+ -- Sudhakar Chandrasekharan <thaths@netscape.com>  Wed, 29 Mar 2000 09:28:36 -0800
+
+powertweak (0.1.11-1) unstable; urgency=low
+
+  * Moved to latest upstream version
+  * In the packaging front:
+    + Removed the warning in the init script about
+	  missing powertweak.conf file.  The binary fails
+	  gracefully if a config file is not found.
+
+ -- Sudhakar Chandrasekharan <thaths@netscape.com>  Mon, 27 Mar 2000 18:06:36 -0800
+
+powertweak (0.1.10-1) unstable; urgency=low
+
+  * Moving to latest upstream source.
+  * Fixing a few minor irritants with the packaging
+
+ -- Sudhakar Chandrasekharan <thaths@netscape.com>  Mon, 13 Mar 2000 17:43:15 -0800
+
+powertweak (0.1.9-1) unstable; urgency=low
+
+  * Moving to latest upstream version
+  * powertweak-config now refers to the ncurses based
+    tweaks configuration program (currently unstable).  
+  * The old powertweak-config is now called gpowertweak
+
+ -- Sudhakar Chandrasekharan <thaths@netscape.com>  Tue,  7 Mar 2000 16:39:17 -0800
+
+powertweak (0.1.8-1) unstable; urgency=low
+
+  * Moving to latest upstream version.  Packaging changes include:
+  + Fixing bug # 59071 (Added menu entry)
+
+ -- Sudhakar Chandrasekharan <thaths@netscape.com>  Sat, 26 Feb 2000 12:30:22 -0800
+
+powertweak (0.1.7-2) frozen; urgency=low
+
+  * Fixed bug # 59073 (error in postrm script)
+
+ -- Sudhakar Chandrasekharan <thaths@netscape.com>  Sat, 26 Feb 2000 12:04:17 -0800
+
+powertweak (0.1.7-1) frozen; urgency=medium
+
+  * Upgraded to latest upstream version.  Also:
+  + Fixed bug # 53960
+  + Fixed bug # 54101
+  + Might have fixed bug # 54348
+
+ -- Sudhakar Chandrasekharan <thaths@netscape.com>  Wed,  2 Feb 2000 16:21:19 -0800
+
+powertweak (0.1.6-2) unstable; urgency=low
+
+  * Fixing man page bug # 53960
+
+ -- Sudhakar Chandrasekharan <thaths@netscape.com>  Mon,  3 Jan 2000 14:12:24 -0800
+
+powertweak (0.1.6-1) unstable; urgency=low
+
+  * Moving to new upstream version.  This version includes:
+  + Added basic Intel LX support
+  + Added basic Intel BX support
+  + Added /proc/sys tuning
+  + Code cleanups
+  + Small bug fixes
+  + Updated pci.ids
+
+ -- Sudhakar Chandrasekharan <thaths@netscape.com>  Thu, 16 Dec 1999 13:41:48 -0800
+
+powertweak (0.1.5-1) unstable; urgency=low
+
+  * New upstream release.  
+  + Now comes with its own pci.ids
+  + VP3/MVP3 issues resolved
+
+  * On the .deb package front made the package more Policy conformant:
+  + Placed the startup script inside /etc/rc.d instead of /etc/init.d
+  + Place the powertweak binary under /usr/sbin instead of /sbin
+  + Added a menu item for powertweak-config
+  + Added log rotation
+
+ -- Sudhakar Chandrasekharan <thaths@netscape.com>  Tue,  2 Nov 1999 14:06:47 -0800
+
+powertweak (0.1.4-1) unstable; urgency=low
+
+  * Changes since 0.1.3 were: 
+  + MVP3 crash fixed and tweaks 
+  + GUI segfault fixed 
+  + Extra PCI info in GUI 
+  + misc. small bug fixes
+
+ -- Sudhakar Chandrasekharan <thaths@netscape.com>  Mon, 25 Oct 1999 13:59:48 -0700
+
+powertweak (0.1.3-1) unstable; urgency=low
+
+  * Moving to latest upstream source
+
+ -- Sudhakar Chandrasekharan <thaths@netscape.com>  Wed,  6 Oct 1999 16:49:53 -0700
+
+powertweak (0.1.2-4) unstable; urgency=low
+
+  * Fixing bug.  BTS #s 45953,46046,43243,44780,46089,46075,46085 (all
+    of them referring to the same bug.  Fixed by compiling with gcc272
+    instead of gcc 2.95.X
+
+ -- Sudhakar Chandrasekharan <thaths@netscape.com>  Mon, 27 Sep 1999 15:16:04 -0700
+
+powertweak (0.1.2-3) unstable; urgency=low
+
+  * Fixing bug #44780 by making powertweak-config point to
+    /usr/share/misc/pci.ids
+
+ -- Sudhakar Chandrasekharan <thaths@netscape.com>  Thu, 23 Sep 1999 16:07:18 -0700
+
+powertweak (0.1.2-2) unstable; urgency=low
+
+  * Fixing bug # 43206.  Removed the offending line in postinst.
+
+ -- Sudhakar Chandrasekharan <thaths@netscape.com>  Thu, 19 Aug 1999 10:54:34 -0700
+
+powertweak (0.1.2-1) unstable; urgency=low
+
+  * Moved to latest upstream version with its bug fixes and improvements
+
+ -- Sudhakar Chandrasekharan <thaths@netscape.com>  Wed, 18 Aug 1999 11:22:20 -0700
+
+powertweak (0.1.1-4) unstable; urgency=low
+
+  * Fixing bug # 42941.  Files now owned by root.
+
+ -- Sudhakar Chandrasekharan <thaths@netscape.com>  Fri, 13 Aug 1999 16:46:06 -0700
+
+powertweak (0.1.1-3) unstable; urgency=low
+
+  * Fixed bug # 42695.  Changed Architecture to i386 in debian/control
+
+ -- Sudhakar Chandrasekharan <thaths@netscape.com>  Mon,  9 Aug 1999 17:56:50 -0700
+
+powertweak (0.1.1-2) unstable; urgency=low
+
+  * Changed postinst script to run powertweak upon installation
+
+ -- Sudhakar Chandrasekharan <thaths@netscape.com>  Wed, 21 Jul 1999 09:58:56 -0700
+
+powertweak (0.1.1-1) unstable; urgency=low
+
+  * Initial Release.
+
+ -- Sudhakar Chandrasekharan <thaths@netscape.com>  Wed, 23 Jun 1999 11:35:02 +1000
+
+Local variables:
+mode: debian-changelog
+End:

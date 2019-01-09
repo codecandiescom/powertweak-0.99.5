@@ -1,0 +1,16 @@
+PowerTweak Support files for SuSE Linux
+---------------------------------------
+
+Author: Lenz Grimmer <grimmer@suse.de>
+Date:   2001-07-11
+
+This directory contains additional files to install PowerTweak on
+SuSE Linux:
+
+powertweak.spec      - the RPM spec file
+rc.config.powertweak - the rc.config entry containing the START variable
+rc.powertweakd       - init script for /etc/init.d/
+
+These file have been developed for SuSE Linux 7.2 - they do not work on
+older versions, since the init structure has been changed for better LSB
+compliance.

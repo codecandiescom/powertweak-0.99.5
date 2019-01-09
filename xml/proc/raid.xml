@@ -1,0 +1,38 @@
+<?xml version = "1.0" encoding ="UTF-8" standalone = "no"?>
+<!DOCTYPE PROCENTRIES SYSTEM "proc.dtd">
+
+<PROCENTRIES>
+
+<!-- Hardware / RAID -->
+
+	<PROCENTRY>
+	<MENU>Hardware</MENU>
+	<SUBMENU>Disk</SUBMENU>
+	<SUBSUBMENU>RAID</SUBSUBMENU>
+	<TAB>RAID</TAB>
+	<WIDGETTEXT>Min speed limit</WIDGETTEXT>
+	<CONFIGNAME>dev/raid/speed_limit_min</CONFIGNAME>
+	<TYPE>Slider</TYPE>
+	<LOW>100</LOW>
+	<HIGH>1000</HIGH>
+	<ELEMENT>0</ELEMENT>
+	<FILE>/proc/sys/dev/raid/speed_limit_min</FILE>
+	<DESCRIPTION>Minimum level throughput.</DESCRIPTION>
+	</PROCENTRY>
+
+	<PROCENTRY>
+	<MENU>Hardware</MENU>
+	<SUBMENU>Disk</SUBMENU>
+	<SUBSUBMENU>RAID</SUBSUBMENU>
+	<TAB>RAID</TAB>
+	<WIDGETTEXT>Max speed limit</WIDGETTEXT>
+	<CONFIGNAME>dev/raid/speed_limit_max</CONFIGNAME>
+	<TYPE>Slider</TYPE>
+	<LOW>100000</LOW>
+	<HIGH>200000</HIGH>
+	<ELEMENT>0</ELEMENT>
+	<FILE>/proc/sys/dev/raid/speed_limit_max</FILE>
+	<DESCRIPTION>Maximum level throughput.</DESCRIPTION>
+	</PROCENTRY>
+
+</PROCENTRIES>

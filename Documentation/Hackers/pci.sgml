@@ -1,0 +1,76 @@
+<!DOCTYPE book PUBLIC "-//OASIS//DTD DocBook V3.1//EN">
+<book>
+<bookinfo> <title>Powertweak Linux plugin writers guide</title>
+<authorgroup>
+<author><firstname>Arjan</firstname><surname>van de Ven</surname></author>
+<author><firstname>Dave</firstname><surname>Jones</surname></author>
+</authorgroup>
+</bookinfo> 
+
+<chapter><title>PCI Backend</title>
+<section><title>Context</title>
+	<para>
+		This document is intended for people that want to write
+		plugins for <application>Powertweak Linux</application> that
+		use the PCI core plugin.
+		Note that you generally don't have to write a plugin if you
+		want to add extra tweaks for a new chipset. Such additions should be
+		added as a new <acronym>XML</acronym> file instead.
+	</para>
+	<para>	
+		This document assumes a good knowledge of the C programming language, as Powertweak plugins are written in C.
+	</para>
+</section>
+<section><title>Copyright and other legalise</title>
+	<para>
+		Powertweak Linux is licensed under the terms of the GNU
+		General Public License version 2. 
+	</para>
+	<para>
+	      	This document is Copyright (c)  2001, Arjan van de Ven and
+	      	Dave Jones.  Permission is granted to copy, distribute
+	      	and/or modify this document under the terms of the GNU Free
+	      	Documentation License, Version 1.1 or any later version
+	      	published by the Free Software Foundation; with no Invariant
+	      	Sections, with no Front-Cover Texts, and with no Back-Cover
+	      	Texts.
+	</para>
+	<para>
+		Even though we cannot enforce any license on the plugins, we
+		urge you to put any plugins you may write under the terms of
+		the GNU General Public License.  Plugins which are not GPL'd
+		will not be considered for inclusion in the main source tree.
+	</para>
+</section>
+<section><title>How does the PCI backend work?</title>
+	<para>
+		At the heart of PCI operations in Powertweak is PCILIB.
+		This is a library provided with pciutils, that has been converted
+		for use with Powertweak, and provided as a core plugin.
+		Core plugins get loaded before normal plugins, so the first thing
+		that a plugin dependant on using functionality provided by it
+		is check that has successfully loaded.
+	</para>
+
+	<para><programlisting>
+		if (have_core_plugin("libpcilib.so") == FALSE)
+			return FALSE;
+	</programlisting></para>
+	<para>
+		This allows Powertweak to unload the dependant plugin (saving memory)
+		if the PCI core hasn't been loaded (For eg, on a system without a PCI bus).
+</section>
+
+<section>
+	<title>What else do I need to know about the PCI backend?</title>
+	<para>
+		Unlike other backends, your plugin should not call RegisterTweak to add
+		its tweaks to the tree. Instead, it should use the helper function
+		AddTo_PCI_tree()
+		This allows the PCI backend to register tweaks from different PCI backends
+		in a uniform manner, taking care of issues like multiple devices with the
+		same name, finding its class, finding its position in the tree etc..
+</section>
+</chapter>
+
+</book>

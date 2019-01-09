@@ -1,0 +1,190 @@
+<?xml version = "1.0" encoding ="UTF-8" standalone = "no"?>
+<!DOCTYPE PROCENTRIES SYSTEM "proc.dtd">
+<PROCENTRIES>
+
+<!-- Network -->
+	<PROCENTRY>
+	<MENU>Networking</MENU>
+	<SUBMENU>TCP</SUBMENU>
+	<TAB>*</TAB>
+	<WIDGETTEXT>Send Redirects</WIDGETTEXT>
+	<CONFIGNAME>NET_TCPIP_DEV_SEND_REDIRECTS</CONFIGNAME>
+	<TYPE>Checkbox</TYPE>
+	<ELEMENT>-1</ELEMENT>
+	<FILE>/proc/sys/net/ipv4/conf/*/send_redirects</FILE>
+	<DESCRIPTION>Send redirects, if router.</DESCRIPTION>
+	</PROCENTRY>
+
+	<PROCENTRY>
+	<MENU>Networking</MENU>
+	<SUBMENU>TCP</SUBMENU>
+	<TAB>*</TAB>
+	<WIDGETTEXT>Secure Redirects</WIDGETTEXT>
+	<CONFIGNAME>NET_TCPIP_DEV_SECURE_REDIRECTS</CONFIGNAME>
+	<TYPE>Checkbox</TYPE>
+	<ELEMENT>-1</ELEMENT>
+	<FILE>/proc/sys/net/ipv4/conf/*/secure_redirects</FILE>
+	<DESCRIPTION>Accept ICMP redirect messages only for gateways
+listed in default gateway list.</DESCRIPTION>
+	</PROCENTRY>
+
+	<PROCENTRY>
+	<MENU>Networking</MENU>
+	<SUBMENU>TCP</SUBMENU>
+	<TAB>*</TAB>
+	<WIDGETTEXT>Accept Redirects</WIDGETTEXT>
+	<CONFIGNAME>NET_TCPIP_DEV_ACCEPT_REDIRECTS</CONFIGNAME>
+	<TYPE>Checkbox</TYPE>
+	<ELEMENT>-1</ELEMENT>
+	<FILE>/proc/sys/net/ipv4/conf/*/accept_redirects</FILE>
+	<DESCRIPTION>Accept ICMP redirect messages, enable for hosts,
+disable for routers.</DESCRIPTION>
+	</PROCENTRY>
+
+	<PROCENTRY>
+	<MENU>Networking</MENU>
+	<SUBMENU>TCP</SUBMENU>
+	<TAB>*</TAB>
+	<WIDGETTEXT>Proxy Arp</WIDGETTEXT>
+	<CONFIGNAME>NET_TCPIP_DEV_PROXYARP</CONFIGNAME>
+	<TYPE>Checkbox</TYPE>
+	<ELEMENT>-1</ELEMENT>
+	<FILE>/proc/sys/net/ipv4/conf/*/proxy_arp</FILE>
+	<DESCRIPTION>Enable proxying of ARP requests.</DESCRIPTION>
+	</PROCENTRY>
+
+	<PROCENTRY>
+	<MENU>Networking</MENU>
+	<SUBMENU>TCP</SUBMENU>
+	<TAB>*</TAB>
+	<WIDGETTEXT>Log martians</WIDGETTEXT>
+	<CONFIGNAME>NET_TCPIP_DEV_LOG_MARTIANS</CONFIGNAME>
+	<TYPE>Checkbox</TYPE>
+	<ELEMENT>-1</ELEMENT>
+	<FILE>/proc/sys/net/ipv4/conf/*/log_martians</FILE>
+	<DESCRIPTION>Log packets with impossible addresses to kernel log.</DESCRIPTION>
+	</PROCENTRY>
+
+	<PROCENTRY>
+	<MENU>Networking</MENU>
+	<SUBMENU>TCP</SUBMENU>
+	<TAB>*</TAB>
+	<WIDGETTEXT>Forwarding</WIDGETTEXT>
+	<CONFIGNAME>NET_TCPIP_DEV_FORWARDING</CONFIGNAME>
+	<TYPE>Checkbox</TYPE>
+	<ELEMENT>-1</ELEMENT>
+	<FILE>/proc/sys/net/ipv4/conf/*/forwarding</FILE>
+	<DESCRIPTION>Enable forwarding of IP packets on this interface.</DESCRIPTION>
+	</PROCENTRY>
+
+	<PROCENTRY>
+	<MENU>Networking</MENU>
+	<SUBMENU>TCP</SUBMENU>
+	<TAB>*</TAB>
+	<WIDGETTEXT>shared_media</WIDGETTEXT>
+	<CONFIGNAME>NET_TCPIP_DEV_SHARED_MEDIA</CONFIGNAME>
+	<TYPE>Checkbox</TYPE>
+	<ELEMENT>-1</ELEMENT>
+	<FILE>/proc/sys/net/ipv4/conf/*/shared_media</FILE>
+	<DESCRIPTION>Send(router) or accept(host) RFC1620 shared media
+redirects. Overrides Secure redirects.</DESCRIPTION>
+	</PROCENTRY>
+
+	<PROCENTRY>
+	<MENU>Networking</MENU>
+	<SUBMENU>TCP</SUBMENU>
+	<TAB>*</TAB>
+	<WIDGETTEXT>Accept source route</WIDGETTEXT>
+	<CONFIGNAME>NET_TCPIP_DEV_ACCEPT_SOURCE_ROUTE</CONFIGNAME>
+	<TYPE>Checkbox</TYPE>
+	<ELEMENT>-1</ELEMENT>
+	<FILE>/proc/sys/net/ipv4/conf/*/accept_source_route</FILE>
+	<DESCRIPTION>Accept packets with SRR option. Enable for routers,
+Disable for others.</DESCRIPTION>
+	</PROCENTRY>
+
+	<PROCENTRY>
+	<MENU>Networking</MENU>
+	<SUBMENU>TCP</SUBMENU>
+	<TAB>*</TAB>
+	<WIDGETTEXT>RP Filter</WIDGETTEXT>
+	<CONFIGNAME>NET_TCPIP_DEV_ACCEPT_RP_FILTER</CONFIGNAME>
+	<TYPE>Checkbox</TYPE>
+	<ELEMENT>-1</ELEMENT>
+	<FILE>/proc/sys/net/ipv4/conf/*/rp_filter</FILE>
+	<DESCRIPTION>Do source validation by reversed path, as specified
+in RFC1812. Enabled is recommended for single homed hosts and stub
+network routers. Could cause problems for complicated (not loop free)
+networks running a slow unreliable protocol (sort of RIP) or using
+static routes.</DESCRIPTION>
+	</PROCENTRY>
+
+	<PROCENTRY>
+	<MENU>Networking</MENU>
+	<SUBMENU>ARP</SUBMENU>
+	<TAB>*</TAB>
+	<WIDGETTEXT>ARP cache lifetime (seconds)</WIDGETTEXT>
+	<CONFIGNAME>net/ipv4/neigh/gc_stale_time</CONFIGNAME>
+	<TYPE>Spinbutton</TYPE>
+	<LOW>10</LOW>
+	<HIGH>360</HIGH>
+	<ELEMENT>-1</ELEMENT>
+	<FILE>/proc/sys/net/ipv4/neigh/*/gc_stale_time</FILE>
+	<DESCRIPTION>Time (in second) that cached IP:MAC pairs are 
+kept in the ARP cache before they are considered "stale".</DESCRIPTION>
+	</PROCENTRY>
+
+	<PROCENTRY>
+	<MENU>Networking</MENU>
+	<SUBMENU>ARP</SUBMENU>
+	<TAB>*</TAB>
+	<FRAME>ARP cache size</FRAME>
+	<WIDGETTEXT>Minimum number of entries</WIDGETTEXT>
+	<CONFIGNAME>net/ipv4/neigh/gc_thresh1</CONFIGNAME>
+	<TYPE>Spinbutton</TYPE>
+	<LOW>16</LOW>
+	<HIGH>512</HIGH>
+	<ELEMENT>-1</ELEMENT>
+	<FILE>/proc/sys/net/ipv4/neigh/*/gc_thresh1</FILE>
+	<DESCRIPTION>Minimum number of entries to keep in the ARP cache.
+If the number of entries in the ARP cache is smaller than this
+number, the garbage collector is not run.</DESCRIPTION>
+	</PROCENTRY>
+
+
+	<PROCENTRY>
+	<MENU>Networking</MENU>
+	<SUBMENU>ARP</SUBMENU>
+	<TAB>*</TAB>
+	<FRAME>ARP cache size</FRAME>
+	<WIDGETTEXT>Soft maximum number of entries</WIDGETTEXT>
+	<CONFIGNAME>net/ipv4/neigh/gc_thresh2</CONFIGNAME>
+	<TYPE>Spinbutton</TYPE>
+	<LOW>16</LOW>
+	<HIGH>1024</HIGH>
+	<ELEMENT>-1</ELEMENT>
+	<FILE>/proc/sys/net/ipv4/neigh/*/gc_thresh2</FILE>
+	<DESCRIPTION>(soft) maximum number of entries to keep in the ARP
+cache. This maximum is a soft limit and can be temporarily exceed for 
+a duration of 5 seconds.</DESCRIPTION>
+	</PROCENTRY>
+
+
+	<PROCENTRY>
+	<MENU>Networking</MENU>
+	<SUBMENU>ARP</SUBMENU>
+	<TAB>*</TAB>
+	<FRAME>ARP cache size</FRAME>
+	<WIDGETTEXT>Hard maximum number of entries</WIDGETTEXT>
+	<CONFIGNAME>net/ipv4/neigh/gc_thresh3</CONFIGNAME>
+	<TYPE>Spinbutton</TYPE>
+	<LOW>16</LOW>
+	<HIGH>2048</HIGH>
+	<ELEMENT>-1</ELEMENT>
+	<FILE>/proc/sys/net/ipv4/neigh/*/gc_thresh3</FILE>
+	<DESCRIPTION>(hard) maximum number of entries to keep in the ARP
+cache. If this number is exceeded, the garbage-collector is 
+run immediatly.</DESCRIPTION>
+	</PROCENTRY>
+
+</PROCENTRIES>

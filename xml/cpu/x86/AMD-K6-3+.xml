@@ -1,0 +1,77 @@
+<?xml version = "1.0" encoding ="UTF-8" standalone = "no"?>
+<!DOCTYPE MSRENTRY SYSTEM "x86.dtd">
+
+<!-- MSR's on the AMD K6-3 -->
+
+<MSRENTRY>
+	<MSR register="0xC0000080" bit="1">
+		<WIDGETTEXT>Data prefetch enable</WIDGETTEXT>
+		<CONFIGNAME>MSR_AMD_K6_3_DPE</CONFIGNAME>
+		<TYPE>Checkbox</TYPE>
+		<DESCRIPTION>Setting this enables data prefetching.
+Cache misses initiated by a memory read within a 32 byte
+cacheline are conditionally followed by cacheline fetches
+of the other line in the 64 byte sector</DESCRIPTION>
+	</MSR>
+
+	<MSR register="0xC0000080">
+		<FRAME>EWBE</FRAME>
+		<GROUP>EWBE</GROUP>
+		<WIDGETTEXT>Best</WIDGETTEXT>
+		<BITMASK>00000000 00000000 00000000 00001100</BITMASK>
+		<ONBITS> 00000000 00000000 00000000 00001100</ONBITS>
+		<OFFBITS>00000000 00000000 00000000 00000000</OFFBITS>
+		<CONFIGNAME>MSR_AMD_K6_3_EWBE_11</CONFIGNAME>
+		<TYPE>RadioButton</TYPE>
+		<DESCRIPTION>Global EWBE disable.
+When enabled, the processor does not attempt to enforce any
+write ordering internally or externally.
+This is the maximum performance setting.</DESCRIPTION>
+	</MSR>
+
+	<MSR register="0xC0000080">
+		<FRAME>EWBE</FRAME>
+		<GROUP>EWBE</GROUP>
+		<WIDGETTEXT>Close-to-best</WIDGETTEXT>
+		<BITMASK>00000000 00000000 00000000 00001100</BITMASK>
+		<ONBITS> 00000000 00000000 00000000 00000100</ONBITS>
+		<OFFBITS>00000000 00000000 00000000 00000000</OFFBITS>
+		<CONFIGNAME>MSR_AMD_K6_3_EWBE_01</CONFIGNAME>
+		<TYPE>RadioButton</TYPE>
+		<DESCRIPTION>Speculative EWBE disable.
+When enabled, the processor enforces strong ordering for all
+internal write cycles with the exception of write cycles
+addresed to a range of memory defined as uncacheable or
+write-combining by the MTRRs.
+This is the medium performance setting.</DESCRIPTION>
+	</MSR>
+
+	<MSR register="0xC0000080">
+		<FRAME>EWBE</FRAME>
+		<GROUP>EWBE</GROUP>
+		<WIDGETTEXT>Slowest</WIDGETTEXT>
+		<BITMASK>00000000 00000000 00000000 00001100</BITMASK>
+		<ONBITS> 00000000 00000000 00000000 00000000</ONBITS>
+		<OFFBITS>00000000 00000000 00000000 00000000</OFFBITS>
+		<CONFIGNAME>MSR_AMD_K6_3_EWBE_00</CONFIGNAME>
+		<TYPE>RadioButton</TYPE>
+		<DESCRIPTION>Strong ordering for all internal and external
+write cycles. In this setting the processor assumes that strong
+order must be maintained between writes to the merge buffer and
+writes that hit the processors cache.
+This is the lowest performance setting.</DESCRIPTION>
+	</MSR>
+
+<!-- We have reports of this tweak rebooting the machine, so disabled 
+     for now -->
+<!--
+
+	<MSR register="0xC0000080" bit="4">
+		<WIDGETTEXT>L2 Disable</WIDGETTEXT>
+		<CONFIGNAME>MSR_AMD_K6_3_L2D</CONFIGNAME>
+		<TYPE>Checkbox</TYPE>
+		<DESCRIPTION>If this is 'on', your L2 cache is off.
+Disable this for best performance</DESCRIPTION>
+	</MSR>
+-->
+</MSRENTRY>

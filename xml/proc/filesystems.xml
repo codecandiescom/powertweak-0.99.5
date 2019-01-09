@@ -1,0 +1,69 @@
+<?xml version = "1.0" encoding ="UTF-8" standalone = "no"?>
+<!DOCTYPE PROCENTRIES SYSTEM "proc.dtd">
+<PROCENTRIES>
+
+<!-- Filesystems / Core -->
+
+
+	<PROCENTRY>
+	<MENU>VFS Subsystem</MENU>
+	<SUBMENU>Core</SUBMENU>
+	<TAB>File system Core</TAB>
+	<WIDGETTEXT>dquota-max</WIDGETTEXT>
+	<CONFIGNAME>fs/dquot-max</CONFIGNAME>
+	<TYPE>Spinbutton</TYPE>
+	<LOW>0</LOW>
+	<HIGH>8192</HIGH>
+	<ELEMENT>0</ELEMENT>
+	<FILE>/proc/sys/fs/dquot-max</FILE>
+	<DESCRIPTION>Holds the maximum number of cached disk quota entries.
+Should be increased if you have many simultaneous users.</DESCRIPTION>
+	</PROCENTRY>
+
+	<PROCENTRY>
+	<MENU>VFS Subsystem</MENU>
+	<SUBMENU>Core</SUBMENU>
+	<TAB>File system Core</TAB>
+	<WIDGETTEXT>file-max</WIDGETTEXT>
+	<CONFIGNAME>fs/file-max</CONFIGNAME>
+	<TYPE>Spinbutton</TYPE>
+	<LOW>0</LOW>
+	<HIGH>16384</HIGH>
+	<ELEMENT>0</ELEMENT>
+	<FILE>/proc/sys/fs/file-max</FILE>
+	<DESCRIPTION>The value in file-max denotes the maximum number of file handles
+that the Linux kernel will allocate. When you get a lot of error
+messages about running out of file handles, you might want to raise
+this limit. The default value is 4096.</DESCRIPTION>
+	</PROCENTRY>
+
+	<PROCENTRY>
+	<MENU>VFS Subsystem</MENU>
+	<SUBMENU>Core</SUBMENU>
+	<TAB>File system Core</TAB>
+	<WIDGETTEXT>inode-max</WIDGETTEXT>
+	<CONFIGNAME>fs/inode-max</CONFIGNAME>
+	<TYPE>Spinbutton</TYPE>
+	<LOW>0</LOW>
+	<HIGH>65535</HIGH>
+	<ELEMENT>0</ELEMENT>
+	<FILE>/proc/sys/fs/inode-max</FILE>
+	<DESCRIPTION>The maximum number of inodes possible to use.
+You should set this to two or three times higher than file-max.</DESCRIPTION>
+	</PROCENTRY>
+
+	<PROCENTRY>
+	<MENU>VFS Subsystem</MENU>
+	<SUBMENU>Core</SUBMENU>
+	<TAB>File system Core</TAB>
+	<WIDGETTEXT>super-max</WIDGETTEXT>
+	<CONFIGNAME>fs/super-max</CONFIGNAME>
+	<TYPE>Spinbutton</TYPE>
+	<LOW>0</LOW>
+	<HIGH>1024</HIGH>
+	<ELEMENT>0</ELEMENT>
+	<FILE>/proc/sys/fs/super-max</FILE>
+	<DESCRIPTION>The maximum number of superblocks that may be used.
+One superblock is used each time you mount a filesystem.</DESCRIPTION>
+	</PROCENTRY>
+</PROCENTRIES>

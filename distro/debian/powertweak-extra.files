@@ -1,0 +1,8 @@
+usr/lib/powertweak/plugins/libcputweaks.so*
+usr/lib/powertweak/plugins/libpcitweaks.so*
+usr/lib/powertweak/plugins/libdmitweaks.so*
+usr/lib/powertweak/plugins/libhdparmtweaks.so*
+usr/lib/powertweak/plugins/libpcilatency.so*
+usr/lib/powertweak/plugins/libsonypittweaks.so*
+usr/share/powertweak/CPU
+usr/share/powertweak/pci

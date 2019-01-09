@@ -1,0 +1,36 @@
+<?xml version = "1.0" encoding ="UTF-8" standalone = "no"?>
+<!DOCTYPE DEVICE SYSTEM "../pci.dtd">
+<DEVICE vendor="0x1011" id="0x0001">
+	<REGISTER base="0x53" bit="1">
+	<TYPE>Checkbox</TYPE>
+	<WIDGETTEXT>CPU to PCI posted write</WIDGETTEXT>
+	<DESCRIPTION>Enables write-behind semantics for PCI devices.
+</DESCRIPTION>
+	<CONFIGNAME>CPU_TO_PCI_POSTED_WRITE</CONFIGNAME>
+	</REGISTER>
+
+	<REGISTER base="0x53" bit="0">
+	<TYPE>Checkbox</TYPE>
+	<WIDGETTEXT>CPU to RAM posted write</WIDGETTEXT>
+	<DESCRIPTION>Enables write-behind semantics for CPU->RAM.
+</DESCRIPTION>
+	<CONFIGNAME>CPU_TO_RAM_POSTED_WRITE</CONFIGNAME>
+	</REGISTER>
+
+	<REGISTER base="0x54" bit="0">
+	<TYPE>Checkbox</TYPE>
+	<WIDGETTEXT>PCI to RAM posted write</WIDGETTEXT>
+	<DESCRIPTION>Enables write-behind semantics for PCI devices.
+</DESCRIPTION>
+	<CONFIGNAME>PCI_TO_RAM_POSTED_WRITE</CONFIGNAME>
+	</REGISTER>
+
+	<REGISTER base="0x54" bit="1">
+	<TYPE>Checkbox</TYPE>
+	<WIDGETTEXT>PCI burst</WIDGETTEXT>
+	<DESCRIPTION>Enables burst transfers.
+</DESCRIPTION>
+	<CONFIGNAME>PCI_BURST</CONFIGNAME>
+	</REGISTER>
+
+</DEVICE>

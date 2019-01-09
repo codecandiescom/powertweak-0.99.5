@@ -1,0 +1,33 @@
+<?xml version = "1.0" encoding ="UTF-8" standalone = "no"?>
+<!DOCTYPE PROCENTRIES SYSTEM "proc.dtd">
+
+<PROCENTRIES>
+
+<!-- Tux -->
+	<PROCENTRY>
+	<MENU>Applications</MENU>
+	<SUBMENU>Tux</SUBMENU>
+	<TAB>Tux settings</TAB>
+	<WIDGETTEXT>Logging</WIDGETTEXT>
+	<CONFIGNAME>net/tux/logging</CONFIGNAME>
+	<TYPE>Checkbox</TYPE>
+	<ELEMENT>0</ELEMENT>
+	<FILE>/proc/sys/net/http/logging</FILE>
+	<DESCRIPTION>Determines whether Tux logs requests.</DESCRIPTION>
+	</PROCENTRY>
+
+	<PROCENTRY>
+	<MENU>Applications</MENU>
+	<SUBMENU>Tux</SUBMENU>
+	<TAB>Tux settings</TAB>
+	<WIDGETTEXT>Nonagle</WIDGETTEXT>
+	<CONFIGNAME>net/tux/nonagle</CONFIGNAME>
+	<TYPE>Checkbox</TYPE>
+	<ELEMENT>0</ELEMENT>
+	<FILE>/proc/sys/net/tux/nonagle</FILE>
+	<DESCRIPTION>Sets whether the NAGLE algorithm should be used
+When disabled, sockets are in TCP_CORK mode, enabling sets them
+to TCP_NODELAY.</DESCRIPTION>
+	</PROCENTRY>
+
+</PROCENTRIES>

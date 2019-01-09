@@ -1,0 +1,12 @@
+#!/bin/sh
+
+set -e
+
+# Since some earlier versions of the powertweak package didn't stop the
+# powertweakd daemon prior to removal we do so here.  Don't check for
+# upgrades for simplicity.
+if [ -x /usr/sbin/powertweakd ]; then
+   start-stop-daemon --stop --quiet --oknodo --exec /usr/sbin/powertweakd
+fi
+
+#DEBHELPER#

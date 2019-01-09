@@ -1,0 +1,5 @@
+# This file controls the behaviour of the powertweakd init script.  It
+# will be parsed as a shell script.
+
+# Set to "yes" to have the init script start powertweakd.
+RUN_DAEMON=yes

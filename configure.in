@@ -1,0 +1,225 @@
+dnl Process this file with autoconf to generate a configure script.
+
+AC_INIT(configure.in)
+AC_CANONICAL_SYSTEM
+
+AM_INIT_AUTOMAKE(powertweak,0.99.5)
+AM_CONFIG_HEADER(src/include/config.h)
+AM_MAINTAINER_MODE
+
+PT_DATADIR="$datadir/powertweak"
+
+AC_PROG_AWK
+AC_PROG_CC
+AC_PROG_CXX
+AC_PROG_GCC_TRADITIONAL
+AC_PROG_LIBTOOL
+AM_PROG_LIBTOOL
+AC_PROG_RANLIB
+
+AC_ISC_POSIX
+
+AC_HEADER_STDC
+AC_HEADER_DIRENT
+AC_HEADER_TIME
+
+AC_CHECK_HEADER(gpm.h,[have_gpm="yes"],[have_gpm="no"])
+AC_CHECK_HEADERS(fcntl.h syslog.h unistd.h)
+AC_CHECK_HEADERS(errno.h libintl.h limits.h stddef.h sys/ioctl.h)
+AC_CHECK_HEADERS(sys/socket.h sys/time.h values.h)
+AC_CHECK_SIZEOF(long)
+AC_CHECK_SIZEOF(void*)
+
+dnl Checks for typedefs, structures, and compiler characteristics.
+AC_C_BIGENDIAN
+AC_C_CONST
+AC_C_INLINE
+AC_STRUCT_TM
+AC_TYPE_SIGNAL
+AC_TYPE_SIZE_T
+
+dnl Checks for library functions.
+AC_FUNC_MMAP
+AC_FUNC_VPRINTF
+AC_FUNC_ALLOCA
+AC_FUNC_ERROR_AT_LINE
+AC_FUNC_MALLOC
+AC_FUNC_MEMCMP
+AC_FUNC_STAT
+
+AC_CHECK_FUNCS(atexit bzero getcwd gettimeofday memmove memset munmap pread)
+AC_CHECK_FUNCS(select socket strcasecmp strchr strdup strncasecmp strndup)
+AC_CHECK_FUNCS(strpbrk strrchr strstr strerror strtol strtoul uname)
+
+dnl ====================================================================
+dnl Check configure/system options here.
+dnl ====================================================================
+
+AM_CONDITIONAL(HAVEGPM, test x$have_gpm = xyes)
+
+AC_ARG_ENABLE(cpu,
+[--disable-cpu	disable CPU backend],
+[do_cpu_backend="$enable_cpu"],[do_cpu_backend="yes"])
+AC_MSG_RESULT(Compiling CPU backend : $do_cpu_backend)
+
+
+case "$target_cpu" in
+  i?86)  ARCH=x86 ;;
+  *)     ARCH=$target_cpu ;;
+esac
+
+AM_CONDITIONAL(CPUBACK, test x$ARCH$do_cpu_backend = xx86yes)
+
+
+AC_ARG_ENABLE(pci,
+[--disable-pci	disable PCI backend],
+[do_pci_backend="$enable_pci"],[do_pci_backend="yes"])
+AC_MSG_RESULT(Compiling PCI backend : $do_pci_backend)
+
+AM_CONDITIONAL(PCIBACK, test x$do_pci_backend = xyes)
+
+AC_ARG_ENABLE(proc,
+[--disable-proc	disable /proc backend],
+[do_proc_backend="$enable_proc"],[do_proc_backend="yes"])
+AC_MSG_RESULT(Compiling /proc backend: $do_proc_backend)
+
+
+AM_CONDITIONAL(PROCBACK, test x$do_proc_backend = xyes)
+
+
+dnl ====================================================================
+dnl GTK/XML/PCILIB stuff
+dnl ====================================================================
+AM_PATH_GTK(1.2.0, [
+	AC_SUBST(GTK_LIBS)
+	AC_SUBST(GTK_CFLAGS)
+	do_gtk_front="yes"
+],[
+	AC_MSG_WARN(Cannot find GTK: not building any UI!)
+	do_gtk_front="no"
+])
+
+AM_CONDITIONAL(GTKFRONT, test x$do_gtk_front = xyes)
+
+# Begin butt ugly tests for libxml.
+# Possible valid scenarios:
+# libxml1 1.8.8
+# libxml1 1.8.8 and libxml1 2.0.0  (use 1.8.8)
+# libxml1 1.8.8 and libxml1 2.1.0+ (use 2.1)
+# libxml1 1.8.8 and libxml2 2.3.0+ (use xml2-config to use 2.3)
+# libxml1 2.1.0+ 
+# libxml2 2.3.0+ (use xml2-config)
+# libxml2 2.4.19+ (use xml2-config) (libxml include files moved.)
+# anything else is not valid.
+
+AC_PATH_GENERIC(xml2, 2.4.19, [
+	XML_LIBS=$XML2_LIBS
+	XML_CFLAGS=$XML2_CFLAGS
+	XML_CFLAGS_MOVED=$XML2_CFLAGS/libxml
+	AC_SUBST(XML_LIBS)
+	AC_SUBST(XML_CFLAGS)
+	AC_SUBST(XML_CFLAGS_MOVED)
+	valid_xml="yes"])
+
+if test x$valid_xml != xyes; then
+AC_PATH_GENERIC(xml2, 2.3.0, [
+	XML_LIBS=$XML2_LIBS
+	XML_CFLAGS=$XML2_CFLAGS
+	AC_SUBST(XML_LIBS)
+	AC_SUBST(XML_CFLAGS)
+	valid_xml="yes"])
+fi
+
+if test x$valid_xml != xyes; then
+	AC_PATH_GENERIC(xml, 2.1.0, [
+		AC_SUBST(XML_LIBS)
+		AC_SUBST(XML_CFLAGS)
+		valid_xml="yes"])
+fi
+
+if test x$valid_xml != xyes; then
+	AC_PATH_GENERIC(xml, 1.8.8, [
+		AC_SUBST(XML_LIBS)
+		AC_SUBST(XML_CFLAGS)
+		valid_xml="yes"])
+fi
+
+if test x$valid_xml != xyes; then
+	AC_MSG_ERROR(You need libxml version 1.8.8 or 2.1.0 and above)
+fi
+
+
+dnl ====================================================================
+dnl Variables to pass to the Makefiles
+dnl ====================================================================
+
+CFLAGS="-O2 -g -Wall -W -fno-common"
+dnl -Wshadow"
+CPPFLAGS="-Wall -W"
+
+AC_SUBST(PT_DATADIR)
+AC_SUBST(CFLAGS)
+AC_SUBST(CPPFLAGS)
+AC_SUBST(ASFLAGS)
+
+dnl ====================================================================
+dnl Output relevant Makefiles.
+dnl ====================================================================
+
+AC_OUTPUT([
+  Makefile
+  src/Makefile
+  src/include/Makefile
+  src/backends/Makefile
+  src/libpowertweak/Makefile
+  src/backends/Elevator/Makefile
+  src/GTK/Makefile
+  src/backends/client/Makefile
+  src/client/Makefile
+  src/daemon/Makefile
+  xml/Makefile
+  xml/profile/Makefile
+
+	src/backends/core/Makefile
+	src/backends/core/PCILIB/Makefile
+
+	src/backends/CPU/Makefile   
+	src/backends/CPU/x86/Makefile 
+	src/backends/CPU/x86/PowerNow/Makefile 
+	xml/cpu/Makefile
+	xml/cpu/x86/Makefile  
+
+	src/backends/PCI/Makefile 
+	xml/pci/Makefile 
+	xml/pci/ALI/Makefile  
+	xml/pci/Cypress/Makefile 
+	xml/pci/DEC/Makefile  
+	xml/pci/Intel/Makefile
+	xml/pci/UMC/Makefile  
+	xml/pci/VIA/Makefile
+	xml/pci/Yamaha/Makefile
+
+	src/backends/proc/Makefile 
+	src/backends/proc/misc/Makefile 
+	xml/proc/Makefile
+
+	src/backends/hdparm/Makefile
+
+	src/backends/sonypi/Makefile
+
+	src/backends/CDROM/Makefile
+
+	src/backends/DMI/Makefile
+])
+
+echo "
+$PACKAGE $VERSION
+Configuration:
+--------------
+
+XML libs:       $XML_LIBS
+XML cflags:     $XML_CFLAGS
+CFLAGS:         $CFLAGS
+CPPFLAGS:       $CPPFLAGS
+Mouse-enabled:  $have_gpm
+"

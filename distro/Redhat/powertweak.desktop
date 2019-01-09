@@ -1,0 +1,6 @@
+[Desktop Entry]
+Name=Powertweak
+Comment=Tweak settings in your BIOS and PCI cards
+Exec=/usr/bin/gpowertweak
+Type=Application
+Terminal=0

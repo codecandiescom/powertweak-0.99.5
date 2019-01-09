@@ -1,0 +1,28 @@
+<?xml version = "1.0" encoding ="UTF-8" standalone = "no"?>
+<!DOCTYPE PROFILE SYSTEM "../profile.dtd">
+<PROFILE>
+	<SETTING>
+	<CONFIGNAME>net/core/rmem_default</CONFIGNAME>
+	<OPERATOR>geq</OPERATOR>
+	<VALUE>262144</VALUE>
+	</SETTING>
+
+	<SETTING>
+	<CONFIGNAME>net/core/wmem_default</CONFIGNAME>
+	<OPERATOR>geq</OPERATOR>
+	<VALUE>262144</VALUE>
+	</SETTING>
+
+	<SETTING>
+	<CONFIGNAME>net/core/tcp_wmem</CONFIGNAME>
+	<OPERATOR>geq</OPERATOR>
+	<VALUE>262144</VALUE>
+	</SETTING>
+
+	<SETTING>
+	<CONFIGNAME>net/core/tcp_rmem</CONFIGNAME>
+	<OPERATOR>geq</OPERATOR>
+	<VALUE>262144</VALUE>
+	</SETTING>
+
+</PROFILE>

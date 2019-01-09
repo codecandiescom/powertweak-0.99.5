@@ -1,0 +1,37 @@
+<?xml version = "1.0" encoding ="UTF-8" standalone = "no"?>
+<!DOCTYPE DEVICE SYSTEM "../pci.dtd">
+<DEVICE vendor="0x8086" id="0x7192">
+	<REGISTER base="0x52" bit="2">
+	<TYPE>Checkbox</TYPE>
+	<WIDGETTEXT>Host bus fast ready</WIDGETTEXT>
+	<DESCRIPTION>Assertion of DRAM data occurs on the same
+clock the snoop result is sampled when enabled.
+When disabled, an extra clock cycle is needed.</DESCRIPTION>
+	<CONFIGNAME>HOST_FAST_DATA_READY</CONFIGNAME>
+	</REGISTER>
+
+	<REGISTER base="0x50" bit="3">
+	<TYPE>Checkbox</TYPE>
+	<WIDGETTEXT>USWC Write post during IO bridge access</WIDGETTEXT>
+	<DESCRIPTION>Enabling this allows host USWC writes to PCI
+memory to be posted</DESCRIPTION>
+	<CONFIGNAME>USWC_WRITE_POST_IO_ACCESS</CONFIGNAME>
+	</REGISTER>
+
+	<REGISTER base="0x50" bit="2">
+	<TYPE>Checkbox</TYPE>
+	<WIDGETTEXT>Maximum in-order queue depth</WIDGETTEXT>
+	<DESCRIPTION>Sets the in-order queue depth to the maximum</DESCRIPTION>
+	<CONFIGNAME>IN_ORDER_QUEUE_DEPTH</CONFIGNAME>
+	</REGISTER>
+
+	<REGISTER base="0x7a" bit="7">
+	<TYPE>Checkbox</TYPE>
+	<WIDGETTEXT>Power down SDRAM when idle</WIDGETTEXT>
+	<DESCRIPTION>When enabled, an SDRAM row in idle state will be
+issued a power down command. The SDRAM row will exit power down mode
+only when there is a request to access this particular row.</DESCRIPTION>
+	<CONFIGNAME>POWER_DOWN_SDRAM</CONFIGNAME>
+	</REGISTER>
+
+</DEVICE>

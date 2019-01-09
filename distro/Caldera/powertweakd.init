@@ -1,0 +1,74 @@
+#! /bin/bash
+#
+# skeleton	example file to build /etc/rc.d/init.d/ scripts.
+#		This file should be used to construct scripts
+#		for /etc/rc.d/init.d.
+#
+# $Id: powertweakd.init,v 1.1 2000/10/29 15:47:45 davej Exp $
+#
+# Written by Miquel van Smoorenburg <miquels@drinkel.ow.org>.
+# Modified for Debian GNU/Linux by Ian Murdock <imurdock@gnu.ai.mit.edu>.
+# Modified for OpenLinux by Raymund Will <ray@caldera.de>
+#set -x
+
+NAME=powertweakd
+DAEMON=/usr/sbin/$NAME
+
+# Source function library (and set vital variables).
+. /etc/rc.d/init.d/functions
+
+case "$1" in
+ start)
+  [ ! -e $SVIlock ] || exit 0
+  [ -x $DAEMON ] || exit 5
+
+  echo -n "Starting $SVIsubsys services: "
+  ssd -S -x $DAEMON -n $NAME -- $OPTIONS > /dev/null 2>&1 && echo -n " $NAME"
+  ret=$?
+
+  echo  "."
+  touch $SVIlock
+  ;;
+
+ stop)
+  [ -e $SVIlock ] || exit 0
+
+  echo -n "Stopping $SVIsubsys services: "
+  ssd -K -p /var/run/$NAME.pid -x $DAEMON -n $NAME
+  ret=$?
+
+  echo "."
+  rm -f $SVIlock
+  ;;
+
+ force_reload)
+  [ -e $SVIlock ] || exit 0
+  # reload not supported -- fallback to "restart"!
+  # XXX with or without check for running subsystem? --ray
+  $0 restart
+  ret=$?
+  ;;
+
+ reload)
+  # not supported!
+  ret=3
+  ;;
+
+ restart)
+  $0 stop
+  $0 start
+  ret=$?
+  ;;
+
+ status)
+  ret=3
+  ;;
+
+ *)
+  echo "Usage: $SVIscript {[re]start|stop|[force-]reload|status}"
+  ret=2
+  ;;
+
+esac
+
+exit $ret

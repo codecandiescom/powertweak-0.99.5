@@ -1,0 +1,400 @@
+$Id: TODO,v 1.267 2003/07/09 10:56:19 svenud Exp $
+
+The below todo list is from 2001, I (Sven Dowideit svenud@ozemail.com.au) am
+going to work through the list at some time, and re-shuffle them a bit.
+
+my thoughts are (completely out of development order)
+   * lspowertweak - tree text output like gpowertweak, order by configname, filename.. etc - good for duplicate checking :)
+   * grab lshw and dmdecode and update libdmi
+   
+
+   * fix http://bugs.debian.org/cgi-bin/bugreport.cgi?bug=113935 by adding a check to see if powertweakd died, and therefore not restarting automatically? (with mail/syslog message to say so) - at the moment we can chack the .pid and pipe file, and the init.d script can use a different command line arg. also add a debug mode that woud give us an idea of what caused the crash. (and add configuration to stop it from being tried when you upgrade the package)
+      * possibly also have a new version daemon start that does not load the previous settings until they have been checked out with the gui
+   * fix http://bugs.debian.org/cgi-bin/bugreport.cgi?bug=123046 - get out my old i386 and test
+   * grab data from sysctl, and think about using it for some settings? http://bugs.debian.org/cgi-bin/bugreport.cgi?bug=175487
+   * add df -h info into hda page , and partition config, with file types
+   * is it possibly to use this info to generate a kernel .config file?
+   * add lmsensors support
+   * handle SIGPIPE (when the server dies)
+   * add perfctr data access (for future use with monitoring & graphing)
+   * don't block the clients if the server stops talking in the middle of a conversation
+   * add an editable edit string like INFO_STRING (& make it work for proc)
+   * bring up a dialog listing what will be changed when apply is hit.
+   * get rid of root only restriction from gui
+   * fix number field size (its too small)
+   * get cpufreq working
+   * re-arrange CPU so that Pentium III etc is not a node in the tree (rather info in a tab)
+      * thaht way we can mix info from libcpu, libdmi and libproc 
+      * if there are more than one cpu, use CPU0 etc..A
+   * integrate Dave's x86info
+   * read-edid (get-edid) monitor support
+   * go client-server (either with the current protocol, or XML)
+   * make the client able to run as a normal user (with restrictions)
+   * make the gui operation clearer
+      * add a 'this is what will be changed' dialog on save/commit
+      * track the changes relative to kernel defaults
+      * possibly return to kernel defaults on shutdown
+   * add triggers so the daemon can change profiles dynamically
+   * add logging and graphing
+      * could select any tweak value for logging, and decide if you want to log on the client or on the server
+   * try to sync with current kernel dev
+   * add more static info 
+   * add usb info 
+   * create the needed systems for configuring a server room
+      * for peak preformance
+      * detuning for low load times
+      * partial power down for dead times 
+         * power down the hd
+	 * reduce the cpu freq
+	 * lower fan speeds
+	 * (similar to quiet-laptop mode)
+   * save defaults in /etc/powertweak
+      * with kernel number 
+      * can check on startup if kernel has changed, and if any values are different
+      * and also detect if some hardware has changed / removed / added
+   * something is hitting the harddrive when i refresh, causing it to spin up.
+   * try gsoap as a quick network..
+   * what does readprofile do?
+   * add a INFOLIST that contains a list of text ...
+   * update changes from redhat-prof-conf
+
+for testing - make a boot floppy that has the powertweak server with tcpip support ;) can stick it into any machine...
+
+
+There are several memory leak detection tools available in Debian (its what i use as my development computer).
+    * electric-fence
+    * memprof
+    * njamd
+    * valgrind
+    * dmalloc
+    * memwatch (not packaged, get this from GNU memwatch.)
+    * mpatrol
+    * leaktracer
+    * libgc6
+
+
+-------------------------------------------------------------
+This file is a rough roadmap of what to expect in the versions
+ahead. Don't be surprised to see things shuffled around periodically.
+Things may be put back or brought forward arbitrarily.
+
+
+0.99.5
+~~~~~~
+* Memory leaks in MTRR code.
+
+* Finish DMI backend.
+  Memory leaks, Needs more tables filled out.
+
+* Test with efence, memleak & assorted tools.
+
+
+0.99.6
+~~~~~~
+* Reread state (config file|hardware) options for UIs.
+
+* CPU backend capability flags needs fixing (See x86info).
+
+* Info only mode for UIs.
+  Powertweak is doing 90% of what hwbrowser and friends are
+  already doing. gpowertweak could for eg check argv[0], and
+  if its gpowerinfo or whatever, only show info tweaks.
+  I've had an 'info only' tool in mind for a long time, and
+  thinking about it, it doesn't make sense to duplicate code
+  in yet another project.
+
+* Finish Drew Hess' i850 code.
+
+* Merge in missing tweaks.
+  - I've been sent a few config files from various Windows programs that
+    do Powertweak type PCI tuning. Need to double check them before I
+	add them, but most look quite sane. (Things like Intel i810, i820,
+	i840, and some of the newer VIA chips + 1-2 rare things)
+  - Port & Check the PCI tweaks from 0.1.x
+    AMD 751 needs going over carefully, theres a problem somewhere
+  - Add other pci-dependant bits now that we have PCILIB core plugin.
+
+* PCI backend needs to be taught about radio buttons.
+  - VIA 82C691 Memory interleave tristate widgets.
+  Mostly done, needs testing.
+
+* socketlib.c needs better error handling, and logfile support.
+
+* Make logfiles loglevel adjustable.
+
+* Write MSR XML for more CPUs.
+  - AMD K5
+  - Cyrix III
+  - IDT Winchip
+  - Intel PII
+  - Transmeta Crusoe
+
+* Would be nice if the installer could put shortcuts in the
+  Gnome/KDE/Nautilus shortcuts bars. Note, distro specific.
+
+* Create CPU backend core plugin.
+  Things like the MTRR code could then be additional plugins that
+  get unloaded on boxes without MTRRs.
+
+* Chain a list of functions from core plugins to free any resources
+  that dependant plugins needed during init. Call these when all
+  plugins are initialised. This will allow us to free stuff like the
+  pci ids, CPU identity struct, and anything else that comes up.
+  Hmm, what to do wrt hotplug. Throwing away the pci.ids early makes
+  this kinda difficult. Add a 'reinit' method sometime ?
+
+* Indexing for PCI backend.
+  Much like the CPU backends indexes.
+  Example:
+	<PCIDEV file="spong.xml">
+	  <PCIENTRY vendor="10de" device="0029">
+	  <PCIENTRY vendor="10de" device="0030">
+	</PCIDEV>
+
+* Add <STEPPING> tag to PCI backend index XML parser.
+  Check out http://www.slota.com/reviews/chipsets/superbypass/
+  (only for certain revisions of the pciset)
+  AMD-751 broken rev C5 (0x25)
+
+* A plugin to support binding network cards to CPUs.
+  Much needed for 2.4 network performance.
+  Just involves writing CPU # to /proc/irq/affinity iirc.
+
+* periodic communication from UI to daemon.
+  "Send me updates if any tweaks have changed"
+  The way usbview does this seems acceptable.
+    timer = gtk_timeout_add (2000, on_timer_timeout, 0);
+    and a callback to reinit the timer, and do whatever we need.
+  (Check for pending msgs, and act accordingly)
+
+* hotplug devices.
+  Refresh things like the PCI backends tree every so often.
+
+* Additional backends taking advantage of 'tweak refresh'.
+  This feature will be needed for tweaks that constantly change,
+  for eg, info tweaks on CPU speed, temperature, load etc.
+
+* CPU clock speed/voltage adjustment.
+  - Requires the `periodic update' feature.
+  - Kernelside code for this exists in cvs.arm.linux.org.uk
+    x86 implementations need finishing.
+  - When kernelside finished, rip out the PowerNOW stuff in Powertweak.
+
+* Recognition of when power supply changes from mains to battery
+  (and vice versa) by periodically polling apm/acpi, and adjusting
+  profile accordingly.
+
+* cpu/x86/mtrr backend.
+  - Check for ranges that may be added which the kernel didn't pick up.
+  - Possibly rearrange for maximum RAM coverage.
+    Recent 2.4 kernels do this (See winchip/CyrixIII patch in setup.c)
+  - Check that the BIOS hasn't set MTRRs up in a non-sane manner.
+  For example, Intel does not support overlapping of 2 or more MTRRs
+  unless 1 of them is of type=uncacheable. If this situation occurs,
+  the CPU will default to marking the range uncacheable, and a
+  significant performance decrease may occur for those addresses.
+
+* Test with efence, memleak & assorted tools.
+
+0.99.7
+~~~~~~
+* Cluster support.
+  Tweak remote systems.
+  - Instead of talking via domain socket, use regular tcp/ip socket.
+  - Protocol needs a "What version powertweakd are you" msg
+    so that UIs can refuse to speak to newer daemons.
+  - Authentication code needs rewrite.
+    (ties in with the next feature..?)
+
+* Grant selected non-root users access.
+  Worth opening a potential security problem ?
+  "sudo" works.
+  [AV] If we do anything, I think it should be PAM-related. Even though
+       PAM is evil, it is a pretty decent and central permission system.
+
+* Tracking of allocated memory is done quite wastefully in some backends.
+  For example, PCI backend devicename string is duped in every tweak.
+  Introduce free-chains, where a backend builds a linked list of allocated
+  items that need freeing on shutdown. Advantage here is that instead of
+  adding to the chain, we can check that an item doesn't already exist there.
+  If it does exist, use that item instead of allocating another string.
+  Do we want these chains per backend, or one global one ?
+  Global means we get to share strings from other backends too, possibly
+  reducing memusage even more.
+
+* Test with efence, memleak & assorted tools.
+
+0.99.8
+~~~~~~
+* Config Parser needs rewriting.
+  - Save only values that are changed to the config file
+  - Allow backends to use alternate save mechanism
+    This will allow the proc backend to save /etc/sysctl.conf entries,
+	so that we don't do weird things when sysctl & powertweak are installed.
+  - Get confignames standardised.
+  	Planned changes:
+  	- PIV_LOW_POWER_MODE  -> P6_LOW_POWER_MODE
+  	- SMART_ENABLE_/dev/hda -> SMART_ENABLE_hda
+  	- hda_ELEVATOR_READ_LATENCY -> ELEVATOR_READ_LATENCY_hda
+  	- KERNEL-SHMALL -> kernel/shmall
+  	- NET_TCPIP_DEV_* -> net/tcpip/dev/*
+  - Autoconf needed for specifying where config file loads from
+  - Don't save tweaks from info backends at all
+    (see what we do with DMI right now).
+
+* When we have a lot of tweaks in the tree, the UI can take a while
+  to start as it needs to pull the whole tweak tree across the socket.
+  (This would be even more painful when we adapt to tweak remote
+   boxes over IP). We may need to start thinking of ways to minimise
+  the amount of data we send.  Initial idea is to request/send subtrees
+  only when they get expanded in UIs.
+  This also ties in with the "Don't poke things we haven't changed"
+  methodology of the planned config parser rewrite.
+
+* We can also save time by not asking for updates on info tweaks that
+  can't change (device names etc).
+  This requires that register_tweak take an extra argument to store
+  flags like "WILLNEVERCHANGE"
+
+* Profile improvements.
+  * Translate existing profiles to new PROC config names
+    Done, except for wildcarded entries.
+    (Do this after the CONFIGNAME renaming mentioned above).
+  * UIs need to give users the ability to decide when certain
+    profiles get loaded under which event. 
+  * A better profile creator than $EDITOR
+  * Handle clashes between multiple profiles better
+    (Ie, inform the user, and ask what to do).
+  * Wildcards in profiles.
+    Things like the disk elevator are per device, and some of
+    the networking items need wildcard support too.
+  * Advise on usage of a profile if criteria is met.
+    For eg, if a gigE card is found, advise loading the
+    gigabit profile.
+
+* Test with efence, memleak & assorted tools.
+
+
+===================================================================
+Other stuff to be added between now and 1.0.0
+
+Textmode UI
+~~~~~~~~~~~
+* Needs some of the features from the GTK UI, like 'load state'
+* Needs help mechanism
+* Compile fixes for g++ 3
+
+Documentation.
+~~~~~~~~~~~~~~
+* Basic "how to install" stuff... seems ok
+* A "users guide".
+* How to add a proc/pci tweak to xml 
+* Plugin Writers Guide
+
+CPU backend.
+~~~~~~~~~~~~
+* Display x86 cache info.
+* Add support for old Cyrix set6x86 style tweaking.
+* Add other architectures.
+* duty cycle adjustment.
+
+Other..
+~~~~~~~
+* Is it worth playing with breada_readahead & file_readahead
+  in /proc/ide/??/settings
+  Check with Jens.
+
+* Improve TUX sysctls. Needs multiple choice settings.
+
+* GTK GUI's show_error() function should work like printf().
+
+* Not all backends know about all the widget types.
+  This is ok for now, as our XML's aren't using them.
+
+* Addition of extra tweaks to the proc-misc backend. 
+  - In ipv4/ip_local_port_range, we have a 2 value field & we need to
+    validate that value1 is < value2
+  - the vm/bdflush sysctl has changed meanings in 2.4
+    (some fields don't do anything any more)
+
+* Prettying of the GTK GUI. (Uberlow priority).
+  - PNG for a Splash screen / about screen.
+  - Icons in ctree?
+    Doing something similar to the 'settings' dialog in Galeon shouldn't be
+	too hard, and would look really good in the GTK GUI. The YaST2 frontend
+	can also use these.
+	Each backend registers a path to the icon to be used in the tree.
+
+* VPD (See PCI spec) looks to be something interesting that could extend
+  the PCI info pages.
+  Depends how many devices actually support this feature.
+
+* tune2fs backend.
+  Setting of some features can increase available diskspace (-m), reduce
+  fsck frequency (-c). Scan hard disks on startup looking for ext2
+  partitions, and add them to the appropriate Disk/hdX menu. Also
+  an "enable ext3" button, and assign labels. 
+
+* Extra hdparm backend functionality.
+  - Basic support for common hdparm switches.
+  - We can also do tests to ensure that the combination of drive +
+    chipset/controller BIOS is good.
+	Also blacklist drives known to have problems (certain WDC's for eg).
+  - Note, Andre wants hdparm to go away in 2.5.x kernel.
+
+* BIOS backend.
+  Primarily informational, to discover if BIOS options have been
+  enabled without needing to reboot.
+  I have code to query expansion ROMs of various cards too.
+  Things like the extended Matrox info in 0.1.x
+
+* Motherboard specific backends
+  - BP6 FSB frequency tuning.
+    (Possible on a few ASUS boards too, and maybe others)
+  [AV] SoftFSB -> http://hp.vector.co.jp/authors/VA002374/src/download.html
+
+* hardware clock adjustment.
+  Various graphic cards allow adjustment of the various onboard clocks.
+  See gmgaclock and the likes.
+
+* Support for lm_sensors.
+  Should be simple enough, we have the relevant /proc/sys stuff
+  already, just requires the backend processes feature, and a
+  method of the backend/daemon telling the GUI every so often
+  that "X has changed".
+
+* ipchains / iptables / whatever-its-called-this-week plugin
+  - TOS bit manipulation.
+    http://www.linuxdoc.org/LDP/nag2/x-087-2-firewall.tos.manipulation.html
+  Doesn't seem to be a measurable win (At least not on a 56k modem),
+  may not be worth the effort involved.
+
+* Config file tuning backend.
+  This will be a core plugin offering generic functions for
+  reading/writing files, maybe some token parsing functions too,
+  searchreplace(), findstringinfile() etc.
+  - Will need procedures for things like getting/setting the value of
+    config items. Tricky to write generically due to the different
+    types of config file.
+  - Adjusting various config files (NFS, Samba, Apache) to turn on
+    switches which boost performance.
+  - fstab tuning
+    - setting of noatime on /var and other mounts
+    - fs specific features (tailpacking on reiserfs etc..)
+
+* SuperIO tuning.
+  Some chips allow higher transfer rates to be set.
+  http://hp.vector.co.jp/authors/VA004958/over115K/index_e_old.html
+  Some chips require kernel changes though.
+  This code is available, but has no license associated with it.
+  Warning #2: If you decide to play with the .c file in the archive
+  on this site, be warned it seems to have a bug (at least on SMC
+  controllers) where the clock jumps forwards/backwards 2hrs every
+  30 seconds or so. Amusing, but worrying ;-)
+
+* More laptop futzing.
+  Toshiba:
+   http://schwieters.org/toshset.html
+   http://www.buzzard.org.uk/toshiba
+  IBM Thinkpad:
+   (tpctl)

@@ -1,0 +1,55 @@
+<?xml version = "1.0" encoding ="UTF-8" standalone = "no"?>
+<!DOCTYPE DEVICE SYSTEM "../pci.dtd">
+<DEVICE vendor="0x1106" id="0x8597">
+
+	<REGISTER base="0x40" bit="7">
+	<TYPE>Checkbox</TYPE>
+	<WIDGETTEXT>CPU to AGP posted writes</WIDGETTEXT>
+	<DESCRIPTION>Enables write posting on CPU->AGP transfers</DESCRIPTION>
+	<CONFIGNAME>CPU_TO_AGP_POSTED_WRITES</CONFIGNAME>
+	</REGISTER>
+
+	<REGISTER base="0x40" bit="6">
+	<TYPE>Checkbox</TYPE>
+	<WIDGETTEXT>CPU to AGP dynamic burst</WIDGETTEXT>
+	<DESCRIPTION>Enables dynamic bursting on CPU->AGP transfers</DESCRIPTION>
+	<CONFIGNAME>CPU_TO_AGP_DYNAMIC_BURST</CONFIGNAME>
+	</REGISTER>
+
+	<REGISTER base="0x40" bit="5">
+	<TYPE>Checkbox</TYPE>
+	<WIDGETTEXT>CPU to AGP 1 waitstate burst write</WIDGETTEXT>
+	<DESCRIPTION>Enables single waitstate burst writes</DESCRIPTION>
+	<CONFIGNAME>CPU_TO_AGP_1WS_BURST_WR</CONFIGNAME>
+	</REGISTER>
+
+	<REGISTER base="0x41" bit="2">
+	<TYPE>Checkbox</TYPE>
+	<WIDGETTEXT>CPU backoff on AGP read retry</WIDGETTEXT>
+	<DESCRIPTION>Tells the CPU to wait while the AGP bus retries a read</DESCRIPTION>
+	<CONFIGNAME>CPU_BACKOFF_ON_AGP_RD_RETRY</CONFIGNAME>
+	</REGISTER>
+
+	<REGISTER base="0x42" bit="7">
+	<TYPE>Checkbox</TYPE>
+	<WIDGETTEXT>Read prefetch for enhance command</WIDGETTEXT>
+	<DESCRIPTION>When enabled, prefetches only when an enhance command occurs.
+When disabled, prefetching always occurs.</DESCRIPTION>
+	<CONFIGNAME>RD_PREFETCH_FOR_ENHANCE</CONFIGNAME>
+	</REGISTER>
+
+	<REGISTER base="0x42" bit="6">
+	<TYPE>Checkbox</TYPE>
+	<WIDGETTEXT>AGP 1 waitstate write</WIDGETTEXT>
+	<DESCRIPTION>Enables single waitstate writes to the AGP bus</DESCRIPTION>
+	<CONFIGNAME>AGP_1WS_WR</CONFIGNAME>
+	</REGISTER>
+
+	<REGISTER base="0x42" bit="5">
+	<TYPE>Checkbox</TYPE>
+	<WIDGETTEXT>AGP 1 waitstate read</WIDGETTEXT>
+	<DESCRIPTION>Enables single waitstate reads from the AGP bus</DESCRIPTION>
+	<CONFIGNAME>AGP_1WS_RD</CONFIGNAME>
+	</REGISTER>
+
+</DEVICE>

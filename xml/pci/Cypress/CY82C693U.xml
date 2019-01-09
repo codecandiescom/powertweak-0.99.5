@@ -1,0 +1,62 @@
+<?xml version = "1.0" encoding ="UTF-8" standalone = "no"?>
+<!DOCTYPE DEVICE SYSTEM "../pci.dtd">
+<DEVICE vendor="0x1080" id="0xC693">
+	<REGISTER base="0x44" bit="4">
+	<FRAME>PCI->ISA</FRAME>
+	<TYPE>Checkbox</TYPE>
+	<WIDGETTEXT>Retry on excessive delay</WIDGETTEXT>
+	<DESCRIPTION>Retries if delay will be longer than 16 PCI clock cycles.
+</DESCRIPTION>
+	<CONFIGNAME>RETRY_ON_EXCESSIVE_DELAY</CONFIGNAME>
+	</REGISTER>
+
+	<REGISTER base="0x44" bit="2">
+	<FRAME>PCI->ISA</FRAME>
+	<TYPE>Checkbox</TYPE>
+	<WIDGETTEXT>PCI posted write</WIDGETTEXT>
+	<DESCRIPTION>Enables PCI posted write buffers.
+</DESCRIPTION>
+	<CONFIGNAME>PCI_POSTED_WRITE</CONFIGNAME>
+	</REGISTER>
+
+	<REGISTER base="0x44" bit="1">
+	<FRAME>PCI->ISA</FRAME>
+	<TYPE>Checkbox</TYPE>
+	<WIDGETTEXT>ISA Master line buffer</WIDGETTEXT>
+	<DESCRIPTION>When disabled, ISA master transfers will cause PCI
+single (8/16bit) transfers. When enabled, these transfers will cause
+PCI 8-byte transfers (pre-read 8 bytes).
+</DESCRIPTION>
+	<CONFIGNAME>ISA_MASTER_LINE_BUFFER</CONFIGNAME>
+	</REGISTER>
+
+	<REGISTER base="0x44" bit="0">
+	<FRAME>PCI->ISA</FRAME>
+	<TYPE>Checkbox</TYPE>
+	<WIDGETTEXT>DMA line buffer</WIDGETTEXT>
+	<DESCRIPTION>When disabled, DMA transfers will cause PCI single
+(8/16bit) transfers. When enabled, these transfers will cause PCI
+8-byte transfers (pre-read 8 bytes).
+</DESCRIPTION>
+	<CONFIGNAME>DMA_LINE_BUFFER</CONFIGNAME>
+	</REGISTER>
+
+	<REGISTER base="0x45" bit="1">
+	<FRAME>PCI->ISA</FRAME>
+	<TYPE>Checkbox</TYPE>
+	<WIDGETTEXT>ISA Master post-write</WIDGETTEXT>
+	<DESCRIPTION>Enables ISA post write buffers.
+</DESCRIPTION>
+	<CONFIGNAME>ISA_MASTER_POST_WRITE</CONFIGNAME>
+	</REGISTER>
+
+	<REGISTER base="0x45" bit="0">
+	<FRAME>PCI->ISA</FRAME>
+	<TYPE>Checkbox</TYPE>
+	<WIDGETTEXT>DMA post-write</WIDGETTEXT>
+	<DESCRIPTION>Enables DMA post write buffers.
+</DESCRIPTION>
+	<CONFIGNAME>DMA_POST_WRITE</CONFIGNAME>
+	</REGISTER>
+
+</DEVICE>

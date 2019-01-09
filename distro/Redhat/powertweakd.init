@@ -1,0 +1,64 @@
+#! /bin/sh
+#
+# powertweak	Start/Stop the powertweak daemon
+#
+# chkconfig: 345 97 87
+# description:	Powertweak-Linux is a port (well, more a complete \
+#		rewrite) of a tool originally written for use under \
+#		Microsoft windows written by Olivier Gilloire which \
+#		provides features for tuning of system hardware such as \
+#		CPU and connected devices
+#
+# processname: powertweakd
+
+# Source function library.
+. /etc/rc.d/init.d/functions
+
+start() {
+echo -n $"Starting powertweak: "
+        daemon /usr/sbin/powertweakd
+        RETVAL=$?
+        echo
+        [ $RETVAL -eq 0 ] && touch /var/lock/subsys/powertweak
+	return $RETVAL
+}
+
+
+stop() {
+        echo -n $"Stopping powertweak services: "
+        killproc powertweakd
+        RETVAL=$?
+        echo
+        [ $RETVAL -eq 0 ] && rm -f /var/lock/subsys/powertweak
+	return $RETVAL
+}
+
+restart() {
+	stop
+	start
+}
+
+# See how we were called.
+case "$1" in
+  start)
+	start
+	;;
+  stop)
+	stop
+	;;
+  status)
+	status powertweakd
+	;;
+  restart|reload)
+	restart
+	;;
+  condrestart)
+	[ -f /var/lock/subsys/powertweak ] && restart || :
+	;;
+  *)
+	echo $"Usage: $0 {start|stop|status|restart|reload|condrestart}"
+	exit 1
+esac
+
+exit $?
+

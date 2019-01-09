@@ -1,0 +1,310 @@
+<?xml version = "1.0" encoding ="UTF-8" standalone = "no"?>
+<!DOCTYPE PROCENTRIES SYSTEM "proc.dtd">
+<PROCENTRIES>
+
+<!-- Memory Management / Core -->
+	<PROCENTRY>
+	<MENU>Virtual Memory</MENU>
+	<SUBMENU>bdflush</SUBMENU>
+	<TAB>bdflush</TAB>
+	<WIDGETTEXT>Activate bdflush when % dirty</WIDGETTEXT>
+	<CONFIGNAME>vm/bdflush:1</CONFIGNAME>
+	<TYPE>Slider</TYPE>
+	<LOW>20</LOW>
+	<HIGH>90</HIGH>
+	<ELEMENT>0</ELEMENT>
+	<FILE>/proc/sys/vm/bdflush</FILE>
+	</PROCENTRY>
+
+	<PROCENTRY>
+	<MENU>Virtual Memory</MENU>
+	<SUBMENU>bdflush</SUBMENU>
+	<TAB>bdflush</TAB>
+	<WIDGETTEXT>Dirty blocks to write per wake cycle.</WIDGETTEXT>
+	<CONFIGNAME>vm/bdflush:2</CONFIGNAME>
+	<TYPE>Spinbutton</TYPE>
+	<LOW>50</LOW>
+	<HIGH>1000</HIGH>
+	<ELEMENT>1</ELEMENT>
+	<FILE>/proc/sys/vm/bdflush</FILE>
+	</PROCENTRY>
+
+	<PROCENTRY>
+	<MENU>Virtual Memory</MENU>
+	<SUBMENU>bdflush</SUBMENU>
+	<TAB>bdflush</TAB>
+	<WIDGETTEXT>Try to reclaim n buffers on refill</WIDGETTEXT>
+	<CONFIGNAME>vm/bdflush:3</CONFIGNAME>
+	<TYPE>Spinbutton</TYPE>
+	<LOW>64</LOW>
+	<HIGH>1024</HIGH>
+	<ELEMENT>2</ELEMENT>
+	<FILE>/proc/sys/vm/bdflush</FILE>
+	</PROCENTRY>
+
+	<PROCENTRY>
+	<MENU>Virtual Memory</MENU>
+	<SUBMENU>bdflush</SUBMENU>
+	<TAB>bdflush</TAB>
+	<WIDGETTEXT>Dirty buffer threshold</WIDGETTEXT>
+	<CONFIGNAME>vm/bdflush:4</CONFIGNAME>
+	<TYPE>Spinbutton</TYPE>
+	<LOW>256</LOW>
+	<HIGH>1024</HIGH>
+	<ELEMENT>3</ELEMENT>
+	<FILE>/proc/sys/vm/bdflush</FILE>
+	</PROCENTRY>
+
+	<PROCENTRY>
+	<MENU>Virtual Memory</MENU>
+	<SUBMENU>bdflush</SUBMENU>
+	<TAB>bdflush</TAB>
+	<WIDGETTEXT>Time to age normal buffer before flush</WIDGETTEXT>
+	<CONFIGNAME>vm/bdflush:6</CONFIGNAME>
+	<TYPE>Spinbutton</TYPE>
+	<LOW>500</LOW>
+	<HIGH>5000</HIGH>
+	<ELEMENT>5</ELEMENT>
+	<FILE>/proc/sys/vm/bdflush</FILE>
+	</PROCENTRY>
+
+	<PROCENTRY>
+	<MENU>Virtual Memory</MENU>
+	<SUBMENU>bdflush</SUBMENU>
+	<TAB>bdflush</TAB>
+	<WIDGETTEXT>Time to age superblock before flush</WIDGETTEXT>
+	<CONFIGNAME>vm/bdflush:7</CONFIGNAME>
+	<TYPE>Spinbutton</TYPE>
+	<LOW>100</LOW>
+	<HIGH>5000</HIGH>
+	<ELEMENT>6</ELEMENT>
+	<FILE>/proc/sys/vm/bdflush</FILE>
+	</PROCENTRY>
+
+	<PROCENTRY>
+	<MENU>Virtual Memory</MENU>
+	<SUBMENU>Buffers/Caches</SUBMENU>
+	<TAB>Buffers/Caches</TAB>
+	<FRAME>Buffermem</FRAME>
+	<WIDGETTEXT>Minimum percentage</WIDGETTEXT>
+	<CONFIGNAME>vm/buffermem:1</CONFIGNAME>
+	<TYPE>Slider</TYPE>
+	<LOW>1</LOW>
+	<HIGH>50</HIGH>
+	<ELEMENT>0</ELEMENT>
+	<FILE>/proc/sys/vm/buffermem</FILE>
+	</PROCENTRY>
+
+	<PROCENTRY>
+	<MENU>Virtual Memory</MENU>
+	<SUBMENU>Buffers/Caches</SUBMENU>
+	<TAB>Buffers/Caches</TAB>
+	<FRAME>Buffermem</FRAME>
+	<WIDGETTEXT>Maximum percentage</WIDGETTEXT>
+	<CONFIGNAME>vm/buffermem:3</CONFIGNAME>
+	<TYPE>Slider</TYPE>
+	<LOW>0</LOW>
+	<HIGH>1024</HIGH>
+	<ELEMENT>2</ELEMENT>
+	<FILE>/proc/sys/vm/buffermem</FILE>
+	</PROCENTRY>
+
+	<PROCENTRY>
+	<MENU>Virtual Memory</MENU>
+	<SUBMENU>Buffers/Caches</SUBMENU>
+	<TAB>Buffers/Caches</TAB>
+	<FRAME>Page Cache</FRAME>
+	<WIDGETTEXT>Minimum percentage</WIDGETTEXT>
+	<CONFIGNAME>vm/pagecache:1</CONFIGNAME>
+	<TYPE>Slider</TYPE>
+	<LOW>1</LOW>
+	<HIGH>50</HIGH>
+	<ELEMENT>0</ELEMENT>
+	<FILE>/proc/sys/vm/pagecache</FILE>
+	</PROCENTRY>
+
+	<PROCENTRY>
+	<MENU>Virtual Memory</MENU>
+	<SUBMENU>Buffers/Caches</SUBMENU>
+	<TAB>Buffers/Caches</TAB>
+	<FRAME>Page Cache</FRAME>
+	<WIDGETTEXT>Maximum percentage</WIDGETTEXT>
+	<CONFIGNAME>vm/pagecache:3</CONFIGNAME>
+	<TYPE>Slider</TYPE>
+	<LOW>10</LOW>
+	<HIGH>90</HIGH>
+	<ELEMENT>2</ELEMENT>
+	<FILE>/proc/sys/vm/pagecache</FILE>
+	</PROCENTRY>
+
+	<PROCENTRY>
+	<MENU>Virtual Memory</MENU>
+	<SUBMENU>Buffers/Caches</SUBMENU>
+	<TAB>Buffers/Caches</TAB>
+	<FRAME>Pagetable Cache</FRAME>
+	<WIDGETTEXT>Minimum</WIDGETTEXT>
+	<CONFIGNAME>vm/pagetable_cache:1</CONFIGNAME>
+	<TYPE>Slider</TYPE>
+	<LOW>0</LOW>
+	<HIGH>90</HIGH>
+	<ELEMENT>0</ELEMENT>
+	<FILE>/proc/sys/vm/pagetable_cache</FILE>
+	<DESCRIPTION>The kernel keeps a number of page tables in a per-CPU cache.
+This helps a lot on SMP systems. The cache size for each processor
+will be between the min and max value.
+On a low memory (&lt;16mb) single CPU system.
+You can safely set these values to 0 so you don't waste memory.</DESCRIPTION>
+	</PROCENTRY>
+
+	<PROCENTRY>
+	<MENU>Virtual Memory</MENU>
+	<SUBMENU>Buffers/Caches</SUBMENU>
+	<TAB>Buffers/Caches</TAB>
+	<FRAME>Pagetable Cache</FRAME>
+	<WIDGETTEXT>Maximum</WIDGETTEXT>
+	<CONFIGNAME>vm/pagetable:2</CONFIGNAME>
+	<TYPE>Slider</TYPE>
+	<LOW>0</LOW>
+	<HIGH>90</HIGH>
+	<ELEMENT>1</ELEMENT>
+	<FILE>/proc/sys/vm/pagetable_cache</FILE>
+	<DESCRIPTION>The kernel keeps a number of page tables in a per-CPU cache.
+This helps a lot on SMP systems. The cache size for each processor
+will be between the min and max value.
+On a low memory (&lt;16mb) single CPU system.
+You can safely set these values to 0 so you don't waste memory.</DESCRIPTION>
+	</PROCENTRY>
+
+<!-- Free pages tab -->
+	<PROCENTRY>
+	<MENU>Virtual Memory</MENU>
+	<SUBMENU>Free pages</SUBMENU>
+	<TAB>Free pages</TAB>
+	<WIDGETTEXT>Kernel only RAM cut off</WIDGETTEXT>
+	<CONFIGNAME>vm/freepages:1</CONFIGNAME>
+	<TYPE>Spinbutton</TYPE>
+	<LOW>128</LOW>
+	<HIGH>1024</HIGH>
+	<ELEMENT>0</ELEMENT>
+	<FILE>/proc/sys/vm/freepages</FILE>
+	<DESCRIPTION>When the number of free pages reaches this number, only the kernel can allocate 
+more memory.</DESCRIPTION>
+	</PROCENTRY>
+
+	<PROCENTRY>
+	<MENU>Virtual Memory</MENU>
+	<SUBMENU>Free pages</SUBMENU>
+	<TAB>Free pages</TAB>
+	<WIDGETTEXT>Agressive swap cut off</WIDGETTEXT>
+	<CONFIGNAME>vm/freepages:2</CONFIGNAME>
+	<TYPE>Spinbutton</TYPE>
+	<LOW>256</LOW>
+	<HIGH>1024</HIGH>
+	<ELEMENT>1</ELEMENT>
+	<FILE>/proc/sys/vm/freepages</FILE>
+	<DESCRIPTION>The kernel will attempt to swap aggressively when the free pages
+goes below this limit.</DESCRIPTION>
+	</PROCENTRY>
+
+	<PROCENTRY>
+	<MENU>Virtual Memory</MENU>
+	<SUBMENU>Free pages</SUBMENU>
+	<TAB>Free pages</TAB>
+	<WIDGETTEXT>Ram to try to keep free</WIDGETTEXT>
+	<CONFIGNAME>vm/freepages:3</CONFIGNAME>
+	<TYPE>Spinbutton</TYPE>
+	<LOW>384</LOW>
+	<HIGH>1024</HIGH>
+	<ELEMENT>2</ELEMENT>
+	<FILE>/proc/sys/vm/freepages</FILE>
+	<DESCRIPTION>The kernel will try to keep this amount of RAM free.
+If free pages goes below this number, the kernel starts
+gently swapping hoping it never has to aggressively swap.</DESCRIPTION>
+	</PROCENTRY>
+
+<!-- Swapping tab -->
+
+	<PROCENTRY>
+	<MENU>Virtual Memory</MENU>
+	<SUBMENU>Swapping</SUBMENU>
+	<TAB>Swapping</TAB>
+	<WIDGETTEXT>Tries base</WIDGETTEXT>
+	<CONFIGNAME>vm/kswapd:1</CONFIGNAME>
+	<TYPE>Spinbutton</TYPE>
+	<LOW>512</LOW>
+	<HIGH>1024</HIGH>
+	<ELEMENT>0</ELEMENT>
+	<FILE>/proc/sys/vm/kswapd</FILE>
+	<DESCRIPTION>The maximum number of pages kswapd tries to free in one round. 
+This value is divided by 4 or 8.</DESCRIPTION>
+	</PROCENTRY>
+
+	<PROCENTRY>
+	<MENU>Virtual Memory</MENU>
+	<SUBMENU>Swapping</SUBMENU>
+	<TAB>Swapping</TAB>
+	<WIDGETTEXT>Tries min</WIDGETTEXT>
+	<CONFIGNAME>vm/kswapd:2</CONFIGNAME>
+	<TYPE>Spinbutton</TYPE>
+	<LOW>16</LOW>
+	<HIGH>128</HIGH>
+	<ELEMENT>1</ELEMENT>
+	<FILE>/proc/sys/vm/kswapd</FILE>
+	<DESCRIPTION>The minimum number of times kswapd tries to free a page.</DESCRIPTION>
+	</PROCENTRY>
+
+	<PROCENTRY>
+	<MENU>Virtual Memory</MENU>
+	<SUBMENU>Swapping</SUBMENU>
+	<TAB>Swapping</TAB>
+	<WIDGETTEXT>Swap Cluster</WIDGETTEXT>
+	<CONFIGNAME>vm/kswapd:3</CONFIGNAME>
+	<TYPE>Spinbutton</TYPE>
+	<LOW>32</LOW>
+	<HIGH>256</HIGH>
+	<ELEMENT>2</ELEMENT>
+	<FILE>/proc/sys/vm/kswapd</FILE>
+	<DESCRIPTION>This is the number of pages kswapd writes in one turn.
+This value should be large so that kswapd does its IO in large chunks,
+but not so large that it floods the request queue.</DESCRIPTION>
+	</PROCENTRY>
+
+
+	<PROCENTRY>
+	<MENU>Virtual Memory</MENU>
+	<SUBMENU>Swapping</SUBMENU>
+	<TAB>Swapping</TAB>
+	<WIDGETTEXT>Page cluster</WIDGETTEXT>
+	<CONFIGNAME>vm/page-cluster</CONFIGNAME>
+	<TYPE>Spinbutton</TYPE>
+	<LOW>1</LOW>
+	<HIGH>5</HIGH>
+	<ELEMENT>-1</ELEMENT>
+	<FILE>/proc/sys/vm/page-cluster</FILE>
+	<DESCRIPTION>This entry configures the swap readahead.
+Computed value is 1 &lt;&lt; by this value.</DESCRIPTION>
+	</PROCENTRY>
+
+
+	<PROCENTRY>
+	<MENU>Virtual Memory</MENU>
+	<SUBMENU>Swapping</SUBMENU>
+	<TAB>Swapping</TAB>
+	<WIDGETTEXT>Overcommit Memory</WIDGETTEXT>
+	<CONFIGNAME>vm/overcommit_memory</CONFIGNAME>
+	<TYPE>Checkbox</TYPE>
+	<ELEMENT>-1</ELEMENT>
+	<FILE>/proc/sys/vm/overcommit_memory</FILE>
+	<DESCRIPTION>The following algorithm is used to decide if there's enough memory:
+if this option is checked, then there's always enough memory.
+This is a useful feature, since programs often malloc() huge amounts of
+memory 'just in case', while they only use a small part of it.
+Leaving this option unchecked will lead to the failure of such a
+huge malloc(), when in fact the system has enough memory for the program to run.
+
+On the other hand, enabling this feature can cause you to run out of
+memory and thrash the system to death, so large and/or important servers
+will want to set this disabled.</DESCRIPTION>
+	</PROCENTRY>
+
+</PROCENTRIES>

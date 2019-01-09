@@ -1,0 +1,368 @@
+<?xml version = "1.0" encoding ="UTF-8" standalone = "no"?>
+<!DOCTYPE PROCENTRIES SYSTEM "proc.dtd">
+<PROCENTRIES>
+	<PROCENTRY>
+	<MENU>Networking</MENU>
+	<SUBMENU>IP</SUBMENU>
+	<TAB>Fragmentation</TAB>
+	<FRAME>Memory</FRAME>
+	<WIDGETTEXT>Maximum memory for IP fragments</WIDGETTEXT>
+	<CONFIGNAME>net/ipv4/ipfrag_high_thresh</CONFIGNAME>
+	<TYPE>Spinbutton</TYPE>
+	<LOW>65536</LOW>
+	<HIGH>262140</HIGH>
+	<ELEMENT>-1</ELEMENT>
+	<FILE>/proc/sys/net/ipv4/ipfrag_high_thresh</FILE>
+	<DESCRIPTION>When ipfrag_high_thresh bytes of memory is allocated for this purpose,
+the fragment handler will toss packets until ipfrag_low_thresh
+is reached.</DESCRIPTION>
+	</PROCENTRY>
+
+	<PROCENTRY>
+	<MENU>Networking</MENU>
+	<SUBMENU>IP</SUBMENU>
+	<TAB>Fragmentation</TAB>
+	<FRAME>Memory</FRAME>
+	<WIDGETTEXT>Minimum memory to resume IP fragments</WIDGETTEXT>
+	<CONFIGNAME>net/ipv4/ipfrag_low_thresh</CONFIGNAME>
+	<TYPE>Spinbutton</TYPE>
+	<LOW>65536</LOW>
+	<HIGH>262140</HIGH>
+	<ELEMENT>-1</ELEMENT>
+	<FILE>/proc/sys/net/ipv4/ipfrag_low_thresh</FILE>
+	<DESCRIPTION>Threshold on memory used to restart reassembly of IP
+fragments. When ipfrag_high_thresh bytes of memory is allocated for this 
+purpose, the fragment handler will toss packets until ipfrag_low_thresh
+is reached.</DESCRIPTION>
+	</PROCENTRY>
+
+	<PROCENTRY>
+	<MENU>Networking</MENU>
+	<SUBMENU>IP</SUBMENU>
+	<TAB>Peer storage</TAB>
+	<WIDGETTEXT>Minimum memory to resume IP fragments</WIDGETTEXT>
+	<CONFIGNAME>net/ipv4/inet_peer_threshold</CONFIGNAME>
+	<TYPE>Spinbutton</TYPE>
+	<LOW>0</LOW>
+	<HIGH>16000</HIGH>
+	<ELEMENT>-1</ELEMENT>
+	<FILE>/proc/sys/net/ipv4/inet_peer_threshold</FILE>
+	<DESCRIPTION>The approximate size of the storage.  Starting from
+this threshold entries will be thrown aggressively.  This threshold
+also determines entries' time-to-live and time intervals between
+garbage collection passes.  More entries, less time-to-live, less GC
+interval. </DESCRIPTION>
+	</PROCENTRY>
+
+
+	<PROCENTRY>
+	<MENU>Networking</MENU>
+	<SUBMENU>IP</SUBMENU>
+	<TAB>Peer storage</TAB>
+	<WIDGETTEXT>Size of the peer-table storage</WIDGETTEXT>
+	<CONFIGNAME>net/ipv4/inet_peer_threshold</CONFIGNAME>
+	<TYPE>Spinbutton</TYPE>
+	<LOW>0</LOW>
+	<HIGH>16000</HIGH>
+	<ELEMENT>-1</ELEMENT>
+	<FILE>/proc/sys/net/ipv4/inet_peer_threshold</FILE>
+	<DESCRIPTION>The approximate size of the storage.  Starting from
+this threshold entries will be thrown aggressively.  This threshold
+also determines entries' time-to-live and time intervals between
+garbage collection passes.  More entries, less time-to-live, less GC
+interval. </DESCRIPTION>
+	</PROCENTRY>
+
+	<PROCENTRY>
+	<MENU>Networking</MENU>
+	<SUBMENU>IP</SUBMENU>
+	<TAB>Peer storage</TAB>
+	<WIDGETTEXT>Minimum time to live of entries</WIDGETTEXT>
+	<CONFIGNAME>net/ipv4/inet_peer_minttl</CONFIGNAME>
+	<TYPE>Spinbutton</TYPE>
+	<LOW>0</LOW>
+	<HIGH>1200</HIGH>
+	<ELEMENT>-1</ELEMENT>
+	<FILE>/proc/sys/net/ipv4/inet_peer_minttl</FILE>
+	<DESCRIPTION>Should be enough to cover fragment
+time-to-live on the reassembling side.  This minimum time-to-live is
+guaranteed if the pool size is less than inet_peer_threshold.  Measured in
+jiffies. </DESCRIPTION>
+	</PROCENTRY>
+
+	<PROCENTRY>
+	<MENU>Networking</MENU>
+	<SUBMENU>IP</SUBMENU>
+	<TAB>Peer storage</TAB>
+	<WIDGETTEXT>Maximum time to live of entries</WIDGETTEXT>
+	<CONFIGNAME>net/ipv4/inet_peer_maxttl</CONFIGNAME>
+	<TYPE>Spinbutton</TYPE>
+	<LOW>0</LOW>
+	<HIGH>1200</HIGH>
+	<ELEMENT>-1</ELEMENT>
+	<FILE>/proc/sys/net/ipv4/inet_peer_maxttl</FILE>
+	<DESCRIPTION>Unused entries will expire after
+this period of time if there is no memory pressure on the pool (i.e.
+when the number of entries in the pool is very small).
+Measured in jiffies.</DESCRIPTION>
+	</PROCENTRY>
+
+	<PROCENTRY>
+	<MENU>Networking</MENU>
+	<SUBMENU>IP</SUBMENU>
+	<TAB>Peer storage</TAB>
+	<WIDGETTEXT>Minimum interval between garbage collection passes</WIDGETTEXT>
+	<CONFIGNAME>net/ipv4/inet_peer_gc_mintime</CONFIGNAME>
+	<TYPE>Spinbutton</TYPE>
+	<LOW>0</LOW>
+	<HIGH>1200</HIGH>
+	<ELEMENT>-1</ELEMENT>
+	<FILE>/proc/sys/net/ipv4/inet_peer_gc_mintime</FILE>
+	<DESCRIPTION>This interval is in effect under high memory pressure
+on the pool. Measured in jiffies.</DESCRIPTION>
+	</PROCENTRY>
+
+	<PROCENTRY>
+	<MENU>Networking</MENU>
+	<SUBMENU>IP</SUBMENU>
+	<TAB>Peer storage</TAB>
+	<WIDGETTEXT>Maximum interval between garbage collection passes</WIDGETTEXT>
+	<CONFIGNAME>net/ipv4/inet_peer_gc_maxtime</CONFIGNAME>
+	<TYPE>Spinbutton</TYPE>
+	<LOW>0</LOW>
+	<HIGH>1200</HIGH>
+	<ELEMENT>-1</ELEMENT>
+	<FILE>/proc/sys/net/ipv4/inet_peer_gc_maxtime</FILE>
+	<DESCRIPTION>This interval is in effect under high memory pressure on the pool. 
+Measured in jiffies.</DESCRIPTION>
+	</PROCENTRY>
+
+
+	<PROCENTRY>
+	<MENU>Networking</MENU>
+	<SUBMENU>TCP</SUBMENU>
+	<TAB>TCP</TAB>
+	<WIDGETTEXT>Maximal number of timewait sockets </WIDGETTEXT>
+	<CONFIGNAME>net/ipv4/tcp_max_tw_buckets</CONFIGNAME>
+	<TYPE>Spinbutton</TYPE>
+	<LOW>16388</LOW>
+	<HIGH>65536</HIGH>
+	<ELEMENT>-1</ELEMENT>
+	<FILE>/proc/sys/net/ipv4/tcp_max_tw_buckets</FILE>
+	<DESCRIPTION>Maximal number of timewait sockets held by system simultaneously.
+If this number is exceeded time-wait socket is immediately
+destroyed and warning is printed. This limit exists only to prevent simple
+DoS attacks, you _must_ not lower the limit artificially, but rather
+increase it (probably, after increasing installed memory), if network
+conditions require more than default value. </DESCRIPTION>
+	</PROCENTRY>
+
+	<PROCENTRY>
+	<MENU>Networking</MENU>
+	<SUBMENU>TCP</SUBMENU>
+	<TAB>TCP</TAB>
+	<WIDGETTEXT>Enable fast recycling TIME-WAIT sockets.</WIDGETTEXT>
+	<CONFIGNAME>net/ipv4/tcp_tw_recycle</CONFIGNAME>
+	<TYPE>Checkbox</TYPE>
+	<ELEMENT>-1</ELEMENT>
+	<FILE>/proc/sys/net/ipv4/tcp_tw_recycle</FILE>
+	<DESCRIPTION>It should not be changed without advice/request of technical
+experts.</DESCRIPTION>
+	</PROCENTRY>
+
+
+	<PROCENTRY>
+	<MENU>Kernel</MENU>
+	<SUBMENU>Resources</SUBMENU>
+	<TAB>Resources</TAB>
+	<WIDGETTEXT>Size (in bytes) of the random pool</WIDGETTEXT>
+	<CONFIGNAME>kernel/random/poolsize</CONFIGNAME>
+	<TYPE>Spinbutton</TYPE>
+	<LOW>100</LOW>
+	<HIGH>4095</HIGH>
+	<ELEMENT>0</ELEMENT>
+	<FILE>/proc/sys/kernel/random/poolsize</FILE>
+	<DESCRIPTION>The kernel keeps a pool of truly random numbers ready
+for crypto programs to use. Increase the pool size if you use cryptography
+frequently (for example a lot of ssh).
+</DESCRIPTION>
+	</PROCENTRY>
+
+	<PROCENTRY>
+	<MENU>Networking</MENU>
+	<SUBMENU>TCP</SUBMENU>
+	<TAB>Memory Limits</TAB>
+	<FRAME>Total</FRAME>
+	<WIDGETTEXT>TCP bufferspace allocatable (min) </WIDGETTEXT>
+	<CONFIGNAME>net/ipv4/tcp_mem/0</CONFIGNAME>
+	<TYPE>Spinbutton</TYPE>
+	<LOW>1024</LOW>
+	<HIGH>100000000</HIGH>
+	<ELEMENT>0</ELEMENT>
+	<FILE>/proc/sys/net/ipv4/tcp_mem</FILE>
+	<DESCRIPTION>Limit for which there is no memory pressure if the
+total allocated TCP buffermem is below this number.</DESCRIPTION>
+	</PROCENTRY>
+
+
+	<PROCENTRY>
+	<MENU>Networking</MENU>
+	<SUBMENU>TCP</SUBMENU>
+	<TAB>Memory Limits</TAB>
+	<FRAME>Total</FRAME>
+	<WIDGETTEXT>TCP bufferspace allocatable (soft max) </WIDGETTEXT>
+	<CONFIGNAME>net/ipv4/tcp_mem/1</CONFIGNAME>
+	<TYPE>Spinbutton</TYPE>
+	<LOW>1024</LOW>
+	<HIGH>100000000</HIGH>
+	<ELEMENT>1</ELEMENT>
+	<FILE>/proc/sys/net/ipv4/tcp_mem</FILE>
+	<DESCRIPTION>Threshold which makes the kernel be more careful
+about buffer allocations for TCP if the total allocated TCP 
+buffermem is above this number.</DESCRIPTION>
+	</PROCENTRY>
+
+	<PROCENTRY>
+	<MENU>Networking</MENU>
+	<SUBMENU>TCP</SUBMENU>
+	<TAB>Memory Limits</TAB>
+	<FRAME>Total</FRAME>
+	<WIDGETTEXT>TCP bufferspace allocatable (hard max) </WIDGETTEXT>
+	<CONFIGNAME>net/ipv4/tcp_mem/2</CONFIGNAME>
+	<TYPE>Spinbutton</TYPE>
+	<LOW>1024</LOW>
+	<HIGH>100000000</HIGH>
+	<ELEMENT>2</ELEMENT>
+	<FILE>/proc/sys/net/ipv4/tcp_mem</FILE>
+	<DESCRIPTION>Hard maximum to the size of TCP buffers</DESCRIPTION>
+	</PROCENTRY>
+
+
+	<PROCENTRY>
+	<MENU>Networking</MENU>
+	<SUBMENU>TCP</SUBMENU>
+	<TAB>Memory Limits</TAB>
+	<FRAME>Outgoing</FRAME>
+	<WIDGETTEXT>TCP bufferspace allocatable (min) </WIDGETTEXT>
+	<CONFIGNAME>net/ipv4/tcp_wmem/0</CONFIGNAME>
+	<TYPE>Spinbutton</TYPE>
+	<LOW>1024</LOW>
+	<HIGH>100000000</HIGH>
+	<ELEMENT>0</ELEMENT>
+	<FILE>/proc/sys/net/ipv4/tcp_wmem</FILE>
+	<DESCRIPTION>Limit for which there is no memory pressure if the
+allocated TCP buffermem for outgoing data is below this number.</DESCRIPTION>
+	</PROCENTRY>
+
+
+	<PROCENTRY>
+	<MENU>Networking</MENU>
+	<SUBMENU>TCP</SUBMENU>
+	<TAB>Memory Limits</TAB>
+	<FRAME>Outgoing</FRAME>
+	<WIDGETTEXT>TCP bufferspace allocatable (soft max) </WIDGETTEXT>
+	<CONFIGNAME>net/ipv4/tcp_wmem/1</CONFIGNAME>
+	<TYPE>Spinbutton</TYPE>
+	<LOW>1024</LOW>
+	<HIGH>100000000</HIGH>
+	<ELEMENT>1</ELEMENT>
+	<FILE>/proc/sys/net/ipv4/tcp_wmem</FILE>
+	<DESCRIPTION>Threshold which makes the kernel be more careful
+about buffer allocations for TCP if the allocated TCP 
+buffermem for outgoing data is above this number.</DESCRIPTION>
+	</PROCENTRY>
+
+	<PROCENTRY>
+	<MENU>Networking</MENU>
+	<SUBMENU>TCP</SUBMENU>
+	<TAB>Memory Limits</TAB>
+	<FRAME>Outgoing</FRAME>
+	<WIDGETTEXT>TCP bufferspace allocatable (hard max) </WIDGETTEXT>
+	<CONFIGNAME>net/ipv4/tcp_wmem/2</CONFIGNAME>
+	<TYPE>Spinbutton</TYPE>
+	<LOW>1024</LOW>
+	<HIGH>100000000</HIGH>
+	<ELEMENT>2</ELEMENT>
+	<FILE>/proc/sys/net/ipv4/tcp_wmem</FILE>
+	<DESCRIPTION>Hard maximum to the size of TCP buffers for outgoing data</DESCRIPTION>
+	</PROCENTRY>
+
+
+	<PROCENTRY>
+	<MENU>Networking</MENU>
+	<SUBMENU>TCP</SUBMENU>
+	<TAB>Memory Limits</TAB>
+	<FRAME>Incomming</FRAME>
+	<WIDGETTEXT>TCP bufferspace allocatable (min) </WIDGETTEXT>
+	<CONFIGNAME>net/ipv4/tcp_rmem/0</CONFIGNAME>
+	<TYPE>Spinbutton</TYPE>
+	<LOW>1024</LOW>
+	<HIGH>100000000</HIGH>
+	<ELEMENT>0</ELEMENT>
+	<FILE>/proc/sys/net/ipv4/tcp_rmem</FILE>
+	<DESCRIPTION>Limit for which there is no memory pressure if the
+allocated TCP buffermem for incoming data is below this number.</DESCRIPTION>
+	</PROCENTRY>
+
+
+	<PROCENTRY>
+	<MENU>Networking</MENU>
+	<SUBMENU>TCP</SUBMENU>
+	<TAB>Memory Limits</TAB>
+	<FRAME>Incomming</FRAME>
+	<WIDGETTEXT>TCP bufferspace allocatable (soft max) </WIDGETTEXT>
+	<CONFIGNAME>net/ipv4/tcp_rmem/1</CONFIGNAME>
+	<TYPE>Spinbutton</TYPE>
+	<LOW>1024</LOW>
+	<HIGH>100000000</HIGH>
+	<ELEMENT>1</ELEMENT>
+	<FILE>/proc/sys/net/ipv4/tcp_rmem</FILE>
+	<DESCRIPTION>Threshold which makes the kernel be more careful
+about buffer allocations for TCP if the allocated TCP 
+buffermem for incoming data is above this number.</DESCRIPTION>
+	</PROCENTRY>
+
+	<PROCENTRY>
+	<MENU>Networking</MENU>
+	<SUBMENU>TCP</SUBMENU>
+	<TAB>Memory Limits</TAB>
+	<FRAME>Incomming</FRAME>
+	<WIDGETTEXT>TCP bufferspace allocatable (hard max) </WIDGETTEXT>
+	<CONFIGNAME>net/ipv4/tcp_rmem/2</CONFIGNAME>
+	<TYPE>Spinbutton</TYPE>
+	<LOW>1024</LOW>
+	<HIGH>100000000</HIGH>
+	<ELEMENT>2</ELEMENT>
+	<FILE>/proc/sys/net/ipv4/tcp_rmem</FILE>
+	<DESCRIPTION>Hard maximum to the size of TCP buffers for incoming data</DESCRIPTION>
+	</PROCENTRY>
+
+	<PROCENTRY>
+	<MENU>Networking</MENU>
+	<SUBMENU>Core</SUBMENU>
+	<TAB>Core</TAB>
+	<WIDGETTEXT>Maximum length of hot list</WIDGETTEXT>
+	<CONFIGNAME>net/core/hot_list_length</CONFIGNAME>
+	<TYPE>Spinbutton</TYPE>
+	<LOW>128</LOW>
+	<HIGH>102400</HIGH>
+	<ELEMENT>-1</ELEMENT>
+	<FILE>/proc/sys/net/core/hot_list_length</FILE>
+	<DESCRIPTION>The maximum number of packet-descriptors to be cached.</DESCRIPTION>
+	</PROCENTRY>
+
+	<PROCENTRY>
+	<MENU>Networking</MENU>
+	<SUBMENU>Core</SUBMENU>
+	<TAB>Core</TAB>
+	<WIDGETTEXT>Maximum number of skb-heads to be cached</WIDGETTEXT>
+	<CONFIGNAME>net/core/optmem_max</CONFIGNAME>
+	<TYPE>Spinbutton</TYPE>
+	<LOW>4096</LOW>
+	<HIGH>10000000</HIGH>
+	<ELEMENT>-1</ELEMENT>
+	<FILE>/proc/sys/net/core/optmem_max</FILE>
+	<DESCRIPTION>The maximum amount of memory usable for socket options.</DESCRIPTION>
+	</PROCENTRY>
+
+</PROCENTRIES>

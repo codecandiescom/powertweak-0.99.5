@@ -1,0 +1,47 @@
+<?xml version = "1.0" encoding ="UTF-8" standalone = "no"?>
+<!DOCTYPE DEVICE SYSTEM "../pci.dtd">
+<DEVICE vendor="0x8086" id="0x7180">
+	<REGISTER base="0x53" bit="5">
+	<TYPE>Checkbox</TYPE>
+	<WIDGETTEXT>Write post during IO bridge access</WIDGETTEXT>
+	<DESCRIPTION>Allows writes to be posted while IO access
+occurs</DESCRIPTION>
+	<CONFIGNAME>WRITE_POST_IO_BRIDGE</CONFIGNAME>
+	</REGISTER>
+
+	<REGISTER base="0x53" bit="6">
+	<TYPE>Checkbox</TYPE>
+	<WIDGETTEXT>CPU to PCI IDE posting</WIDGETTEXT>
+	<DESCRIPTION>Allows CPU -> IDE transfers to be posted</DESCRIPTION>
+	<CONFIGNAME>CPU_TO_PCI_IDE_POSTING</CONFIGNAME>
+	</REGISTER>
+
+	<REGISTER base="0x58" bit="0">
+	<TYPE>Checkbox</TYPE>
+	<WIDGETTEXT>Fast MA Waitstates</WIDGETTEXT>
+	<DESCRIPTION>Fast MA Waitstates</DESCRIPTION>
+	<CONFIGNAME>FAST_MA_WAITSTATES</CONFIGNAME>
+	</REGISTER>
+
+	<REGISTER base="0x58" bit="5">
+	<TYPE>Checkbox</TYPE>
+	<WIDGETTEXT>2 CLK SDRAM RAS PRECHARGE</WIDGETTEXT>
+	<DESCRIPTION>SDRAM RAS precharge takes 2 clocks when enabled.</DESCRIPTION>
+	<CONFIGNAME>SDRAM_2CLK_RAS_PRECHARGE</CONFIGNAME>
+	</REGISTER>
+
+	<REGISTER base="0x58" bit="6">
+	<TYPE>Checkbox</TYPE>
+	<WIDGETTEXT>2 CLK SDRAM CAS Latency</WIDGETTEXT>
+	<DESCRIPTION>SDRAM CAS precharge takes 2 clocks when enabled.</DESCRIPTION>
+	<CONFIGNAME>SDRAM_2CLK_CAS_LATENCY</CONFIGNAME>
+	</REGISTER>
+
+	<REGISTER base="0x58" bit="7">
+	<TYPE>Checkbox</TYPE>
+	<WIDGETTEXT>2 CLK SDRAM RAS to CAS delay</WIDGETTEXT>
+	<DESCRIPTION>RAS to CAS takes 2 clocks when enabled.</DESCRIPTION>
+	<CONFIGNAME>SDRAM_RAS_TO_CAS_DELAY</CONFIGNAME>
+	</REGISTER>
+
+</DEVICE>

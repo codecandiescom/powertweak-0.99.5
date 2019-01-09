@@ -1,0 +1,88 @@
+%define Version 0.99.1
+
+Name        	: powertweak
+Version     	: %{Version}
+Release     	: 1
+Group       	: Administration/Hardware
+
+Summary     	: Powertweak - Tune system to optimal performance
+
+Copyright   	: GPL
+Packager    	: Marc Christensen <marc@caldera.com>
+URL		: http://powertweak.sourceforge.net
+Source0		: %{name}-%{version}.tgz
+Source1		: powertweakd.init
+
+ExclusiveArch	: i386
+BuildRoot   	: /tmp/%{Name}-%{Version}
+Requires	: pciutils >= 2.1.0, libxml >= 2.1.0
+BuildPreReq	: pciutils, libxml
+PreReq		: pciutils, libxml
+
+%Description
+Powertweak is a utility for tweaking your Linux system to peak performance.
+It can tune many parts of your system. Tunes PCI devices to use optimal
+settings. Enables performance enhancing features of the CPU(s).
+
+%Prep
+%setup
+
+
+%Build
+libtoolize
+aclocal
+autoheader
+autoconf
+automake --add-missing
+./configure --prefix=/usr
+make
+
+
+%Install
+%{mkDESTDIR}
+mkdir -p ${DESTDIR}/etc/rc.d/init.d
+mkdir -p ${DESTDIR}/etc/sysconfig/daemons
+
+install -m 755 %{SOURCE1} ${DESTDIR}/etc/rc.d/init.d/powertweakd
+
+make DESTDIR=${DESTDIR} install
+
+cat <<-'EOD' > ${DESTDIR}/etc/sysconfig/daemons/powertweakd
+	IDENT=Powertweak
+	DESCRIPTIVE="Powertweak System Tuning Tool"
+	VARIANT=powertweakd
+	ONBOOT="no"
+	OPTIONS=""
+EOD
+
+%Clean
+%{rmDESTDIR}
+
+
+%Post
+lisa --SysV-init install powertweakd S75 2:3:4:5 K25 0:1:6
+
+%PreUn
+
+%PostUn
+lisa --SysV-init remove powertweakd $1
+
+%Files
+%defattr (-,root,root)
+%doc AUTHORS COPYING ChangeLog Documentation/FAQ  Documentation/Hackers/* NEWS README TODO 
+%config /etc/sysconfig/daemons/powertweakd
+/etc/rc.d/init.d/powertweakd
+/usr/lib/powertweak/plugins/*
+/usr/sbin/powertweakd
+/usr/bin/powertweakconfig
+/usr/bin/gpowertweak
+/usr/share/powertweak/
+
+%ChangeLog
+* Wed Oct 25 2000 Marc Christensen <marc@caldera.com>
+- new version/specfile etc.
+
+* Tue Sep 05 2000 Marc Christensen <marc@caldera.com>
+- First COL build.
+- LSB compliant file locations.
+

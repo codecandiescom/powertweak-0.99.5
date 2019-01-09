@@ -1,0 +1,342 @@
+<?xml version = "1.0" encoding ="UTF-8" standalone = "no"?>
+<!DOCTYPE PROCENTRIES SYSTEM "proc.dtd">
+<PROCENTRIES>
+
+<!-- /proc files -->
+	<PROCENTRY>
+	<MENU>Kernel</MENU>
+	<SUBMENU>Linux</SUBMENU>
+	<TAB>Information</TAB>
+	<WIDGETTEXT>Memory fragmentation (buddyinfo)</WIDGETTEXT>
+	<CONFIGNAME>proc/buddyinfo</CONFIGNAME>
+	<TYPE>INFOSTRING</TYPE>
+	<ELEMENT>-1</ELEMENT>
+	<FILE>/proc/buddyinfo</FILE>
+	<DESCRIPTION>Memory fragmentation is a problem under some workloads, and buddyinfo is a useful tool for helping diagnose these problems.  Buddyinfo will give you a clue as to how big an area you can safely allocate, or why a previous allocation failed.  Each column represents the number of pages of a certain order which are available.  In this case, there are 0 chunks of 2^0*PAGE_SIZE available in ZONE_DMA, 4 chunks of 2^1*PAGE_SIZE in ZONE_DMA, 101 chunks of 2^4*PAGE_SIZE available in ZONE_NORMAL, etc...  </DESCRIPTION>
+	</PROCENTRY>
+
+	<PROCENTRY>
+	<MENU>Kernel</MENU>
+	<SUBMENU>Linux</SUBMENU>
+	<TAB>Information</TAB>
+	<WIDGETTEXT>Kernel Command Line</WIDGETTEXT>
+	<CONFIGNAME>proc/cmdline</CONFIGNAME>
+	<TYPE>INFOSTRING</TYPE>
+	<ELEMENT>-1</ELEMENT>
+	<FILE>/proc/cmdline</FILE>
+	<DESCRIPTION></DESCRIPTION>
+	<DESCRIPTION>Commandline parameters the kernel was started with.</DESCRIPTION>
+	</PROCENTRY>
+
+	<PROCENTRY>
+	<MENU>Kernel</MENU>
+	<SUBMENU>Linux</SUBMENU>
+	<TAB>Information</TAB>
+	<WIDGETTEXT>Info about the CPU</WIDGETTEXT>
+	<CONFIGNAME>proc/cpuinfo</CONFIGNAME>
+	<TYPE>INFOSTRING</TYPE>
+	<ELEMENT>-1</ELEMENT>
+	<FILE>/proc/cpuinfo</FILE>
+	<DESCRIPTION>unparsed cpuinfo file</DESCRIPTION>
+	</PROCENTRY>
+
+	<PROCENTRY>
+	<MENU>Kernel</MENU>
+	<SUBMENU>Linux</SUBMENU>
+	<TAB>Information</TAB>
+	<WIDGETTEXT>Available devices (block and character)</WIDGETTEXT>
+	<CONFIGNAME>proc/devices</CONFIGNAME>
+	<TYPE>INFOSTRING</TYPE>
+	<ELEMENT>-1</ELEMENT>
+	<FILE>/proc/devices</FILE>
+	<DESCRIPTION>list of device drivers loaded support by this kernel</DESCRIPTION>
+	</PROCENTRY>
+
+	<PROCENTRY>
+	<MENU>Kernel</MENU>
+	<SUBMENU>Linux</SUBMENU>
+	<TAB>Information</TAB>
+	<WIDGETTEXT>Disk stats</WIDGETTEXT>
+	<CONFIGNAME>proc/diskstats</CONFIGNAME>
+	<TYPE>INFOSTRING</TYPE>
+	<ELEMENT>-1</ELEMENT>
+	<FILE>/proc/diskstats</FILE>
+	<DESCRIPTION>IO activity</DESCRIPTION>
+	</PROCENTRY>
+
+	<PROCENTRY>
+	<MENU>Kernel</MENU>
+	<SUBMENU>Linux</SUBMENU>
+	<TAB>Information</TAB>
+	<WIDGETTEXT>DMA channels in use</WIDGETTEXT>
+	<CONFIGNAME>proc/dma</CONFIGNAME>
+	<TYPE>INFOSTRING</TYPE>
+	<ELEMENT>-1</ELEMENT>
+	<FILE>/proc/dma</FILE>
+	<DESCRIPTION>DMA channels in use</DESCRIPTION>
+	</PROCENTRY>
+
+	<PROCENTRY>
+	<MENU>Kernel</MENU>
+	<SUBMENU>Linux</SUBMENU>
+	<TAB>Information</TAB>
+	<WIDGETTEXT>Execdomains, related to security</WIDGETTEXT>
+	<CONFIGNAME>proc/execdomains</CONFIGNAME>
+	<TYPE>INFOSTRING</TYPE>
+	<ELEMENT>-1</ELEMENT>
+	<FILE>/proc/execdomains</FILE>
+	<DESCRIPTION>Execdomains related to security</DESCRIPTION>
+	</PROCENTRY>
+
+	<PROCENTRY>
+	<MENU>Kernel</MENU>
+	<SUBMENU>Linux</SUBMENU>
+	<TAB>Information</TAB>
+	<WIDGETTEXT>Frame Buffer devices</WIDGETTEXT>
+	<CONFIGNAME>proc/fb</CONFIGNAME>
+	<TYPE>INFOSTRING</TYPE>
+	<ELEMENT>-1</ELEMENT>
+	<FILE>/proc/fb</FILE>
+	<DESCRIPTION>Frame Buffer devices</DESCRIPTION>
+	</PROCENTRY>
+
+	<PROCENTRY>
+	<MENU>Kernel</MENU>
+	<SUBMENU>Linux</SUBMENU>
+	<TAB>Information</TAB>
+	<WIDGETTEXT>supported Filesystems</WIDGETTEXT>
+	<CONFIGNAME>proc/filesystems</CONFIGNAME>
+	<TYPE>INFOSTRING</TYPE>
+	<ELEMENT>-1</ELEMENT>
+	<FILE>/proc/filesystems</FILE>
+	<DESCRIPTION>Filesystems supported by this kernel</DESCRIPTION>
+	</PROCENTRY>
+
+	<PROCENTRY>
+	<MENU>Kernel</MENU>
+	<SUBMENU>Linux</SUBMENU>
+	<TAB>Information</TAB>
+	<WIDGETTEXT>Interrupts</WIDGETTEXT>
+	<CONFIGNAME>proc/interrupts</CONFIGNAME>
+	<TYPE>INFOSTRING</TYPE>
+	<ELEMENT>-1</ELEMENT>
+	<FILE>/proc/interrupts</FILE>
+	<DESCRIPTION>Interrupt usage</DESCRIPTION>
+	</PROCENTRY>
+
+	<PROCENTRY>
+	<MENU>Kernel</MENU>
+	<SUBMENU>Linux</SUBMENU>
+	<TAB>Information</TAB>
+	<WIDGETTEXT>Memory Map</WIDGETTEXT>
+	<CONFIGNAME>proc/iomem</CONFIGNAME>
+	<TYPE>INFOSTRING</TYPE>
+	<ELEMENT>-1</ELEMENT>
+	<FILE>/proc/iomem</FILE>
+	<DESCRIPTION>Memory Map</DESCRIPTION>
+	</PROCENTRY>
+
+	<PROCENTRY>
+	<MENU>Kernel</MENU>
+	<SUBMENU>Linux</SUBMENU>
+	<TAB>Information</TAB>
+	<WIDGETTEXT>IO port usage</WIDGETTEXT>
+	<CONFIGNAME>proc/ioports</CONFIGNAME>
+	<TYPE>INFOSTRING</TYPE>
+	<ELEMENT>-1</ELEMENT>
+	<FILE>/proc/ioports</FILE>
+	<DESCRIPTION>I/O port usage</DESCRIPTION>
+	</PROCENTRY>
+
+	<PROCENTRY>
+	<MENU>Kernel</MENU>
+	<SUBMENU>Linux</SUBMENU>
+	<TAB>Information</TAB>
+	<WIDGETTEXT>kcore</WIDGETTEXT>
+	<CONFIGNAME>proc/kcore</CONFIGNAME>
+	<TYPE>TEXT</TYPE>
+	<ELEMENT>-1</ELEMENT>
+	<FILE>/proc/kcore_ignore</FILE>
+	<DESCRIPTION>Kernel core image (can be ELF or A.OUT(deprecated in 2.4))</DESCRIPTION>
+	</PROCENTRY>
+
+	<PROCENTRY>
+	<MENU>Kernel</MENU>
+	<SUBMENU>Linux</SUBMENU>
+	<TAB>Information</TAB>
+	<WIDGETTEXT>Kernel messages</WIDGETTEXT>
+	<CONFIGNAME>proc/kmsg</CONFIGNAME>
+	<TYPE>TEXT</TYPE>
+	<ELEMENT>-1</ELEMENT>
+	<FILE>/proc/kmsg_ignore</FILE>
+	<DESCRIPTION>Kernel messages</DESCRIPTION>
+	</PROCENTRY>
+
+	<PROCENTRY>
+	<MENU>Kernel</MENU>
+	<SUBMENU>Linux</SUBMENU>
+	<TAB>Information</TAB>
+	<WIDGETTEXT>Load average</WIDGETTEXT>
+	<CONFIGNAME>proc/loadavg</CONFIGNAME>
+	<TYPE>INFOSTRING</TYPE>
+	<ELEMENT>-1</ELEMENT>
+	<FILE>/proc/loadavg</FILE>
+	<DESCRIPTION>Load average of last1 5 15 minutes</DESCRIPTION>
+	</PROCENTRY>
+
+	<PROCENTRY>
+	<MENU>Kernel</MENU>
+	<SUBMENU>Linux</SUBMENU>
+	<TAB>Information</TAB>
+	<WIDGETTEXT>Kernel Locks</WIDGETTEXT>
+	<CONFIGNAME>proc/locks</CONFIGNAME>
+	<TYPE>INFOSTRING</TYPE>
+	<ELEMENT>-1</ELEMENT>
+	<FILE>/proc/locks</FILE>
+	<DESCRIPTION>Kernel Locks</DESCRIPTION>
+	</PROCENTRY>
+
+	<PROCENTRY>
+	<MENU>Kernel</MENU>
+	<SUBMENU>Linux</SUBMENU>
+	<TAB>Information</TAB>
+	<WIDGETTEXT>MemInfo</WIDGETTEXT>
+	<CONFIGNAME>proc/meminfo</CONFIGNAME>
+	<TYPE>INFOSTRING</TYPE>
+	<ELEMENT>-1</ELEMENT>
+	<FILE>/proc/meminfo</FILE>
+	<DESCRIPTION>Provides information about distribution and utilization of memory.  This varies by architecture and compile options.  The following is from a 16GB PIII, which has highmem enabled.  You may not have all of these fields.    MemTotal: Total usable ram (i.e. physical ram minus a few reserved bits and the kernel binary code) MemFree: The sum of LowFree+HighFree Buffers: Relatively temporary storage for raw disk blocks shouldn't get tremendously large (20MB or so) Cached: in-memory cache for files read from the disk (the pagecache).  Doesn't include SwapCached SwapCached: Memory that once was swapped out, is swapped back in but still also is in the swapfile (if memory is needed it doesn't need to be swapped out AGAIN because it is already in the swapfile. This saves I/O) Active: Memory that has been used more recently and usually not reclaimed unless absolutely necessary.  Inactive: Memory which has been less recently used.  It is more eligible to be reclaimed for other purposes HighTotal: HighFree: Highmem is all memory above ~860MB of physical memory Highmem areas are for use by userspace programs, or for the pagecache.  The kernel must use tricks to access this memory, making it slower to access than lowmem.  LowTotal: LowFree: Lowmem is memory which can be used for everything that highmem can be used for, but it is also availble for the kernel's use for its own data structures.  Among many other things, it is where everything from the Slab is allocated.  Bad things happen when you're out of lowmem.  SwapTotal: total amount of swap space available SwapFree: Memory which has been evicted from RAM, and is temporarily on the disk Dirty: Memory which is waiting to get written back to the disk Writeback: Memory which is actively being written back to the disk Mapped: files which have been mmaped, such as libraries Slab: in-kernel data structures cache Committed_AS: An estimate of how much RAM you would need to make a 99.99% guarantee that there never is OOM (out of memory) for this workload. Normally the kernel will overcommit memory. That means, say you do a 1GB malloc, nothing happens, really. Only when you start USING that malloc memory you will get real memory on demand, and just as much as you use. So you sort of take a mortgage and hope the bank doesn't go bust. Other cases might include when you mmap a file that's shared only when you write to it and you get a private copy of that data. While it normally is shared between processes. The Committed_AS is a guesstimate of how much RAM/swap you would need worst-case.  PageTables: amount of memory dedicated to the lowest level of page tables.  ReverseMaps: number of reverse mappings performed VmallocTotal: total size of vmalloc memory area VmallocUsed: amount of vmalloc area which is used VmallocChunk: largest contigious block of vmalloc area which is free More detailed  information  can  be  found  in  the  controller  specific subdirectories. These  are  named  ide0,  ide1  and  so  on.  Each  of  these directories contains the files shown in table 1-4.</DESCRIPTION>
+	</PROCENTRY>
+
+	<PROCENTRY>
+	<MENU>Kernel</MENU>
+	<SUBMENU>Linux</SUBMENU>
+	<TAB>Information</TAB>
+	<WIDGETTEXT>Miscellaneous</WIDGETTEXT>
+	<CONFIGNAME>proc/misc</CONFIGNAME>
+	<TYPE>INFOSTRING</TYPE>
+	<ELEMENT>-1</ELEMENT>
+	<FILE>/proc/misc</FILE>
+	<DESCRIPTION>Miscellaneous</DESCRIPTION>
+	</PROCENTRY>
+
+	<PROCENTRY>
+	<MENU>Kernel</MENU>
+	<SUBMENU>Linux</SUBMENU>
+	<TAB>Information</TAB>
+	<WIDGETTEXT>Loaded Modules</WIDGETTEXT>
+	<CONFIGNAME>proc/modules</CONFIGNAME>
+	<TYPE>INFOSTRING</TYPE>
+	<ELEMENT>-1</ELEMENT>
+	<FILE>/proc/modules</FILE>
+	<DESCRIPTION>List of loaded modules</DESCRIPTION>
+	</PROCENTRY>
+
+	<PROCENTRY>
+	<MENU>Kernel</MENU>
+	<SUBMENU>Linux</SUBMENU>
+	<TAB>Information</TAB>
+	<WIDGETTEXT>Mounted Filesystems</WIDGETTEXT>
+	<CONFIGNAME>proc/mounts</CONFIGNAME>
+	<TYPE>INFOSTRING</TYPE>
+	<ELEMENT>-1</ELEMENT>
+	<FILE>/proc/mounts</FILE>
+	<DESCRIPTION>Mounted Filesystems</DESCRIPTION>
+	</PROCENTRY>
+
+	<PROCENTRY>
+	<MENU>Kernel</MENU>
+	<SUBMENU>Linux</SUBMENU>
+	<TAB>Information</TAB>
+	<WIDGETTEXT>mtrr</WIDGETTEXT>
+	<CONFIGNAME>proc/mtrr</CONFIGNAME>
+	<TYPE>INFOSTRING</TYPE>
+	<ELEMENT>-1</ELEMENT>
+	<FILE>/proc/mtrr</FILE>
+	<DESCRIPTION>mttr</DESCRIPTION>
+	</PROCENTRY>
+
+	<PROCENTRY>
+	<MENU>Kernel</MENU>
+	<SUBMENU>Linux</SUBMENU>
+	<TAB>Information</TAB>
+	<WIDGETTEXT>Partitions</WIDGETTEXT>
+	<CONFIGNAME>proc/partitions</CONFIGNAME>
+	<TYPE>INFOSTRING</TYPE>
+	<ELEMENT>-1</ELEMENT>
+	<FILE>/proc/partitions</FILE>
+	<DESCRIPTION>Table of partitions known to the system</DESCRIPTION>
+	</PROCENTRY>
+
+	<PROCENTRY>
+	<MENU>Kernel</MENU>
+	<SUBMENU>Linux</SUBMENU>
+	<TAB>Information</TAB>
+	<WIDGETTEXT>Slabinfo</WIDGETTEXT>
+	<CONFIGNAME>proc/slabinfo</CONFIGNAME>
+	<TYPE>INFOSTRING</TYPE>
+	<ELEMENT>-1</ELEMENT>
+	<FILE>/proc/slabinfo</FILE>
+	<DESCRIPTION>The slabinfo  file  gives  information  about  memory usage at the slab level.  Linux uses  slab  pools for memory management above page level in version 2.2.  Commonly used  objects  have  their  own  slab  pool (such as network buffers, directory cache, and so on).</DESCRIPTION>
+	</PROCENTRY>
+
+	<PROCENTRY>
+	<MENU>Kernel</MENU>
+	<SUBMENU>Linux</SUBMENU>
+	<TAB>Information</TAB>
+	<WIDGETTEXT>Overall Statistics</WIDGETTEXT>
+	<CONFIGNAME>proc/stat</CONFIGNAME>
+	<TYPE>INFOSTRING</TYPE>
+	<ELEMENT>-1</ELEMENT>
+	<FILE>/proc/stat</FILE>
+	<DESCRIPTION>Overall statistics</DESCRIPTION>
+	</PROCENTRY>
+
+	<PROCENTRY>
+	<MENU>Kernel</MENU>
+	<SUBMENU>Linux</SUBMENU>
+	<TAB>Information</TAB>
+	<WIDGETTEXT>swaps</WIDGETTEXT>
+	<CONFIGNAME>proc/swaps</CONFIGNAME>
+	<TYPE>INFOSTRING</TYPE>
+	<ELEMENT>-1</ELEMENT>
+	<FILE>/proc/swaps</FILE>
+	<DESCRIPTION>Swap space utilization</DESCRIPTION>
+	</PROCENTRY>
+
+	<PROCENTRY>
+	<MENU>Kernel</MENU>
+	<SUBMENU>Linux</SUBMENU>
+	<TAB>Information</TAB>
+	<WIDGETTEXT>Uptime</WIDGETTEXT>
+	<CONFIGNAME>proc/uptime</CONFIGNAME>
+	<TYPE>INFOSTRING</TYPE>
+	<ELEMENT>-1</ELEMENT>
+	<FILE>/proc/uptime</FILE>
+	<DESCRIPTION>System Uptime</DESCRIPTION>
+	</PROCENTRY>
+
+	<PROCENTRY>
+	<MENU>Kernel</MENU>
+	<SUBMENU>Information</SUBMENU>
+	<TAB>Information</TAB>
+	<WIDGETTEXT>Kernel Version</WIDGETTEXT>
+	<CONFIGNAME>proc/version</CONFIGNAME>
+	<TYPE>INFOSTRING</TYPE>
+	<ELEMENT>-1</ELEMENT>
+	<FILE>/proc/version</FILE>
+	<DESCRIPTION>Kernel version</DESCRIPTION>
+	</PROCENTRY>
+
+	<PROCENTRY>
+	<MENU>Kernel</MENU>
+	<SUBMENU>Linux</SUBMENU>
+	<TAB>Information</TAB>
+	<WIDGETTEXT>vmstat</WIDGETTEXT>
+	<CONFIGNAME>proc/vmstat</CONFIGNAME>
+	<TYPE>INFOSTRING</TYPE>
+	<ELEMENT>-1</ELEMENT>
+	<FILE>/proc/vmstat</FILE>
+	<DESCRIPTION>vmstat</DESCRIPTION>
+	</PROCENTRY>
+</PROCENTRIES>

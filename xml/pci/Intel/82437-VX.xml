@@ -1,0 +1,76 @@
+<?xml version = "1.0" encoding ="UTF-8" standalone = "no"?>
+<!DOCTYPE DEVICE SYSTEM "../pci.dtd">
+<DEVICE vendor="0x8086" id="0x7030">
+	<REGISTER base="0x4f" bit="3">
+	<TYPE>Checkbox</TYPE>
+	<WIDGETTEXT>CPU Priority</WIDGETTEXT>
+	<DESCRIPTION>Enabling this tweak gives the CPU the PCI bus after
+two PCI slots as opposed to after three slots.</DESCRIPTION>
+	<CONFIGNAME>CPU_PRIORITY</CONFIGNAME>
+	</REGISTER>
+
+	<REGISTER base="0x50" bit="3">
+	<TYPE>Checkbox</TYPE>
+	<WIDGETTEXT>PCI concurrency</WIDGETTEXT>
+	<DESCRIPTION>Enable this to allow CPU to access DRAM and L2 cache
+while a non-PIIX3 PCI master is targeting peer devices.</DESCRIPTION>
+	<CONFIGNAME>PCI_CONCURRENCY</CONFIGNAME>
+	</REGISTER>
+
+	<REGISTER base="0x52">
+	<BITMASK>00000011</BITMASK>
+	<ONBITS> 00000001</ONBITS>
+	<OFFBITS>00000000</OFFBITS>
+	<TYPE>Checkbox</TYPE>
+	<WIDGETTEXT>First level cache enable</WIDGETTEXT>
+	<DESCRIPTION>This enables the level 1 cache.</DESCRIPTION>
+	<CONFIGNAME>L1_CACHE</CONFIGNAME>
+	</REGISTER>
+
+	<REGISTER base="0x53">
+	<BITMASK>00011111</BITMASK>
+	<TYPE>Slider</TYPE>
+	<LOW>4</LOW>
+	<HIGH>31</HIGH>
+	<WIDGETTEXT>DRAM Cache refresh timer.</WIDGETTEXT>
+	<DESCRIPTION>Sets the refresh rate of the DRAM cache</DESCRIPTION>
+	<CONFIGNAME>DRAM_CACHE_REFRESH_TIMER</CONFIGNAME>
+	</REGISTER>
+
+	<REGISTER base="0x55">
+	<BITMASK>00011000</BITMASK>
+	<ONBITS> 00011000</ONBITS>
+	<OFFBITS>00000000</OFFBITS>
+	<TYPE>Checkbox</TYPE>
+	<WIDGETTEXT>Fast RAM timings.</WIDGETTEXT>
+	<DESCRIPTION>Enable this to set CAS# latency to 2 cycles as
+opposed to 3 cycles. Also controls the RAS# precharge, RAS# active
+to precharge time, and Refresh to RAS# active delay. Enabled=3,4,7
+as opposed to 3,5,8.</DESCRIPTION>
+	<CONFIGNAME>FAST_RAM_TIMINGS</CONFIGNAME>
+	</REGISTER>
+
+	<REGISTER base="0x56" bit="6">
+	<TYPE>Checkbox</TYPE>
+	<WIDGETTEXT>Refresh RAS# assertion</WIDGETTEXT>
+	<DESCRIPTION>Enabled=5 clocks, disabled=4 clocks</DESCRIPTION>
+	<CONFIGNAME>REFRESH_RAS_ASSERTION</CONFIGNAME>
+	</REGISTER>
+
+	<REGISTER base="0x58" bit="7">
+	<TYPE>Checkbox</TYPE>
+	<WIDGETTEXT>Fast MA to RAS# delay</WIDGETTEXT>
+	<DESCRIPTION>Enabled=1 clock, Disabled=2 clocks.</DESCRIPTION>
+	<CONFIGNAME>FAST_MA_TO_RAS_DELAY</CONFIGNAME>
+	</REGISTER>
+
+	<REGISTER base="0x58" bit="2">
+	<TYPE>Checkbox</TYPE>
+	<WIDGETTEXT>Fast RAS to CAS delay</WIDGETTEXT>
+	<DESCRIPTION>Enabled=2 clock, Disabled=3 clocks.
+The slower timing may be required to support system designs with
+longer trace lengths or slower memories.</DESCRIPTION>
+	<CONFIGNAME>FAST_MA_TO_RAS_DELAY</CONFIGNAME>
+	</REGISTER>
+
+</DEVICE>

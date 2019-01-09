@@ -1,0 +1,60 @@
+<?xml version = "1.0" encoding ="UTF-8" standalone = "no"?>
+<!DOCTYPE PROCENTRIES SYSTEM "proc.dtd">
+<PROCENTRIES>
+
+<!-- Virtual Memory / bdflush -->
+	<PROCENTRY>
+	<MENU>Virtual Memory</MENU>
+	<SUBMENU>bdflush</SUBMENU>
+	<TAB>bdflush</TAB>
+	<WIDGETTEXT>Dirty Ration</WIDGETTEXT>
+	<CONFIGNAME>vm/dirty_ratio:0</CONFIGNAME>
+	<TYPE>Spinbutton</TYPE>
+	<LOW>0</LOW>
+	<HIGH>100</HIGH>
+	<ELEMENT>0</ELEMENT>
+	<FILE>/proc/sys/vm/dirty_ratio</FILE>
+	<DESCRIPTION>Contains, as a percentage of total system memory, the number of pages at which a process which is generating disk writes will itself start writing out dirty data.  </DESCRIPTION>
+	</PROCENTRY>
+
+	<PROCENTRY>
+	<MENU>Virtual Memory</MENU>
+	<SUBMENU>bdflush</SUBMENU>
+	<TAB>bdflush</TAB>
+	<WIDGETTEXT>Dirty Writeback Centisecs</WIDGETTEXT>
+	<CONFIGNAME>vm/dirty_writeback_centisecs:0</CONFIGNAME>
+	<TYPE>Spinbutton</TYPE>
+	<LOW>50</LOW>
+	<HIGH>10000000</HIGH>
+	<ELEMENT>0</ELEMENT>
+	<FILE>/proc/sys/vm/dirty_writeback_centisecs</FILE>
+	<DESCRIPTION>The pdflush writeback daemons will periodically wake up and write `old' data out to disk.  This tunable expresses the interval between those wakeups, in 100'ths of a second.  </DESCRIPTION>
+	</PROCENTRY>
+
+	<PROCENTRY>
+	<MENU>Virtual Memory</MENU>
+	<SUBMENU>bdflush</SUBMENU>
+	<TAB>bdflush</TAB>
+	<WIDGETTEXT>Dirty Expire Centisecs</WIDGETTEXT>
+	<CONFIGNAME>vm/dirty_expire_centisecs:0</CONFIGNAME>
+	<TYPE>Spinbutton</TYPE>
+	<LOW>10</LOW>
+	<HIGH>10000000</HIGH>
+	<ELEMENT>0</ELEMENT>
+	<FILE>/proc/sys/vm/dirty_expire_centisecs</FILE>
+	<DESCRIPTION>This tunable is used to define when dirty data is old enough to be eligible for writeout by the pdflush daemons.  It is expressed in 100'ths of a second.  Data which has been dirty in-memory for longer than this interval will be written out next time a pdflush daemon wakes up.  </DESCRIPTION>
+	</PROCENTRY>
+
+	<PROCENTRY>
+	<MENU>Kernel</MENU>
+	<SUBMENU>Logging</SUBMENU>
+	<TAB>Core</TAB>
+	<WIDGETTEXT>Core Filename Pattern</WIDGETTEXT>
+	<CONFIGNAME>kernel/core_pattern</CONFIGNAME>
+	<TYPE>INFOSTRING</TYPE>
+	<ELEMENT>-1</ELEMENT>
+	<FILE>/proc/sys/kernel/core_pattern</FILE>
+	<DESCRIPTION>- 2.5 offers you the ability to configure the way core files are named through a /proc/sys/kernel/core_pattern file.  You can use various format identifiers in this name to affect how the core dump is named.  %p - insert pid into filename %u - insert current uid into filename %g - insert current gid into filename %s - insert signal that caused the coredump into the filename %t - insert UNIX time that the coredump occurred into filename %h - insert hostname where the coredump happened into filename %e - insert coredumping executable name into filename You should ensure that the string does not exceed 64 bytes.  - Threaded coredumps is now supported.</DESCRIPTION>
+	</PROCENTRY>
+
+</PROCENTRIES>

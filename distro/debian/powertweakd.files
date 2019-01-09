@@ -1,0 +1,7 @@
+usr/share/powertweak
+usr/sbin
+usr/lib/powertweak/plugins/core/libpcilib.so*
+usr/lib/powertweak/plugins/libevatortweaks.so*
+usr/lib/powertweak/plugins/libproctweaks.so*
+usr/lib/powertweak/plugins/libprocshm.so*
+etc

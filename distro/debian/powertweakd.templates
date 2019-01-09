@@ -1,0 +1,17 @@
+Template: powertweak/creating_device_files
+Type: note
+_Description: Creating CPU access device files
+ Some features of powertweak require access to the kernel CPU ID and
+ machine status register devices.  If these devices do not exist then they
+ will be created for you.
+
+Template: powertweak/daemon_config
+Type: note
+_Description: Powertweak daemon can be disabled with /etc/default/powertweakd
+ By default the powertweak daemon is run at system startup.  This behaviour
+ may now be disabled by editing /etc/default/powertweakd.
+ .
+ When the daemon is running tweaks are performed using it and can be saved
+ and reapplied whenever the system is restarted.  Otherwise the tweaks are
+ performed directly by the front end and can not be automatically reapplied
+ when the computer is restarted.

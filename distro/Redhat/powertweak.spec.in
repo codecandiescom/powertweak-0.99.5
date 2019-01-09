@@ -1,0 +1,316 @@
+Name:		@PACKAGE@
+Version:	@VERSION@
+Release:	1
+Epoch:		9
+Packager:	Dave Jones <davej@suse.de>
+Distribution:	Red Hat Contrib|Net
+Summary:	Powertweak - Tune system to optimal performance.
+Copyright:	GPL
+Group:		Applications/System
+URL:		http://powertweak.sourceforge.net/
+Source: 	http://powertweak.sourceforge.net/files/%{name}-%{version}.tar.bz2
+ExclusiveOS:	Linux
+BuildRoot:	%{_tmppath}/%{name}-%{version}
+Requires:	libxml >= 1.8.8 
+BuildPreReq:	pciutils, libxml, ncurses-devel, libxml-devel
+%ifnarch s390 s390x
+BuildPreReq:	gpm-devel
+%endif
+PreReq:		libxml chkconfig 
+Prefix: 	%{_prefix}
+Icon:		powertweak.xpm
+
+%description
+Powertweak is a utility for tweaking your Linux system to peak performance.
+It can tune many parts of your system. Tunes PCI devices to use optimal
+settings. Enables performance enhancing features of the CPU(s).
+
+%package gtk
+Summary: 	Powertweak GTK userinterface
+Group:		Applications/System
+Requires:	powertweak
+Obsoletes:	powertweak-config-X11
+
+%description gtk
+This is the GTK version of the Powertweak userinterface. 
+
+%package text
+Summary: 	Powertweak textmode userinterface
+Group:		Applications/System
+Requires:	powertweak
+Obsoletes:	powertweak-config
+
+%description text
+This is the text version of the Powertweak userinterface. 
+
+
+%package extra
+Summary: 	Powertweak extra plugins
+Group:		Applications/System
+PreReq:		pciutils
+Requires:	pciutils >= 2.1.0 powertweak
+%description extra
+This package adds the tuning of PCI devices and of your CPU to
+your existing Powertweak installation.
+
+%post extra
+service powertweakd restart
+
+%prep
+%setup -q
+
+%build
+%configure
+make
+
+%install
+[ "$RPM_BUILD_ROOT" != "/" ] && rm -rf $RPM_BUILD_ROOT;
+mkdir -p $RPM_BUILD_ROOT%{_mandir}/man8
+
+make DESTDIR=$RPM_BUILD_ROOT install
+
+mkdir -p $RPM_BUILD_ROOT/etc/rc.d/init.d
+install -m 755 distro/Redhat/powertweakd.init \
+	$RPM_BUILD_ROOT/etc/rc.d/init.d/powertweakd
+
+
+mkdir -p $RPM_BUILD_ROOT/etc/powertweak
+touch $RPM_BUILD_ROOT/etc/powertweak/tweaks
+
+mkdir -p $RPM_BUILD_ROOT/etc/X11/applnk/System
+install -c -m 0644 distro/Redhat/powertweak.desktop \
+	$RPM_BUILD_ROOT/etc/X11/applnk/System
+
+find Documentation -name CVS -type d | xargs rm -rf
+
+rm -f $RPM_BUILD_ROOT/usr/lib/powertweak/plugins/*.a
+rm -f $RPM_BUILD_ROOT/usr/lib/powertweak/plugins/*.la
+rm -f $RPM_BUILD_ROOT/usr/lib/powertweak/plugins/*.so.0
+
+find $RPM_BUILD_ROOT/usr/lib/powertweak/plugins -type f -name \*.so.\* | \
+	xargs strip --strip-unneeded
+
+%clean
+[ "$RPM_BUILD_ROOT" != "/" ] && rm -rf $RPM_BUILD_ROOT;
+
+%post
+/sbin/chkconfig --add powertweakd
+/sbin/service powertweakd start
+
+%preun
+/sbin/service powertweakd stop
+/sbin/chkconfig --del powertweakd
+
+
+%files
+%defattr(-,root,root)
+%doc Documentation/FAQ Documentation/Sponser.txt Documentation/support.txt AUTHORS ChangeLog COPYING INSTALL NEWS README TODO FAQ
+%{prefix}/sbin/powertweakd
+%{prefix}/lib/powertweak/plugins/*proc*
+%{prefix}/share/powertweak/proc
+%{prefix}/share/powertweak/profile
+%config(noreplace) /etc/rc.d/init.d/powertweakd
+#%config(noreplace) /etc/logrotate.d/powertweak
+%config(noreplace) /etc/powertweak/tweaks
+
+%files gtk
+%defattr(-,root,root)
+%{prefix}/bin/gpowertweak
+%config(noreplace) /etc/X11/applnk/System/powertweak.desktop
+
+%files text
+%defattr(-,root,root)
+%{prefix}/bin/powertweak
+
+%files extra
+%defattr(-,root,root)
+%{prefix}/lib/powertweak/plugins/*pci*
+%ifarch i386 i486 i586 i686
+%{prefix}/lib/powertweak/plugins/*cpu*
+%endif
+%{prefix}/lib/powertweak/plugins/*elevator*
+%{prefix}/lib/powertweak/plugins/*hdparm*
+%{prefix}/share/powertweak/pci
+%{prefix}/share/powertweak/CPU
+
+
+
+%changelog
+* Mon May 21 2001 Dave Jones <davej@suse.de>
+- Remove sysctlconfig. gpowertweak does everything it ever did.
+
+* Tue Dec 19 2000 Bernhard Rosenkraenzer <bero@redhat.com>
+- Adapt to Red Hat packaging standards
+- Fix build on non-x86
+
+* Mon Dec 18 2000 Arjan van de Ven <arjan@fenrus.demon.nl>
+  [0.99.0]
+- updates for the new uis etc.
+- split output into multiple rpms
+
+* Sat Oct 28 2000 D.Johnson <dj@norse.dyndns.org>
+  [0.99.0]
+- rewrote .spec file for rh7 and added init script
+- removed "extra" files only needed by automake
+- minor additions to .spec file to make rpmlint happier
+
+* Tue Oct  2 2000 Ryan Weaver <ryanw@infohwy.com>
+  [powertweak-0.1.17-1]
+- Someone found a nasty bug in 0.1.16 where changing from a
+  2.4 kernel back to a 2.2 kernel meant the system died when
+  Powertweak was run.
+- This tree is no longer actively developed.
+  If you want new features check out the CVS tree, or wait
+  until the new release sometime _really_ soon now.
+
+* Thu Aug 31 2000 Ryan Weaver <ryanw@infohwy.com>
+  [powertweak-0.1.16-2]
+- Added a missing file to file list. Thanks go to
+  Agustin Navarro <anp@cantv.net> for reporting this to me.
+
+* Tue Jun  6 2000 Ryan Weaver <ryanw@infohwy.com>
+  [powertweak-0.1.16-1]
+- Installer missed out procentry.xml which was quite important..
+- Improvements in procentry.xml
+  Updated descriptions.
+  Fixed typos.
+  Increased tweak ranges.
+- Updated RPM specs.  [Ryan Weaver]
+- Minor makefile improvements.
+- Removed some crufty leftovers from the archive.
+
+* Mon May 22 2000 Ryan Weaver <ryanw@infohwy.com>
+- Submitted patch to author to fix included spec file in source.
+- Removed /usr/share/powertweak and /var/log/powertweak because they
+  are not used.
+- Now installing gpowertweak.man and powertweakconfig.man. (debian dir)
+- Now installing logrotate config file for /var/log/powertweak.log (debian dir)
+
+  [powertweak-0.1.15-1]
+- The PCI tuning now works again.
+- Added workaround for gcc bug.
+- Fixed problem with tweaks that wanted bits set to 0.
+- Inconsistencies in VIA VP3 tweak definitions fixed.
+- 'Kernel' & token-ring /proc tuning options [Alan Cox]
+- CDROM tweaking now works.
+- Annoying 'saving' debugging printf disabled.
+- Added RPM specs. [Ryan Weaver]
+- autoconf/automake cleanups. [Caolan McNamara, Arjan, myself]
+
+* Fri May 19 2000 Ryan Weaver <ryanw@infohwy.com>
+  [powertweak-0.1.14-1]
+- proc pages of the GTK GUI are now generated using XML.  [Arjan Van de Ven]
+- A new /proc pane for CDROM tweaking [Arjan Van de Ven & Jens Axboe]
+- Possibility to read config file from alternative location [Nicholas Dronen]
+- AMD 751 support.  [Juan J. Quintela]
+- CPU detection now detects Celerons properly, and Cyrix III.
+- Removal of pci.ids. If you want to use the PCI stuff, you _must_
+  have a recent version of PCI Utilities installed.
+- Note, that with this release, you now NEED the following..
+  PCI Utilities (At least version 2.1.0)
+  LibXML (At least version 1.8.0)
+
+* Mon May 15 2000 Ryan Weaver <ryanw@infohwy.com>
+  [powertweak-0.1.13-1]
+- Two fixes to /proc/sys/vm/ tuning
+- One minor fix to the GTK GUI.
+
+* Tue Apr 12 2000 Ryan Weaver <ryanw@infohwy.com>
+  [powertweak-0.1.12-1]
+- Memory management tweaking now added.
+- Before now, it was possible that not all the buttons were displayed
+  in the Filesystem & Network tabs. [Nicholas Dronen]
+- GUI now resizes properly. [Arjen van de Ven]
+
+* Mon Mar 27 2000 Ryan Weaver <ryanw@infohwy.com>
+  [powertweak-0.1.11-1]
+- Fixed an ugly bug where gPowertweak created config files
+  that would cause the computer not to boot anymore!
+- Added workaround for an egcs bug.
+  Just when I thought it was safe to use a 'safe' compiler,
+  I'm proven wrong, and have to compile tune.c with -O0
+- Versioning works again.
+- No longer complains when it finds an empty config file.
+  This is on request from the Debian maintainer.
+- When a tweak isn't found in the config file, it now skips
+  to the next tweak. Before it skipped the rest of the device.
+- Some small cleanups in the Matrox extended info code.
+- Other small fixes..
+
+* Mon Mar 13 2000 Ryan Weaver <ryanw@infohwy.com>
+  [powertweak-0.1.10-1]
+- The code base restructure is now almost complete.
+  No more #including of .c files. Every part of the code now
+  uses Makefiles which makes development a lot easier.
+  v0.1.11 will probably feature the autoconfing I've been promising
+  for way too long.
+- The textmode GUI is starting to take shape, and is almost in a
+  state where I'm happy to call it 'usable'. There are still many
+  bugs in this, and lots of stuff left to code. Hopefully we'll
+  start getting this usable in the next few revisions.
+
+* Mon Mar  6 2000 Ryan Weaver <ryanw@infohwy.com>
+  [powertweak-0.1.9-1]
+- Major restructuring of the codebase.
+  Some extra makefiles added, and lots of code moved around
+  to new directories. All code now lives in a src directory.
+- Textmode ncurses GUI.
+  Incomplete, and totally usable but there's a primitive codebase.
+  Segfaults everywhere. If you can help debug this, I'd be happy.
+  So, feel free to join in the hacking on this, as we race to
+  complete it before Linus releases kernel 2.4.0 !
+
+* Mon Feb 28 2000 Ryan Weaver <ryanw@infohwy.com>
+  [powertweak-0.1.8-1]
+- More GUI changes.
+  The old menus got moved into a 'hardware' menu.
+  Added several new menus to the tree.
+- Extended the /proc/sys tuning code lots.
+  - Can now save /proc/sys tweaks.
+  - Many new /proc/sys tweaks added.
+- Improved Matrox support.
+  - Extended info changed to support all other Matrox cards.
+  - Now uses mmap instead of reading a chunk of /dev/mem into
+    an internal buffer.
+
+  [powertweak-0.1.7-1]
+- Huge changes in the GUI code.
+  - Increased functionality.
+	You should now be able to generate a config file
+	using the GUI. In this release generation of
+	config entries for /proc tweaking are not enabled
+	this will be fixed in v0.1.8
+  - Lots of ugly code removed/fixed.
+  - Information on each tweak added.
+- Ability to display extended info for PCI devices.
+  Currently only Matrox G200 supported.
+- Fix for the BX problems introduced in v0.1.6
+- One more LX tweak added.
+- Two more /proc tweaks added.
+- Config file parser slightly improved.
+  Now allows tags to act as booleans, and not need =value
+- Documentation updates.
+- Source code formatting, cleaning, commenting etc..
+
+* Sun Jan 16 2000 Ryan Weaver <ryanw@infohwy.com>
+  [powertweak-0.1.6-1]
+- Extra chipset support:
+  - Intel TX tweaks extended
+  - Intel LX support added
+  - Intel BX support added
+- Tuning of entries in /proc/sys
+
+  [powertweak-0.1.5-1]
+- Now includes pci.ids
+  The new PCILIB is incompatable with old versions of pci database.
+  This means that until PCILIB becomes a dynamic library, I'll have
+  to start including it with Powertweak.
+  This is the main reason that this release came out so soon, to
+  stop people constantly mailing me to tell me about it!
+- Some more VP3/MVP3 issues resolved courtesy of Richard Pruen.
+- The GUI should now compile, and run on Alphas, Sparc's etc..
+
+* Tue Jul 20 1999 Ryan Weaver <ryanw@infohwy.com>
+  [powertweak-0.1.1-1]
+- Initial RPM Build.
+

@@ -1,0 +1,10 @@
+The following people / companies generously helped out the
+development of Powertweak with donation of hardware.
+
+ : 3dfx Inc.
+ : AMD Inc.
+ : Soyo Netherlands.
+
+Their donations are gratefully accepted, extended features
+for the hardware provided by these companies is being worked on.
+

@@ -1,0 +1,6 @@
+#
+# Start the powertweak deamon on startup?
+# You should configure it using either "gpowertweak" or "powertweak"
+# after you started it for the first time.
+#
+START_POWERTWEAKD=no

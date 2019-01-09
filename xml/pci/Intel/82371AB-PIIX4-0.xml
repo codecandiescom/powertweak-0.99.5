@@ -1,0 +1,95 @@
+<?xml version = "1.0" encoding ="UTF-8" standalone = "no"?>
+<!DOCTYPE DEVICE SYSTEM "../pci.dtd">
+<DEVICE vendor="0x8086" id="0x7110">
+
+	<REGISTER base="0x4c" bit="6">
+	<FRAME>I/O Recovery times.</FRAME>
+	<TYPE>Checkbox</TYPE>
+	<WIDGETTEXT>8 bit I/O recovery</WIDGETTEXT>
+	<DESCRIPTION>Enable this to use the recovery time defined
+in the slider below. Disable to use standard 3.5 SYSCLK recovery
+timing</DESCRIPTION>
+	<CONFIGNAME>8BIT_IO_RECOVERY</CONFIGNAME>
+	</REGISTER>
+
+	<REGISTER base="0x4c">
+	<FRAME>I/O Recovery times.</FRAME>
+	<BITMASK>00111000</BITMASK>
+	<ONBITS> 00111000</ONBITS>
+	<OFFBITS>00111000</OFFBITS>
+	<TYPE>Slider</TYPE>
+	<LOW>8</LOW>
+	<HIGH>56</HIGH>
+	<WIDGETTEXT>8 bit I/O recovery time</WIDGETTEXT>
+	<DESCRIPTION>When "8 bit I/O recovery" is enabled, this
+tweak defines the number of SYSCLKs added to the standard 3.5
+SYSCLK recovery time for 8 bit I/O
+	</DESCRIPTION>
+	<CONFIGNAME>8BIT_IO_RECOVERY_TIME</CONFIGNAME>
+	</REGISTER>
+
+	<REGISTER base="0x4c" bit="2">
+	<FRAME>I/O Recovery times.</FRAME>
+	<TYPE>Checkbox</TYPE>
+	<WIDGETTEXT>16 bit I/O recovery</WIDGETTEXT>
+	<DESCRIPTION>Enable this to use the recovery time defined
+in the slider below. Disable to use standard 3.5 SYSCLK recovery
+timing</DESCRIPTION>
+	<CONFIGNAME>16BIT_IO_RECOVERY</CONFIGNAME>
+	</REGISTER>
+
+	<REGISTER base="0x4c">
+	<FRAME>I/O Recovery times.</FRAME>
+	<BITMASK>00000011</BITMASK>
+	<ONBITS> 00000011</ONBITS>
+	<OFFBITS>00000011</OFFBITS>
+	<TYPE>Slider</TYPE>
+	<LOW>1</LOW>
+	<HIGH>3</HIGH>
+	<WIDGETTEXT>16 bit I/O recovery time</WIDGETTEXT>
+	<DESCRIPTION>When "16 bit I/O recovery" is enabled, this
+tweak defines the number of SYSCLKs added to the standard 3.5
+SYSCLK recovery time for 16 bit I/O
+	</DESCRIPTION>
+	<CONFIGNAME>16BIT_IO_RECOVERY_TIME</CONFIGNAME>
+	</REGISTER>
+
+	<REGISTER base="0x6b" bit="7">
+	<TYPE>Checkbox</TYPE>
+	<WIDGETTEXT>Host to PCI bridge retry</WIDGETTEXT>
+	<DESCRIPTION>This tweak when enabled causes PIIX4 to retry
+without initiating a delayed transaction, CPU initiated non LOCK#,
+PCI cycles. No delayed transactions to PIIX4 may currently be pending
+and passive release must be active. When disabled, PIIX4 accepts these
+cycles as normal which may include retry with initiation of a
+delayed transaction.</DESCRIPTION>
+	<CONFIGNAME>HOST_TO_PCI_RETRY</CONFIGNAME>
+	</REGISTER>
+
+	<REGISTER base="0x82" bit="2">
+	<TYPE>Checkbox</TYPE>
+	<WIDGETTEXT>USB Passive release</WIDGETTEXT>
+	<DESCRIPTION>When enabled, this allows PIIX4 to use passive
+release while transferring control information or data for USB
+transactions. When disabled, PIIX4 will perform PCI accesses for
+USB without using passive release.</DESCRIPTION>
+	<CONFIGNAME>USB_PASSIVE_RELEASE</CONFIGNAME>
+	</REGISTER>
+
+	<REGISTER base="0x82" bit="1">
+	<TYPE>Checkbox</TYPE>
+	<WIDGETTEXT>Passive release</WIDGETTEXT>
+	<DESCRIPTION>Enables the passive release mechanism when PIIX4
+is a PCI master.</DESCRIPTION>
+	<CONFIGNAME>PASSIVE_RELEASE</CONFIGNAME>
+	</REGISTER>
+
+	<REGISTER base="0x82" bit="0">
+	<TYPE>Checkbox</TYPE>
+	<WIDGETTEXT>Delayed transaction.</WIDGETTEXT>
+	<DESCRIPTION>Enables the delayed transaction mechanism when PIIX4
+is the target of a PCI transaction</DESCRIPTION>
+	<CONFIGNAME>DELAYED_TRANSACTION</CONFIGNAME>
+	</REGISTER>
+
+</DEVICE>

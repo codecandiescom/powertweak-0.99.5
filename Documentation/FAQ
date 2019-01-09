@@ -1,0 +1,86 @@
+Daemon.
+~~~~~~~
+  Why a daemon?
+  - Initially to reduce the amount of code duplication.
+  - Features are planned where the daemon will be able to
+    continually monitor events, and adjust accordingly.
+  - You don't have to run Powertweak as a daemon.
+    Place "powertweakd --no-daemon" in your startup, and it'll work just
+	as version 0.1.17 did. Note, that in this release there is no difference
+	in functionality. Later versions will feature extended functionality when
+	run in daemon mode.
+
+CPU Backend
+~~~~~~~~~~~
+  Why doesn't the CPU backend show any tweaks when I click its tab ?
+
+  - You don't have the MSR driver loaded.
+    For this you'll need to be running at least kernel version
+    2.2.18pre or 2.4.0test
+  - If you're using a vendor supplied kernel, it's likely these
+    are built as modules. You need to do the following commands..
+       modprobe cpuid
+	   modprobe msr
+  - There isn't anything possible to be tuned on your CPU.
+  - Some CPUs (notably Cyrix) have their registers accessed in a
+    different way, support for this will be added at a later time.
+  - Your CPU is currently unsupported.
+    Most notable here is AMD Athlon. The register level information
+    for this is only available under NDA. Until it gets released to
+    the public, this will remain unsupported.
+    If you have docs for a CPU we don't support, write an XML spec
+    for it and send them to powertweak-linux@lists.sourceforge.net
+
+  Why do I need /dev/cpu/?/msr ?
+  - rdmsr and wrmsr are priveledged ring 0 instructions which can
+    only be executed in kernel space.
+
+  Why do I need /dev/cpu/?/cpuid ?
+  - There is no way to schedule instructions to individual CPUs
+    in userspace. If this driver is missing, Powertweak will fall
+	back to single CPU mode and issue cpuid instructions itself.
+
+  Whats the problem with devfs ?
+  - The cpuid & msr drivers are currently not devfs aware.
+    Some vendor kernels may have extra patches to make them safe,
+	but as these are not merged into the mainstream kernel,
+	usage of devfs is discouraged.
+
+PCI backend.
+~~~~~~~~~~~~
+  Why don't I get a 'tweaks' tab in the PCI backend ?
+  - Your PCI devices are probably unsupported by Powertweak.
+    Grab the datasheets for them, write XML descriptions and
+    send them to powertweak-linux@lists.sourceforge.net
+
+
+Elevator backend.
+~~~~~~~~~~~~~~~~~
+  Why doesn't device XXX show up ?
+  - It's a removable media device, and there was nothing
+    in the drive at the time it was scanned.
+
+
+IDE backend.
+~~~~~~~~~~~~
+  I see strange messages in my logs like..
+    kernel: hde: drive_cmd: status=0x51 { DriveReady SeekComplete Error }
+    kernel: hde: drive_cmd: error=0x04 { DriveStatusError }
+  When I start up the daemon/UI, whats wrong with my hard disk ?
+  - Some hard drives (notably IBM ones) don't like being asked
+    "Are you SMART capable", and spit out these 'error' messages as
+	a result. They're harmless and should just be ignored.
+
+
+Profiles.
+~~~~~~~~~
+  What is a GUI profile ?
+  - An XML file filled with settings for a 'role' your computer may play.
+    Examples : "Router" "Webserver". These files adjust the settings in
+	the GUI to optimal.
+
+  What is an autoloaded profile ?
+  - This is an XML file containing desired settings for an application.
+    An example, an application can install a profile suggesting it would
+	like XXX setting to be at least n.
+

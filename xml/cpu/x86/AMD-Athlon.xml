@@ -1,0 +1,14 @@
+<?xml version = "1.0" encoding ="UTF-8" standalone = "no"?>
+<!DOCTYPE MSRENTRY SYSTEM "x86.dtd">
+
+<!-- MSR's on the AMD Athlon/Duron (Morgan/Palomino core) -->
+
+<MSRENTRY>
+	<MSR register="0xC0010015" bit="15">
+		<WIDGETTEXT>SSE detection enable</WIDGETTEXT>
+		<CONFIGNAME>MSR_AMD_ATHLON_SSE</CONFIGNAME>
+		<TYPE>Checkbox</TYPE>
+		<DESCRIPTION>Setting this enables detection of 'SSE Capability'
+in the cpuid instruction results.</DESCRIPTION>
+	</MSR>
+</MSRENTRY>

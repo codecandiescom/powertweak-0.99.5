@@ -1,0 +1,13 @@
+<?xml version = "1.0" encoding ="UTF-8" standalone = "no"?>
+<!DOCTYPE DEVICE SYSTEM "../pci.dtd">
+<DEVICE vendor="0x8086" id="0x1237">
+
+	<REGISTER base="0x53" bit="1">
+	<TYPE>Checkbox</TYPE>
+	<WIDGETTEXT>CPU to PCI Write Combining</WIDGETTEXT>
+	<DESCRIPTION>When enabled, back-to-back sequential CPU to PCI 
+writes can be combined into a single burst.</DESCRIPTION>
+	<CONFIGNAME>PCI_WRITECOMB</CONFIGNAME>
+	</REGISTER>
+
+</DEVICE>

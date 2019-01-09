@@ -1,0 +1,10 @@
+#!/bin/sh
+
+set -e
+
+# The daemon needs some help detecting changes in avaliable modules.
+if [ "$1" = "remove" -a -f /var/run/powertweakd.pid ]; then
+	/etc/init.d/powertweakd restart
+fi
+
+#DEBHELPER#

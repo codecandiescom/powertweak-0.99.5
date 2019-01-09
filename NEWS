@@ -1,0 +1,18 @@
+v0.99.5 [Release 22. -- The 'long in the tooth' release ]
+
+- Architectural changes:
+	- Core plugins.
+	  Plugins can now be written to have dependancies on others
+	  that get loaded first. PCILIB converted to core.
+	- PCI backend got split up to take advantage of core.
+	- Socket communication moved to libpowertweak removing duplication.
+
+- New Features:
+	- BIOS DMI backend.
+	- Now writes status messages to /var/log/powertweak.log
+	- new simple text mode read only client (lspowertweak)
+
+- Bugfixes
+	- GTK UI tooltips now work correctly.
+	- Pentium III XML fixed.
+	- Various bulletproofing found with valgrind and similar tools.

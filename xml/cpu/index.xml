@@ -1,0 +1,45 @@
+<?xml version = "1.0" encoding ="UTF-8" standalone = "no"?>
+<!DOCTYPE CPUINDEX SYSTEM "cpuindex.dtd">
+<CPUINDEX>
+
+	<CPU file="x86/AMD-Athlon.xml" vendor="AuthenticAMD">
+		<CPUENTRY family="6" model="6" />
+		<CPUENTRY family="6" model="7" />
+	</CPU>
+
+	<CPU file="x86/AMD-K5.xml" vendor="AuthenticAMD">
+		<CPUENTRY family="5" model="1" />
+		<CPUENTRY family="5" model="2" />
+		<CPUENTRY family="5" model="3" />
+	</CPU>
+
+	<CPU file="x86/AMD-K6-2.xml" vendor="AuthenticAMD"> 
+		<CPUENTRY family="5" model="8" />
+		<CPUENTRY family="5" model="12" />
+	</CPU>
+
+	<CPU file="AMD-K6-3.xml" vendor="AuthenticAMD"> 
+		<CPUENTRY family="5" model="9" />
+	</CPU>
+
+	<CPU file="AMD-K6-3+.xml" vendor="AuthenticAMD">
+		<CPUENTRY family="5" model="13" />
+	</CPU>
+
+	<CPU file="Pentium-MMX.xml" vendor="GenuineIntel">
+		<CPUENTRY family="5" model="4" />
+	</CPU>
+
+	<CPU file="PentiumIII.xml" vendor="GenuineIntel">
+		<CPUENTRY family="6" model="7" />
+		<CPUENTRY family="6" model="8" /> <!-- PIII Coppermine -->
+		<CPUENTRY family="6" model="10" brand="2" />
+		<CPUENTRY family="6" model="10" brand="3" /> <!-- PIII Xeon -->
+		<CPUENTRY family="6" model="11" brand="2" /> <!-- PIII Tualatin -->
+	</CPU>
+
+	<CPU file="PentiumIV.xml" vendor="GenuineIntel">
+		<CPUENTRY family="15" />
+	</CPU>
+
+</CPUINDEX>

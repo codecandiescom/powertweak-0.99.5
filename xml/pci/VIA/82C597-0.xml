@@ -1,0 +1,334 @@
+<?xml version = "1.0" encoding ="UTF-8" standalone = "no"?>
+<!DOCTYPE DEVICE SYSTEM "../pci.dtd">
+<DEVICE vendor="0x1106" id="0x0597">
+
+	<REGISTER base="0x50">
+	<FRAME>Cache controller tweaks</FRAME>
+	<BITMASK>11000000</BITMASK>
+	<ONBITS> 10000000</ONBITS>
+	<OFFBITS>00000000</OFFBITS>
+	<TYPE>Checkbox</TYPE>
+	<WIDGETTEXT>Level 2 cache enable</WIDGETTEXT>
+	<DESCRIPTION>Enables level 2 cache</DESCRIPTION>
+	<CONFIGNAME>L2_CACHE</CONFIGNAME>
+	</REGISTER>
+
+	<REGISTER base="0x50" bit="5">
+	<FRAME>Cache controller tweaks</FRAME>
+	<TYPE>Checkbox</TYPE>
+	<WIDGETTEXT>Linear burst</WIDGETTEXT>
+	<DESCRIPTION>Enable linear bursting</DESCRIPTION>
+	<CONFIGNAME>LINEAR_BURST</CONFIGNAME>
+	</REGISTER>
+
+	<REGISTER base="0x51" bit="5">
+	<FRAME>Cache controller tweaks</FRAME>
+	<TYPE>Checkbox</TYPE>
+	<WIDGETTEXT>Backoff CPU</WIDGETTEXT>
+	<DESCRIPTION>Enable to backoff CPU when non-streaming access to fill
+L2 cache. This bit is only relevant if "L2 fill on single read" is enabled.
+This tweak should be set to off for optimal performance, but performance
+difference is typically not noticable at system level.</DESCRIPTION>
+	<CONFIGNAME>BACKOFF_CPU</CONFIGNAME>
+	</REGISTER>
+
+	<REGISTER base="0x52" bit="2">
+	<FRAME>Cache controller tweaks</FRAME>
+	<TYPE>Checkbox</TYPE>
+	<WIDGETTEXT>L2 fill on single read.</WIDGETTEXT>
+	<DESCRIPTION>When enabled, this tweak forces the requested data to be filled
+into the L2 cache (providing L2 cache is enabled) even if the CPU does a read cycle
+with #CACHE de-asserted. Enabling this bit significantly improves performance.</DESCRIPTION>
+	<CONFIGNAME>L2_FILL_ON_SINGLE_RD</CONFIGNAME>
+	</REGISTER>
+
+	<REGISTER base="0x53" bit="6">
+	<FRAME>Cache controller tweaks</FRAME>
+	<TYPE>Checkbox</TYPE>
+	<WIDGETTEXT>Cache read pipeline cycle</WIDGETTEXT>
+	<DESCRIPTION>Enabling this should increase performance.</DESCRIPTION>
+	<CONFIGNAME>CACHE_READ_PIPELINE</CONFIGNAME>
+	</REGISTER>
+
+	<REGISTER base="0x53" bit="5">
+	<FRAME>Cache controller tweaks</FRAME>
+	<TYPE>Checkbox</TYPE>
+	<WIDGETTEXT>Cache write pipeline cycle</WIDGETTEXT>
+	<DESCRIPTION>Enabling this should increase performance.</DESCRIPTION>
+	<CONFIGNAME>CACHE_WRITE_PIPELINE</CONFIGNAME>
+	</REGISTER>
+
+	<REGISTER base="0x53" bit="7">
+	<TYPE>Checkbox</TYPE>
+	<WIDGETTEXT>Read around Write</WIDGETTEXT>
+	<DESCRIPTION>Enables a concurrent read cycle to occur whilst a write cycle is occuring.</DESCRIPTION>
+	<CONFIGNAME>READ_AROUND_WRITE</CONFIGNAME>
+	</REGISTER>
+
+	<REGISTER base="0x53" bit="4">
+	<TYPE>Checkbox</TYPE>
+	<WIDGETTEXT>DRAM read pipeline cycle</WIDGETTEXT>
+	<DESCRIPTION>Enabling this should increase performance.</DESCRIPTION>
+	<CONFIGNAME>DRAM_READ_PIPELINE</CONFIGNAME>
+	</REGISTER>
+
+	<REGISTER base="0x6c" bit="3">
+	<TYPE>Checkbox</TYPE>
+	<WIDGETTEXT>Single RW burst stop command</WIDGETTEXT>
+	<DESCRIPTION>Enables BST command to SDRAM to allow fast single cycle pipeline.</DESCRIPTION>
+	<CONFIGNAME>SINGLE_RW_BURST_STOP</CONFIGNAME>
+	</REGISTER>
+
+	<REGISTER base="0x70" bit="7">
+	<TYPE>Checkbox</TYPE>
+	<WIDGETTEXT>CPU to PCI posted write</WIDGETTEXT>
+	<DESCRIPTION>Enables write behind semantics for CPU to PCI writes.</DESCRIPTION>
+	<CONFIGNAME>CPU_TO_PCI_POSTWRITE</CONFIGNAME>
+	</REGISTER>
+
+	<REGISTER base="0x70" bit="6">
+	<TYPE>Checkbox</TYPE>
+	<WIDGETTEXT>PCI master to DRAM post write</WIDGETTEXT>
+	<DESCRIPTION>Enables write behind semantics for busmaster to DRAM writes.</DESCRIPTION>
+	<CONFIGNAME>PCI_TO_DRAM_POSTWRITE</CONFIGNAME>
+	</REGISTER>
+
+	<REGISTER base="0x70" bit="5">
+	<TYPE>Checkbox</TYPE>
+	<WIDGETTEXT>PCI master to DRAM prefetch</WIDGETTEXT>
+	<DESCRIPTION>Enables prefetching for busmaster to DRAM reads.</DESCRIPTION>
+	<CONFIGNAME>PCI_TO_DRAM_PREFETCH</CONFIGNAME>
+	</REGISTER>
+
+	<REGISTER base="0x70" bit="0">
+	<TYPE>Checkbox</TYPE>
+	<WIDGETTEXT>Delayed transaction optimisation</WIDGETTEXT>
+	<DESCRIPTION>Enables delayed transactions.</DESCRIPTION>
+	<CONFIGNAME>DELAYED_TRANSACTIONS</CONFIGNAME>
+	</REGISTER>
+
+	<REGISTER base="0x71" bit="7">
+	<TYPE>Checkbox</TYPE>
+	<WIDGETTEXT>Dynamic PCI burst</WIDGETTEXT>
+	<DESCRIPTION>If this is enabled, every write transaction goes to the write buffer; burstable
+transactions will then burst on the PCI bus and non burstable won't.</DESCRIPTION>
+	<CONFIGNAME>DYNAMIC_PCI_BURST</CONFIGNAME>
+	</REGISTER>
+
+	<REGISTER base="0x71" bit="6">
+	<TYPE>Checkbox</TYPE>
+	<WIDGETTEXT>Byte merging</WIDGETTEXT>
+	<DESCRIPTION>Enables adjacent byte requests to be merged into single transactions.</DESCRIPTION>
+	<CONFIGNAME>BYTE_MERGING</CONFIGNAME>
+	</REGISTER>
+
+	<REGISTER base="0x71" bit="4">
+	<TYPE>Checkbox</TYPE>
+	<WIDGETTEXT>PCI I/O cycle post write</WIDGETTEXT>
+	<DESCRIPTION>Enables write-behind semantics for PCI I/O cycles.</DESCRIPTION>
+	<CONFIGNAME>PCI_IO_POSTWRITE</CONFIGNAME>
+	</REGISTER>
+
+	<REGISTER base="0x71" bit="3">
+	<TYPE>Checkbox</TYPE>
+	<WIDGETTEXT>PCI burst</WIDGETTEXT>
+	<DESCRIPTION>Enables bursting for PCI. Note that 'Dynamic PCI burst' overrides this option.</DESCRIPTION>
+	<CONFIGNAME>PCI_BURST</CONFIGNAME>
+	</REGISTER>
+
+	<REGISTER base="0x71" bit="2">
+	<TYPE>Checkbox</TYPE>
+	<WIDGETTEXT>PCI fast back-to-back write</WIDGETTEXT>
+	<DESCRIPTION>Enables fast back-to-back cycles on the PCI bus.</DESCRIPTION>
+	<CONFIGNAME>PCI_FAST_B2B_WRITE</CONFIGNAME>
+	</REGISTER>
+
+	<REGISTER base="0x71" bit="1">
+	<TYPE>Checkbox</TYPE>
+	<WIDGETTEXT>Quick frame generation</WIDGETTEXT>
+	<DESCRIPTION>Enables quicker generation of PCI frames.</DESCRIPTION>
+	<CONFIGNAME>QUICKFRAME_GENERATE</CONFIGNAME>
+	</REGISTER>
+
+	<REGISTER base="0x71" bit="0">
+	<TYPE>Checkbox</TYPE>
+	<WIDGETTEXT>One wait state PCI cycles.</WIDGETTEXT>
+	<DESCRIPTION>Enables faster PCI cycles.</DESCRIPTION>
+	<CONFIGNAME>1WS_PCI_CYCLES</CONFIGNAME>
+	</REGISTER>
+
+	<REGISTER base="0x72" bit="3">
+	<TYPE>Checkbox</TYPE>
+	<WIDGETTEXT>Clear failed data and continue.</WIDGETTEXT>
+	<DESCRIPTION>When data is posting and master (or target) abort fails,
+pop the failed data if any, and keep posting. If disabled, a flush of the
+entire post-write buffer occurs.</DESCRIPTION>
+	<CONFIGNAME>CPU_BACKOFF_RD_RETRY_FAIL</CONFIGNAME>
+	</REGISTER>
+
+	<REGISTER base="0x72" bit="2">
+	<TYPE>Checkbox</TYPE>
+	<WIDGETTEXT>CPU backoff on PCI read retry failure.</WIDGETTEXT>
+	<DESCRIPTION>Enabling this option tells the CPU to back off when reading from
+PCI and retry fails.</DESCRIPTION>
+	<CONFIGNAME>CPU_BACKOFF_RD_RETRY_FAIL</CONFIGNAME>
+	</REGISTER>
+
+	<REGISTER base="0x72" bit="1">
+	<TYPE>Checkbox</TYPE>
+	<WIDGETTEXT>Reduce 1T for FRAME# generation</WIDGETTEXT>
+	<DESCRIPTION>Enabling this option reduces the clock cycles needed for FRAME# generation.</DESCRIPTION>
+	<CONFIGNAME>REDUCE_1T_FRAME_GEN</CONFIGNAME>
+	</REGISTER>
+
+	<REGISTER base="0x72" bit="0">
+	<TYPE>Checkbox</TYPE>
+	<WIDGETTEXT>Reduce 1T for CPU Read PCI slave</WIDGETTEXT>
+	<DESCRIPTION>Enabling this option reduces the clock cycles needed to read from a non-busmaster PCI device.</DESCRIPTION>
+	<CONFIGNAME>REDUCE_1T_CPU_RD_PCI_SLAVE</CONFIGNAME>
+	</REGISTER>
+
+	<REGISTER base="0x73" bit="6">
+	<TYPE>Checkbox</TYPE>
+	<WIDGETTEXT>PCI master waitstate write</WIDGETTEXT>
+	<DESCRIPTION>Disabled= 0 waitstates. Enabled=1 waitstate.</DESCRIPTION>
+	<CONFIGNAME>PCI_MASTER_WS_WR</CONFIGNAME>
+	</REGISTER>
+
+	<REGISTER base="0x73" bit="5">
+	<TYPE>Checkbox</TYPE>
+	<WIDGETTEXT>PCI master waitstate read</WIDGETTEXT>
+	<DESCRIPTION>Disabled= 0 waitstates. Enabled=1 waitstate.</DESCRIPTION>
+	<CONFIGNAME>PCI_MASTER_WS_RD</CONFIGNAME>
+	</REGISTER>
+
+	<REGISTER base="0x74" bit="7">
+	<TYPE>Checkbox</TYPE>
+	<WIDGETTEXT>PCI read prefetch by enhance</WIDGETTEXT>
+	<DESCRIPTION>Enabling this tweak prefetches only if the enhance command occurs.
+Disabling means we always prefetch.</DESCRIPTION>
+	<CONFIGNAME>PCI_RD_PREFETCH</CONFIGNAME>
+	</REGISTER>
+
+	<REGISTER base="0x74" bit="6">
+	<TYPE>Checkbox</TYPE>
+	<WIDGETTEXT>PCI master write merge</WIDGETTEXT>
+	<DESCRIPTION>Enabling this tweak merges write requests from the PCI master.</DESCRIPTION>
+	<CONFIGNAME>PCI_MASTER_WR_MERGE</CONFIGNAME>
+	</REGISTER>
+
+
+
+
+
+
+	<REGISTER base="0x68" bit="2">
+	<FRAME>Memory controller tweaks.</FRAME>
+	<TYPE>Checkbox</TYPE>
+	<WIDGETTEXT>Burst refresh</WIDGETTEXT>
+	<DESCRIPTION>Enabling this tweak allows DRAMs to burst 4 times.</DESCRIPTION>
+	<CONFIGNAME>BURST_REFRESH</CONFIGNAME>
+	</REGISTER>
+
+	<REGISTER base="0x68" bit="1">
+	<FRAME>Memory controller tweaks.</FRAME>
+	<TYPE>Checkbox</TYPE>
+	<WIDGETTEXT>MCACHE</WIDGETTEXT>
+	<DESCRIPTION>Enables MCACHE</DESCRIPTION>
+	<CONFIGNAME>MCACHE</CONFIGNAME>
+	</REGISTER>
+
+	<REGISTER base="0x0">
+	<FRAME>Memory controller tweaks.</FRAME>
+	<TYPE>Label</TYPE>
+	<WIDGETTEXT>The following tweaks are for systems with
+EDO/Fast page memory only.</WIDGETTEXT>
+	</REGISTER>
+
+	<REGISTER base="0x68" bit="7">
+	<FRAME>Memory controller tweaks.</FRAME>
+	<TYPE>Checkbox</TYPE>
+	<WIDGETTEXT>SDRAM open page control</WIDGETTEXT>
+	<DESCRIPTION>Enable to allow SDRAM banks to remain active whilst accessing
+EDO/FPG banks. Disable to always precharge SDRAM banks when accessing EDO/FPG DRAMs.</DESCRIPTION>
+	<CONFIGNAME>SDRAM_OPEN_PAGE_CTRL</CONFIGNAME>
+	</REGISTER>
+
+	<REGISTER base="0x68" bit="6">
+	<FRAME>Memory controller tweaks.</FRAME>
+	<TYPE>Checkbox</TYPE>
+	<WIDGETTEXT>Bank page control</WIDGETTEXT>
+	<DESCRIPTION>Enable to allow pages of different banks to be active.</DESCRIPTION>
+	<CONFIGNAME>BANK_PAGE_CTRL</CONFIGNAME>
+	</REGISTER>
+
+	<REGISTER base="0x68" bit="5">
+	<FRAME>Memory controller tweaks.</FRAME>
+	<TYPE>Checkbox</TYPE>
+	<WIDGETTEXT>EDO Pipeline burst rate</WIDGETTEXT>
+	<DESCRIPTION>Enable to set to X-2-2-2-3-2-2-2 Disable to set to X-2-2-2-2-2-2-2.</DESCRIPTION>
+	<CONFIGNAME>EDO_PIPELINE_BURST_RATE</CONFIGNAME>
+	</REGISTER>
+
+	<REGISTER base="0x68" bit="4">
+	<FRAME>Memory controller tweaks.</FRAME>
+	<TYPE>Checkbox</TYPE>
+	<WIDGETTEXT>DRAM data latch delay</WIDGETTEXT>
+	<DESCRIPTION>Enable to delay latch of DRAM data by .5 clock. Disable to latch DRAM at CCLK rising edge.</DESCRIPTION>
+	<CONFIGNAME>DRAM_DATA_LATCH_DELAY</CONFIGNAME>
+	</REGISTER>
+
+	<REGISTER base="0x6b" bit="0">
+	<FRAME>Memory controller tweaks.</FRAME>
+	<TYPE>Checkbox</TYPE>
+	<WIDGETTEXT>Multi page open</WIDGETTEXT>
+	<DESCRIPTION></DESCRIPTION>
+	<CONFIGNAME>MCACHE</CONFIGNAME>
+	</REGISTER>
+
+
+
+
+
+	<REGISTER base="0xa9" bit="1">
+	<FRAME>AGP controller tweaks.</FRAME>
+	<TYPE>Checkbox</TYPE>
+	<WIDGETTEXT>Sideband addressing</WIDGETTEXT>
+	<DESCRIPTION>Enables extended throughput through sideband addressing.
+Note, that the AGP graphics card needs to support sideband addressing also.</DESCRIPTION>
+	<CONFIGNAME>AGP_SIDEBAND_ADDRESSING</CONFIGNAME>
+	</REGISTER>
+
+	<REGISTER base="0xa8" bit="0">
+	<FRAME>AGP controller tweaks.</FRAME>
+	<TYPE>Checkbox</TYPE>
+	<WIDGETTEXT>AGP x1 mode</WIDGETTEXT>
+	<DESCRIPTION>Enables x1 transfers.
+Note, that the AGP graphics card needs to x1 transfers also.</DESCRIPTION>
+	<CONFIGNAME>AGP_X1</CONFIGNAME>
+	</REGISTER>
+
+	<REGISTER base="0xa8" bit="1">
+	<FRAME>AGP controller tweaks.</FRAME>
+	<TYPE>Checkbox</TYPE>
+	<WIDGETTEXT>AGP x2 mode</WIDGETTEXT>
+	<DESCRIPTION>Enables x2 transfers.
+Note, that the AGP graphics card needs to x2 transfers also.</DESCRIPTION>
+	<CONFIGNAME>AGP_X2</CONFIGNAME>
+	</REGISTER>
+
+	<REGISTER base="0xac" bit="0">
+	<FRAME>AGP controller tweaks.</FRAME>
+	<TYPE>Checkbox</TYPE>
+	<WIDGETTEXT>Fast response for low priority read</WIDGETTEXT>
+	<DESCRIPTION>Enabling this tweak generates grant immediately after first block
+of data is recieved. When disabled, the AGP controller waits until the entire
+transaction is received before grant is generated.</DESCRIPTION>
+	<CONFIGNAME>AGP_FAST_RESPONSE</CONFIGNAME>
+	</REGISTER>
+
+
+
+
+</DEVICE>
+

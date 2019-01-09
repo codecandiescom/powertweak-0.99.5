@@ -1,0 +1,60 @@
+Source: powertweak
+Section: admin
+Priority: optional
+Maintainer: Mark Brown <broonie@debian.org>
+Build-Depends: libgtk1.2-dev, libxml2-dev, zlib1g-dev, libgpmg1-dev, debhelper (>= 4.1.16), libncurses5-dev, autotools-dev
+Standards-Version: 3.5.6
+
+Package: powertweakd
+Architecture: any
+Section: admin
+Priority: optional
+Replaces: powertweak (<=0.1.16)
+Conflicts: powertweak (<< 0.1.16)
+Depends: pciutils (>= 2.1), ${shlibs:Depends}, ${misc:Depends}, powertweak-gtk
+Recommends: makedev (>= 2.3.1-53)
+Suggests: powertweak-extra
+Description: Tool to tune system for optimal performance
+ Powertweak is a tool for tweaking Linux systems to peak performance.  It
+ tunes PCI devices to use optimal settings and enables performance enhancing
+ features of the CPU(s).  To use all of powertweak's features you need to be
+ running a Linux kernel which supports the /proc/bus/pci and /dev/cpu/<n>
+ interfaces.
+ .
+ This package contains the daemon that needs to be run to do the actual
+ tuning.  You need powertweak-gtk to choose which tweaks you want to
+ perform on your system in addition to this package.  The package
+ powertweak-extra contains some additional tweaking plugins.
+
+Package: powertweak-gtk
+Architecture: any
+Section: admin
+Depends: powertweakd (= ${Source-Version}), ${shlibs:Depends}, ${misc:Depends}
+Conflicts: powertweak (<< 0.1.16-1)
+Replaces: gpowertweak, powertweak (<< 0.1.16-1), powertweakd (<= 0.99.4-14)
+Priority: optional
+Description: GTK mode tool to configure hardware tweaks for powertweakd
+ This package contains a graphical mode tool to configure the tweaks you 
+ want powertweakd to make on your system.
+
+Package: powertweak-extra
+Architecture: any
+Section: admin
+Depends: powertweakd (=${Source-Version}), ${shlibs:Depends}, ${misc:Depends}
+Priority: extra
+Description: Plugins for powertweakd
+ This package contains plugins for the powertweakd package to help you tune
+ PCI devices and the CPU.
+
+Package: powertweak
+Architecture: all
+Section: admin
+Depends: powertweakd, powertweak-extra, powertweak-gtk
+Priority: extra
+Description: Tool to tune system for optimal performance
+ Powertweak is a tool for tweaking Linux systems to peak performance.  It
+ tunes PCI devices to use optimal settings and enables performance enhancing
+ features of the CPU(s).
+ .
+ This package contains no files. It merely ensures that you install the
+ following packages: powertweakd, powertweak-extra, powertweak-gtk

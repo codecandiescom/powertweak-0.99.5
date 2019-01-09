@@ -1,0 +1,164 @@
+<?xml version = "1.0" encoding ="UTF-8" standalone = "no"?>
+<!DOCTYPE DEVICE SYSTEM "../pci.dtd">
+<DEVICE vendor="0x8086" id="0x7111">
+
+<!--- 82371AB-PIIX4 specification                                     -->
+<!--- http://developer.intel.com/design/intarch/datashts/29056201.pdf -->
+<!--- ************************************** -->
+	<REGISTER base="0x40" bit="0">
+	<FRAME>IDE Controller tweaks (primary IDE)</FRAME>
+	<TYPE>Checkbox</TYPE>
+	<WIDGETTEXT>Fast Timing Bank Drive Select 0 (master)</WIDGETTEXT>
+	<DESCRIPTION>When TIME0=1, accesses to the data port of the enabled I/O addres range use fast timings.</DESCRIPTION>
+	<CONFIGNAME>FAST_TIME_00</CONFIGNAME>
+	</REGISTER>
+	<REGISTER base="0x40" bit="4">
+	<FRAME>IDE Controller tweaks (primary IDE)</FRAME>
+	<TYPE>Checkbox</TYPE>
+	<WIDGETTEXT>Fast Timing Bank Drive Select 0 (slave)</WIDGETTEXT>
+	<DESCRIPTION>When TIME1=1, accesses to the data port of the enabled I/O addres range use fast timings.</DESCRIPTION>
+	<CONFIGNAME>FAST_TIME_01</CONFIGNAME>
+	</REGISTER>
+
+	<REGISTER base="0x40" bit="1">
+	<FRAME>IDE Controller tweaks (primary IDE)</FRAME>
+	<TYPE>Checkbox</TYPE>
+	<WIDGETTEXT>IORDY sampling primary (master)</WIDGETTEXT>
+	<DESCRIPTION>0</DESCRIPTION>
+	<CONFIGNAME>IORDY_00</CONFIGNAME>
+	</REGISTER>
+	<REGISTER base="0x40" bit="5">
+	<FRAME>IDE Controller tweaks (primary IDE)</FRAME>
+	<TYPE>Checkbox</TYPE>
+	<WIDGETTEXT>IORDY sampling primary (slave)</WIDGETTEXT>
+	<DESCRIPTION>0</DESCRIPTION>
+	<CONFIGNAME>IORDY_01</CONFIGNAME>
+	</REGISTER>
+
+	<REGISTER base="0x40" bit="2">
+	<FRAME>IDE Controller tweaks (primary IDE)</FRAME>
+	<TYPE>Checkbox</TYPE>
+	<WIDGETTEXT>Primary master prefetch/posting (master)</WIDGETTEXT>
+	<DESCRIPTION>When enabled, prefetch and posting to the primary IDE port
+is enabled for drive 0</DESCRIPTION>
+	<CONFIGNAME>PPE00</CONFIGNAME>
+	</REGISTER>
+	<REGISTER base="0x40" bit="6">
+	<FRAME>IDE Controller tweaks (primary IDE)</FRAME>
+	<TYPE>Checkbox</TYPE>
+	<WIDGETTEXT>Primary slave prefetch/posting (slave)</WIDGETTEXT>
+	<DESCRIPTION>When enabled, prefetch and posting to the primary IDE port
+is enabled for drive 1</DESCRIPTION>
+	<CONFIGNAME>PPE01</CONFIGNAME>
+	</REGISTER>
+
+	<REGISTER base="0x40" bit="3">
+	<FRAME>IDE Controller tweaks (primary IDE)</FRAME>
+	<TYPE>Checkbox</TYPE>
+	<WIDGETTEXT>DMA Timing enable Only (master)</WIDGETTEXT>
+	<DESCRIPTION>when DTE0=0 DMA and PIO data transfers use the fast timing mode. When DTE0=1 fast timing mode is enabled for DMA transfers. (suggested value 0)</DESCRIPTION>
+	<CONFIGNAME>DMA_TIMING_00</CONFIGNAME>
+	</REGISTER>
+	<REGISTER base="0x40" bit="7">
+	<FRAME>IDE Controller tweaks (primary IDE)</FRAME>
+	<TYPE>Checkbox</TYPE>
+	<WIDGETTEXT>DMA Timing enable Only (slave)</WIDGETTEXT>
+	<DESCRIPTION>when DTE1=0 DMA and PIO data transfers use the fast timing mode. When DTE0=1 fast timing mode is enabled for DMA transfers. (suggested value 0)</DESCRIPTION>
+	<CONFIGNAME>DMA_TIMING_01</CONFIGNAME>
+	</REGISTER>
+
+<!--- ************************************** -->
+	<REGISTER base="0x42" bit="0">
+	<FRAME>IDE Controller tweaks (secondary IDE)</FRAME>
+	<TYPE>Checkbox</TYPE>
+	<WIDGETTEXT>Fast Timing Bank Drive Select 0 (master)</WIDGETTEXT>
+	<DESCRIPTION>When TIME0=1, accesses to the data port of the enabled I/O addres range use fast timings.</DESCRIPTION>
+	<CONFIGNAME>FAST_TIME_10</CONFIGNAME>
+	</REGISTER>
+	<REGISTER base="0x42" bit="4">
+	<FRAME>IDE Controller tweaks (secondary IDE)</FRAME>
+	<TYPE>Checkbox</TYPE>
+	<WIDGETTEXT>Fast Timing Bank Drive Select 0 (slave)</WIDGETTEXT>
+	<DESCRIPTION>When TIME1=1, accesses to the data port of the enabled I/O addres range use fast timings.</DESCRIPTION>
+	<CONFIGNAME>FAST_TIME_11</CONFIGNAME>
+	</REGISTER>
+
+	<REGISTER base="0x42" bit="1">
+	<FRAME>IDE Controller tweaks (secondary IDE)</FRAME>
+	<TYPE>Checkbox</TYPE>
+	<WIDGETTEXT>IORDY sampling primary (master)</WIDGETTEXT>
+	<DESCRIPTION>0</DESCRIPTION>
+	<CONFIGNAME>IORDY_10</CONFIGNAME>
+	</REGISTER>
+	<REGISTER base="0x42" bit="5">
+	<FRAME>IDE Controller tweaks (secondary IDE)</FRAME>
+	<TYPE>Checkbox</TYPE>
+	<WIDGETTEXT>IORDY sampling primary (slave)</WIDGETTEXT>
+	<DESCRIPTION>0</DESCRIPTION>
+	<CONFIGNAME>IORDY_11</CONFIGNAME>
+	</REGISTER>
+
+	<REGISTER base="0x42" bit="2">
+	<FRAME>IDE Controller tweaks (secondary IDE)</FRAME>
+	<TYPE>Checkbox</TYPE>
+	<WIDGETTEXT>Secondary master prefetch/posting</WIDGETTEXT>
+	<DESCRIPTION>When enabled, prefetch and posting to the secondary IDE port
+is enabled for drive 0</DESCRIPTION>
+	<CONFIGNAME>PPE10</CONFIGNAME>
+	</REGISTER>
+
+	<REGISTER base="0x42" bit="6">
+	<FRAME>IDE Controller tweaks (secondary IDE)</FRAME>
+	<TYPE>Checkbox</TYPE>
+	<WIDGETTEXT>Secondary slave prefetch/posting</WIDGETTEXT>
+	<DESCRIPTION>When enabled, prefetch and posting to the secondary IDE port
+is enabled for drive 1</DESCRIPTION>
+	<CONFIGNAME>PPE11</CONFIGNAME>
+	</REGISTER>
+
+	<REGISTER base="0x42" bit="3">
+	<FRAME>IDE Controller tweaks (secondary IDE)</FRAME>
+	<TYPE>Checkbox</TYPE>
+	<WIDGETTEXT>DMA Timing enable Only (master)</WIDGETTEXT>
+	<DESCRIPTION>when DTE0=0 DMA and PIO data transfers use the fast timing mode. When DTE0=1 fast timing mode is enabled for DMA transfers. (suggested value 0)</DESCRIPTION>
+	<CONFIGNAME>DMA_TIMING_10</CONFIGNAME>
+	</REGISTER>
+	<REGISTER base="0x42" bit="7">
+	<FRAME>IDE Controller tweaks (secondary IDE)</FRAME>
+	<TYPE>Checkbox</TYPE>
+	<WIDGETTEXT>DMA Timing enable Only (slave)</WIDGETTEXT>
+	<DESCRIPTION>when DTE1=0 DMA and PIO data transfers use the fast timing mode. When DTE0=1 fast timing mode is enabled for DMA transfers. (suggested value 0)</DESCRIPTION>
+	<CONFIGNAME>DMA_TIMING_11</CONFIGNAME>
+	</REGISTER>
+
+<!--- ************************************** -->
+	<REGISTER base="0x48" bit="0">
+	<FRAME>UDMA/33 Control</FRAME>
+	<TYPE>Checkbox</TYPE>
+	<WIDGETTEXT>Primary drive 0 UDMA enable</WIDGETTEXT>
+	<DESCRIPTION>Enable Ultra DMA/33 mode</DESCRIPTION>
+	<CONFIGNAME>PPE3_1</CONFIGNAME>
+	</REGISTER>
+	<REGISTER base="0x48" bit="1">
+	<FRAME>UDMA/33 Control</FRAME>
+	<TYPE>Checkbox</TYPE>
+	<WIDGETTEXT>Primary drive 1 UDMA enable</WIDGETTEXT>
+	<DESCRIPTION>Enable Ultra DMA/33 mode</DESCRIPTION>
+	<CONFIGNAME>PPE3_2</CONFIGNAME>
+	</REGISTER>
+	<REGISTER base="0x48" bit="2">
+	<FRAME>UDMA/33 Control</FRAME>
+	<TYPE>Checkbox</TYPE>
+	<WIDGETTEXT>Secondary drive 0 UDMA enable</WIDGETTEXT>
+	<DESCRIPTION>Enable Ultra DMA/33 mode</DESCRIPTION>
+	<CONFIGNAME>PPE3_3</CONFIGNAME>
+	</REGISTER>
+	<REGISTER base="0x48" bit="3">
+	<FRAME>UDMA/33 Control</FRAME>
+	<TYPE>Checkbox</TYPE>
+	<WIDGETTEXT>Secondary drive 1 UDMA enable</WIDGETTEXT>
+	<DESCRIPTION>Enable Ultra DMA/33 mode</DESCRIPTION>
+	<CONFIGNAME>PPE3_4</CONFIGNAME>
+	</REGISTER>
+
+</DEVICE>

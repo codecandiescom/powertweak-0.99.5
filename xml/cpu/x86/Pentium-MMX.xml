@@ -1,0 +1,26 @@
+<?xml version = "1.0" encoding ="UTF-8" standalone = "no"?>
+<!DOCTYPE MSRENTRY SYSTEM "x86.dtd">
+
+<!-- MSR's on the Intel Pentium MMX -->
+
+<MSRENTRY>
+	<MSR register="0x0000000E" bit="21">
+		<WIDGETTEXT>Low powermode enable</WIDGETTEXT>
+		<CONFIGNAME>PMMX_LOWPOWER</CONFIGNAME>
+		<TYPE>Checkbox</TYPE>
+		<DESCRIPTION>Setting this enables the low powermode of
+Pentium MMX processors. This is very useful for laptops.</DESCRIPTION>
+	</MSR>
+
+	<MSR register="0x0000000E">
+	    <WIDGETTEXT>Auto halt feature enable</WIDGETTEXT>
+	    <BITMASK>00000000 00000000 00000000 01000000</BITMASK>
+	    <ONBITS> 00000000 00000000 00000000 00000000</ONBITS>
+	    <OFFBITS>00000000 00000000 00000000 01000000</OFFBITS>
+	    <CONFIGNAME>PMMX_DISABLE_AUTOHLT</CONFIGNAME>
+	    <TYPE>Checkbox</TYPE>
+	    <DESCRIPTION>Setting this will enable the auto-halt feature,
+this is useful for powersaving on laptops.</DESCRIPTION>
+	</MSR>
+
+</MSRENTRY>

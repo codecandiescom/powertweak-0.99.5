@@ -1,0 +1,106 @@
+This is at least a partial credits-file of people that have contributed to the
+Powertweak project.  It is sorted alphabetically by surname and formatted to allow
+easy grepping and beautification by scripts.
+
+The fields are:
+	(N)ame.
+	(E)mail.
+	(W)eb-address.
+	(D)escription.
+	(S)nail-mail address.
+-------------------------------------------------------------------------------
+
+N: Rob Andrews
+E: rob@impure.org.uk
+W: http://www.impure.org.uk
+D: Helped restructure codebase in v0.1.9
+D: egcs bug workaround in v0.1.11
+D: Random hacking.
+D: Countless other things.
+
+N: Mark Brown
+E: broonie@debian.org
+D: Debian package maintainer from 0.99.1 onwards.
+
+N: Ronny Bangsund
+E: bangsure@ibm.ie
+W: http://www.purehatred.org
+D: Typo fixes
+
+N: Sudhakar Chandrasekharan
+E: thaths@netscape.com
+D: Debian package maintainer for 0.1.x series.
+D: Constant source of 'good ideas' & bug-reports :)
+
+N: Alan Cox
+E: alan@redhat.com
+W: http://www.linux.org.uk
+D: 'kernel' /proc tuning.
+
+N: Sven Dowideit
+E: svenud@ozemail.com.au
+D: re-viving the code in 2003
+
+N: Nicholas Dronen
+E: ndronen@frii.com
+D: Various fixes to the GTK GUI.
+
+N: Olivier Gilloire
+E: ogilloire@powertweak.com
+W: http://www.powertweak.com
+D: Windows version of Powertweak
+D: Provided the original webspace & mailing lists
+D: Linear frame buffer detection code.
+D: Submitted some PCI tweaks for many Intel chipsets.
+
+N: Lenz Grimmer
+E: lenz.grimmer@suse.de
+W: http://www.suse.de/~grimmer
+D: RPM Maintainer (SuSE)
+
+N: Dave Jones
+E: davej@suse.de
+W: http://www.suse.de/~davej
+D: Started the ball rolling.
+D: PCI, CPU, hdparm, CDROM & Elevator backends.
+D: GTK GUI, daemon<->UI comms
+D: Powertweak-Linux mailing list administration.
+D: Web pages for www.powertweak.org
+S: c/o SuSE Linux UK Ltd
+S: The Kinetic Centre
+S: Theobald Street
+S: Borehamwood
+S: Herts, WD6 4PJ 
+S: United Kingdom
+
+N: Martin Mares
+E: mj@atrey.karlin.mff.cuni.cz
+W: http://atrey.karlin.mff.cuni.cz/~mj/
+D: PCI access routines.
+S: Kankovskeho 1241
+S: 182 00 Praha 8
+S: Czech Republic 
+
+N: Richard Pruen
+E: axxe@drk1.demon.co.uk
+W: http://www.drk1.demon.co.uk
+D: MVP3 tweaks
+D: VP3/MVP3 discrimination.
+
+N :Janne Pänkälä
+D: AMD PowerNOW! support.
+
+N: Juan J. Quintela
+E: quintela@fi.udc.es
+W: http://carpanta.dc.fi.udc.es/~quintela
+D: AMD-751 tweaks
+
+N: Ryan Weaver
+E: ryan@infohwy.com
+D: RPM maintainer (Redhat 6.x)
+
+N: Arjan van de Ven
+E: arjan@fenrus.demon.nl
+D: /proc backend, XML parsers, textmode UI
+D: Daemon<->UI comms, GTK GUI
+D: Plugin system

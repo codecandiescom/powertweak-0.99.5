@@ -1,0 +1,47 @@
+<?xml version = "1.0" encoding ="UTF-8" standalone = "no"?>
+<!DOCTYPE DEVICE SYSTEM "../pci.dtd">
+<DEVICE vendor="0x10b9" id="0x5243">
+
+	<REGISTER base="0x89">
+	<FRAME>PCI bus</FRAME>
+	<TYPE>Slider</TYPE>
+	<LOW>0</LOW>
+	<HIGH>255</HIGH>
+	<WIDGETTEXT>Minimum PCI66 slice on PCI66 bus</WIDGETTEXT>
+	<DESCRIPTION>This number controls the minimum number of
+PCI66 bus cycles a device gets. If the device wants the bus longer, 
+it might be interrupted. Setting this to a higher value increases
+throughput but decreases latency. 
+</DESCRIPTION>
+	<CONFIGNAME>PCI_SLICE</CONFIGNAME>
+	</REGISTER>
+
+	<REGISTER base="0x8A">
+	<FRAME>PCI bus</FRAME>
+	<TYPE>Slider</TYPE>
+	<LOW>0</LOW>
+	<HIGH>255</HIGH>
+	<WIDGETTEXT>Minimum CPU slice on PCI66 bus</WIDGETTEXT>
+	<DESCRIPTION>This number controls the minimum number of
+PCI66 bus cycles the CPU gets. If the CPU  wants the bus longer, 
+it might be interrupted. Setting this to a higher value increases
+throughput but decreases latency. 
+</DESCRIPTION>
+	<CONFIGNAME>CPU_SLICE</CONFIGNAME>
+	</REGISTER>
+
+	<REGISTER base="0x8F">
+	<FRAME>PCI bus</FRAME>
+	<TYPE>Slider</TYPE>
+	<LOW>0</LOW>
+	<HIGH>255</HIGH>
+	<WIDGETTEXT>Minimum PCI33 slice on PCI66 bus</WIDGETTEXT>
+	<DESCRIPTION>This number controls the minimum number of
+PCI bus cycles the PCI33 bus gets on the PCI66. 
+Setting this to a higher value increases throughput but decreases latency. 
+</DESCRIPTION>
+	<CONFIGNAME>CPU_SLICE</CONFIGNAME>
+	</REGISTER>
+
+
+</DEVICE>

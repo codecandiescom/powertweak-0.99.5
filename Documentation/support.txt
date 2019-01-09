@@ -1,0 +1,36 @@
+Supporting extra hardware can be difficult at times.
+Notably, when vendors decide to only give out datasheets
+under NDA, or worse still, fail to make them available,
+and refuse to answer your mails.
+
+If you find support for your CPU / Chipset is missing,
+it's likely that this is the reason why. (Or we haven't
+got around to it yet).
+
+If you'd like to see your hardware supported, check to
+see if register level programming information is available,
+from the vendors web/ftp site. If not, please feel free
+to drop them a polite mail informing them of your
+disappointment of their lack of support.
+
+
+Currently unsupported:
+
+AMD Athlon/Duron/Thunderbird   : Only available under NDA.
+                                 Steps being taken to try and get some
+								 stuff approved.
+
+VIA PCI Chipsets               : VIA used to make all their datasheets
+                                 available, now it seems only a select
+								 few chipsets (mostly mature) and not
+								 the full datasheets, but an editted
+								 version of what used to be available.
+								 -*no*- replies from any email to them.
+
+Serverworks PCI Chipsets       : I had a nice reply from one of their
+                                 engineers who said he'd be in touch,
+								 I never heard from him nor anyone else
+								 @serverworks again. Nothing available
+								 on their web/ftp site.
+
+

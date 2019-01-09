@@ -1,0 +1,32 @@
+<?xml version = "1.0" encoding ="UTF-8" standalone = "no"?>
+<!DOCTYPE DEVICE SYSTEM "../pci.dtd">
+<DEVICE vendor="0x1106" id="0x8305">
+	<REGISTER base="0x40" bit="4">
+	<FRAME>AGP Bus Control</FRAME>
+	<TYPE>Checkbox</TYPE>
+	<WIDGETTEXT>AGP to DRAM Prefetch</WIDGETTEXT>
+	<DESCRIPTION>Enables AGP cards to prefetch DRAM memory.
+This enhances the memorybandwith of such devices, potentially
+at the cost of other devices.</DESCRIPTION>
+	<CONFIGNAME>AGP_PREFETCH</CONFIGNAME>
+	</REGISTER>
+
+	<REGISTER base="0x40" bit="6">
+	<FRAME>AGP Bus Control</FRAME>
+	<TYPE>Checkbox</TYPE>
+	<WIDGETTEXT>AGP Dynamic Burst</WIDGETTEXT>
+	<DESCRIPTION>This option enables Dynamic Burst detection for
+AGP Cards. Recommended.</DESCRIPTION>
+	<CONFIGNAME>AGP_DYNAMIC_BURST</CONFIGNAME>
+	</REGISTER>
+
+	<REGISTER base="0x40" bit="7">
+	<FRAME>AGP Bus Control</FRAME>
+	<TYPE>Checkbox</TYPE>
+	<WIDGETTEXT>CPU to AGP posted writes</WIDGETTEXT>
+	<DESCRIPTION>Enables the buffering of CPU to AGP writes</DESCRIPTION>
+	<CONFIGNAME>AGP_POST_WRITE</CONFIGNAME>
+	</REGISTER>
+
+
+</DEVICE>

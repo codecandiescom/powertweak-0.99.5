@@ -1,0 +1,13 @@
+<?xml version = "1.0" encoding ="UTF-8" standalone = "no"?>
+<!DOCTYPE DEVICE SYSTEM "../pci.dtd">
+<DEVICE vendor="0x8086" id="0x1250">
+
+	<REGISTER base="0x50" bit="3">
+	<TYPE>Checkbox</TYPE>
+	<WIDGETTEXT>PCI Concurrency</WIDGETTEXT>
+	<DESCRIPTION>When enabled, CPU can access DRAM and L2
+while a non-PIIX3 PCI master is targetting peer PCI devices</DESCRIPTION>
+	<CONFIGNAME>PCI_CONCURRENCY</CONFIGNAME>
+	</REGISTER>
+
+</DEVICE>

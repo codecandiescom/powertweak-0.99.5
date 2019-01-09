@@ -1,0 +1,19 @@
+<?xml version = "1.0" encoding ="UTF-8" standalone = "no"?>
+<!DOCTYPE DEVICE SYSTEM "../pci.dtd">
+<DEVICE vendor="0x1106" id="0x0686">
+	<REGISTER base="0x64">
+	<FRAME>Documentation notice</FRAME>
+	<BITMASK>00000000</BITMASK>
+	<ONBITS> 00000000</ONBITS>
+	<OFFBITS>00000000</OFFBITS>
+	<TYPE>Label</TYPE>
+	<WIDGETTEXT>
+ The authors of Powertweak would like to thank VIA Technologies, Inc.
+ for NOT providing documentation on tweaking your chipset.
+</WIDGETTEXT>
+	<DESCRIPTION></DESCRIPTION>
+	<CONFIGNAME>FTSO_VIA</CONFIGNAME>
+	</REGISTER>
+
+
+</DEVICE>

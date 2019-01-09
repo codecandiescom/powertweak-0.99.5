@@ -1,0 +1,34 @@
+<?xml version = "1.0" encoding ="UTF-8" standalone = "no"?>
+<!DOCTYPE PROCENTRIES SYSTEM "proc.dtd">
+<PROCENTRIES>
+
+<!-- Network -->
+	<PROCENTRY>
+	<MENU>Test</MENU>
+	<SUBMENU>Test</SUBMENU>
+	<TAB>Test</TAB>
+	<GROUP>TestRadioButton</GROUP>
+	<WIDGETTEXT>TestRadioButton item 1</WIDGETTEXT>
+	<CONFIGNAME>COMBO1</CONFIGNAME>
+	<TYPE>RadioButton</TYPE>
+	<ELEMENT>-1</ELEMENT>
+	<FILE>/tmp/1</FILE>
+	<DESCRIPTION>I dunno what this does </DESCRIPTION>
+	</PROCENTRY>
+
+	<PROCENTRY>
+	<MENU>Test</MENU>
+	<SUBMENU>Test</SUBMENU>
+	<TAB>Test</TAB>
+	<GROUP>TestRadioButton</GROUP>
+	<WIDGETTEXT>TestRadioButton item 2</WIDGETTEXT>
+	<CONFIGNAME>COMBO2</CONFIGNAME>
+	<TYPE>RadioButton</TYPE>
+	<ELEMENT>-1</ELEMENT>
+	<FILE>/tmp/1</FILE>
+	<DESCRIPTION>I dunno what this does </DESCRIPTION>
+	</PROCENTRY>
+
+
+
+</PROCENTRIES>

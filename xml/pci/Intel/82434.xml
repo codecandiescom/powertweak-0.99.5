@@ -1,0 +1,119 @@
+<?xml version = "1.0" encoding ="UTF-8" standalone = "no"?>
+<!DOCTYPE DEVICE SYSTEM "../pci.dtd">
+<DEVICE vendor="0x8086" id="0x04A3">
+	<REGISTER base="0x08" bit="4">
+	<TYPE>InfoBool</TYPE>
+	<WIDGETTEXT>Chipset type</WIDGETTEXT>
+	<DESCRIPTION>Set indicates a 82434NX chipset, 82434LX otherwise.</DESCRIPTION>
+	</REGISTER>
+
+	<REGISTER base="0x53" bit="3">
+	<TYPE>Checkbox</TYPE>
+	<WIDGETTEXT>Read-around-write enable</WIDGETTEXT>
+	<DESCRIPTION>If enabled, the chipset, during a CPU read cycle to
+memory where posted write cycles are pending, internally snoops the write
+buffers. If the address of the read differs from the posted write
+addresses, the chipset initiates the memory read cycle ahead of the
+pending posted memory write. When zero, the pending posted write is
+written to memory before the memory read is performed. When one, the
+chipset initiates the memory read ahead of the pending posted memory
+writes.</DESCRIPTION>
+	<CONFIGNAME>READ_AROUND_WRITE</CONFIGNAME>
+	</REGISTER>
+
+	<REGISTER base="0x53" bit="1">
+	<TYPE>Checkbox</TYPE>
+	<WIDGETTEXT>CPU->PCI posted write</WIDGETTEXT>
+	<DESCRIPTION>Enables CPU->PCI write posting.</DESCRIPTION>
+	<CONFIGNAME>CPU_PCI_POSTED_WRITE</CONFIGNAME>
+	</REGISTER>
+
+	<REGISTER base="0x53" bit="0">
+	<TYPE>Checkbox</TYPE>
+	<WIDGETTEXT>CPU->RAM posted write</WIDGETTEXT>
+	<DESCRIPTION>Enables CPU->RAM write posting. For the 82434NX this
+setting has no effect (CPU->RAM posting is always enabled).</DESCRIPTION>
+	<CONFIGNAME>CPU_RAM_POSTED_WRITE</CONFIGNAME>
+	</REGISTER>
+
+	<REGISTER base="0x54" bit="0">
+	<TYPE>Checkbox</TYPE>
+	<WIDGETTEXT>PCI->RAM posted write</WIDGETTEXT>
+	<DESCRIPTION>Enables PCI->RAM write posting.</DESCRIPTION>
+	<CONFIGNAME>PCI_RAM_POSTED_WRITE</CONFIGNAME>
+	</REGISTER>
+
+	<REGISTER base="0x54" bit="1">
+	<TYPE>Checkbox</TYPE>
+	<WIDGETTEXT>PCI Burst</WIDGETTEXT>
+	<DESCRIPTION>Enables PCI Bursting.</DESCRIPTION>
+	<CONFIGNAME>PCI_BURST</CONFIGNAME>
+	</REGISTER>
+
+	<REGISTER base="0x57" bit="2">
+	<TYPE>Checkbox</TYPE>
+	<WIDGETTEXT>Burst of four refresh</WIDGETTEXT>
+	<DESCRIPTION>Enables refreshes in bursts of four, at 1/4 the
+frequency of normal refreshes. The chipset defers refreshes to idle
+times, if possible.</DESCRIPTION>
+	<CONFIGNAME>BURST_OF_FOUR</CONFIGNAME>
+	</REGISTER>
+
+	<REGISTER base="0x57" bit="1">
+	<TYPE>Checkbox</TYPE>
+	<WIDGETTEXT>Refresh type</WIDGETTEXT>
+	<DESCRIPTION>Enabled for CAS-before-RAS refreshes. Disabled for
+RAS-only refreshes.</DESCRIPTION>
+	<CONFIGNAME>REFRESH_TYPE</CONFIGNAME>
+	</REGISTER>
+
+	<REGISTER base="0x58">
+	<TYPE>RadioButton</TYPE>
+	<GROUP>DRAMBURST</GROUP>
+	<NAME>X-4-4-4</NAME>
+	<DESCRIPTION>X-4-4-4 read/write timing. 82434NX only.</DESCRIPTION>
+	<BITMASK>01100000</BITMASK>
+	<ONBITS> 00000000</ONBITS>
+	<OFFBITS>00000000</OFFBITS>
+	<CONFIGNAME>DRAM_BURST_X444</CONFIGNAME>
+	</REGISTER>
+
+	<REGISTER base="0x58">
+	<TYPE>RadioButton</TYPE>
+	<GROUP>DRAMBURST</GROUP>
+	<NAME>X-4-4-4/X-3-3-3</NAME>
+	<DESCRIPTION>X-4-4-4 read/X-3-3-3 write timing. 82434NX only.</DESCRIPTION>
+	<BITMASK>01100000</BITMASK>
+	<ONBITS> 00100000</ONBITS>
+	<OFFBITS>00000000</OFFBITS>
+	<CONFIGNAME>DRAM_BURST_X444_X333</CONFIGNAME>
+	</REGISTER>
+
+	<REGISTER base="0x58">
+	<TYPE>RadioButton</TYPE>
+	<GROUP>DRAMBURST</GROUP>
+	<NAME>X-3-3-3</NAME>
+	<DESCRIPTION>X-3-3-3 read/write timing. 82434NX only.</DESCRIPTION>
+	<BITMASK>01100000</BITMASK>
+	<ONBITS> 01100000</ONBITS>
+	<OFFBITS>00000000</OFFBITS>
+	<CONFIGNAME>DRAM_BURST_X333</CONFIGNAME>
+	</REGISTER>
+
+	<REGISTER base="0x58" bit="1">
+	<TYPE>Checkbox</TYPE>
+	<WIDGETTEXT>RAS wait state</WIDGETTEXT>
+	<DESCRIPTION>When enabled, adds an additional wait state before RAS
+assertion.</DESCRIPTION>
+	<CONFIGNAME>RAS_WAIT_STATES</CONFIGNAME>
+	</REGISTER>
+
+	<REGISTER base="0x58" bit="0">
+	<TYPE>Checkbox</TYPE>
+	<WIDGETTEXT>CAS wait state</WIDGETTEXT>
+	<DESCRIPTION>When enabled, adds an additional wait state before CAS
+assertion but only during the first CAS assertion of a burst cycle.
+Typically enabled at 66MHz and disabled at 60MHz.</DESCRIPTION>
+	<CONFIGNAME>RAS_WAIT_STATES</CONFIGNAME>
+	</REGISTER>
+</DEVICE>

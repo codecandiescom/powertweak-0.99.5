@@ -1,0 +1,20 @@
+<?xml version = "1.0" encoding ="UTF-8" standalone = "no"?>
+<!DOCTYPE MSRENTRY SYSTEM "x86.dtd">
+
+<MSRENTRY>
+
+	<MSR register="0x0000002A" bit="26">
+	    <WIDGETTEXT>Low power mode</WIDGETTEXT>
+	    <CONFIGNAME>P6_LOW_POWER_MODE</CONFIGNAME>
+	    <TYPE>Checkbox</TYPE>
+	    <DESCRIPTION>When set, low power mode is enabled.</DESCRIPTION>
+	</MSR>
+
+	<MSR register="0x00000033" bit="30">
+	    <WIDGETTEXT>Streaming buffer disable</WIDGETTEXT>
+	    <CONFIGNAME>P6_STREAMING_BUFFER_DISABLE</CONFIGNAME>
+	    <TYPE>Checkbox</TYPE>
+	    <DESCRIPTION>When set, the streaming buffer is disabled.</DESCRIPTION>
+	</MSR>
+
+</MSRENTRY>

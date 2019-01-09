@@ -1,0 +1,146 @@
+<?xml version = "1.0" encoding ="UTF-8" standalone = "no"?>
+<!DOCTYPE PROCENTRIES SYSTEM "proc.dtd">
+<PROCENTRIES>
+
+<!-- Kernel -->
+	<PROCENTRY>
+	<MENU>Kernel</MENU>
+	<SUBMENU>Security</SUBMENU>
+	<TAB>Security</TAB>
+	<WIDGETTEXT>immediate reboot on ctrl-alt-del</WIDGETTEXT>
+	<CONFIGNAME>kernel/ctrl-alt-del</CONFIGNAME>
+	<TYPE>Checkbox</TYPE>
+	<ELEMENT>0</ELEMENT>
+	<FILE>/proc/sys/kernel/ctrl-alt-del</FILE>
+	<DESCRIPTION>When this is unchecked, ctrl-alt-del is trapped and sent to the
+init(1) program to handle a graceful restart. However, when this
+is checked, Linux's reaction to this key combination will be an
+immediate reboot, without syncing its dirty buffers.</DESCRIPTION>
+	</PROCENTRY>
+
+	<PROCENTRY>
+	<MENU>Kernel</MENU>
+	<SUBMENU>Security</SUBMENU>
+	<TAB>Security</TAB>
+	<WIDGETTEXT>Enable 'magic sysrq'</WIDGETTEXT>
+	<CONFIGNAME>kernel/sysrq</CONFIGNAME>
+	<TYPE>Checkbox</TYPE>
+	<ELEMENT>0</ELEMENT>
+	<FILE>/proc/sys/kernel/sysrq</FILE>
+	<DESCRIPTION>In most environments it is not be desirable to allow end users
+to use the console debugging sequences. This option enables the
+magic key sequences which may be useful when doing kernel
+development or debugging a system problem.</DESCRIPTION>
+	</PROCENTRY>
+
+	<PROCENTRY>
+	<MENU>Kernel</MENU>
+	<SUBMENU>Logging</SUBMENU>
+	<TAB>Logging</TAB>
+	<WIDGETTEXT>Reboot time after a panic</WIDGETTEXT>
+	<CONFIGNAME>kernel/panic</CONFIGNAME>
+	<TYPE>Spinbutton</TYPE>
+	<LOW>0</LOW>
+	<HIGH>3600</HIGH>
+	<ELEMENT>0</ELEMENT>
+	<FILE>/proc/sys/kernel/panic</FILE>
+	<DESCRIPTION>After a kernel panic the kernel will wait this long before
+attempting to reboot the system. Normally this is set to zero to
+disable the feature, but for a remote machine you may wish to 
+set this.</DESCRIPTION>
+	</PROCENTRY>
+
+	<PROCENTRY>
+	<MENU>Kernel</MENU>
+	<SUBMENU>Logging</SUBMENU>
+	<TAB>Logging</TAB>
+	<WIDGETTEXT>Space to resume accounting</WIDGETTEXT>
+	<CONFIGNAME>kernel/acct</CONFIGNAME>
+	<TYPE>Spinbutton</TYPE>
+	<LOW>1</LOW>
+	<HIGH>99</HIGH>
+	<ELEMENT>0</ELEMENT>
+	<FILE>/proc/sys/kernel/acct:1</FILE>
+	<DESCRIPTION>If accounting is stopped due to lack of disk space it will
+be resumed when a check finds the log disk has this percentage
+of space free.</DESCRIPTION>
+	</PROCENTRY>
+
+	<PROCENTRY>
+	<MENU>Kernel</MENU>
+	<SUBMENU>Logging</SUBMENU>
+	<TAB>Logging</TAB>
+	<WIDGETTEXT>Suspend accounting</WIDGETTEXT>
+	<CONFIGNAME>/proc/sys/kernel/acct:2</CONFIGNAME>
+	<TYPE>Spinbutton</TYPE>
+	<LOW>1</LOW>
+	<HIGH>99</HIGH>
+	<ELEMENT>1</ELEMENT>
+	<FILE>/proc/sys/kernel/acct</FILE>
+	<DESCRIPTION>When the log disk drops to this percentage of free space then
+accounting is suspended.</DESCRIPTION>
+	</PROCENTRY>
+
+	<PROCENTRY>
+	<MENU>Kernel</MENU>
+	<SUBMENU>Logging</SUBMENU>
+	<TAB>Logging</TAB>
+	<WIDGETTEXT>Accounting space timer</WIDGETTEXT>
+	<CONFIGNAME>/proc/sys/kernel/acct:3</CONFIGNAME>
+	<TYPE>Spinbutton</TYPE>
+	<LOW>1</LOW>
+	<HIGH>3600</HIGH>
+	<ELEMENT>2</ELEMENT>
+	<FILE>/proc/sys/kernel/acct</FILE>
+	<DESCRIPTION>Controls how often in seconds the disk space is checked in order 
+to resume accounting  when the disk becomes too full.</DESCRIPTION>
+	</PROCENTRY>
+
+	<PROCENTRY>
+	<MENU>Kernel</MENU>
+	<SUBMENU>Logging</SUBMENU>
+	<TAB>Logging</TAB>
+	<WIDGETTEXT>Console log level</WIDGETTEXT>
+	<CONFIGNAME>kernel/printk</CONFIGNAME>
+	<TYPE>Spinbutton</TYPE>
+	<LOW>0</LOW>
+	<HIGH>7</HIGH>
+	<ELEMENT>0</ELEMENT>
+	<FILE>/proc/sys/kernel/printk</FILE>
+	<DESCRIPTION>Sets the priority level needed before a message is printed to the console.</DESCRIPTION>
+	</PROCENTRY>
+
+	<PROCENTRY>
+	<MENU>Kernel</MENU>
+	<SUBMENU>Resources</SUBMENU>
+	<TAB>Resources</TAB>
+	<WIDGETTEXT>Real time signals</WIDGETTEXT>
+	<CONFIGNAME>kernel/rtsig-max</CONFIGNAME>
+	<TYPE>Spinbutton</TYPE>
+	<LOW>100</LOW>
+	<HIGH>5000</HIGH>
+	<ELEMENT>0</ELEMENT>
+	<FILE>/proc/sys/kernel/rtsig-max</FILE>
+	<DESCRIPTION>Some processes use real time signal queues. These queues have a
+finite length to control resource usage. If you have real time
+signal using applications reporting insufficient signals you may
+need to adjust this.</DESCRIPTION>
+	</PROCENTRY>
+
+	<PROCENTRY>
+	<MENU>Kernel</MENU>
+	<SUBMENU>Resources</SUBMENU>
+	<TAB>Resources</TAB>
+	<WIDGETTEXT>Maximum System 5 Shared Memory</WIDGETTEXT>
+	<CONFIGNAME>kernel/shmall</CONFIGNAME>
+	<TYPE>Spinbutton</TYPE>
+	<LOW>1048576</LOW>
+	<HIGH>2147483647</HIGH>
+	<ELEMENT>0</ELEMENT>
+	<FILE>/proc/sys/kernel/shmall</FILE>
+	<DESCRIPTION>Set the limit on the total amount of system 5 style shared memory 
+in the system. Some large database applications such as Oracle may 
+require this is raised from the default.</DESCRIPTION>
+	</PROCENTRY>
+
+</PROCENTRIES>

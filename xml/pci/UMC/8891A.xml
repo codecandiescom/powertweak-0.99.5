@@ -1,0 +1,19 @@
+<?xml version = "1.0" encoding ="UTF-8" standalone = "no"?>
+<!DOCTYPE DEVICE SYSTEM "../pci.dtd">
+<DEVICE vendor="0x1060" id="0x0891">
+
+	<REGISTER base="0x50" bit="4">
+	<TYPE>Checkbox</TYPE>
+	<WIDGETTEXT>Level 2 cache write through</WIDGETTEXT>
+	<DESCRIPTION>Enabled = write through, disabled=writeback</DESCRIPTION>
+	<CONFIGNAME>L2_CACHE_WT</CONFIGNAME>
+	</REGISTER>
+
+	<REGISTER base="0x51" bit="6">
+	<TYPE>Checkbox</TYPE>
+	<WIDGETTEXT>CPU -> PCI posted writes</WIDGETTEXT>
+	<DESCRIPTION>Enabled allows CPU->PCI write posting.</DESCRIPTION>
+	<CONFIGNAME>CPU_PCI_POSTED_WRITE</CONFIGNAME>
+	</REGISTER>
+
+</DEVICE>

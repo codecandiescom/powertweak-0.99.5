@@ -1,0 +1,10 @@
+--- configure.in.org	Wed Jan  3 12:21:39 2001
++++ configure.in	Wed Jan  3 12:21:54 2001
+@@ -152,6 +152,7 @@
+ 
+ AC_OUTPUT([
+   Makefile
++  powertweak.spec
+   src/Makefile
+   src/backends/Makefile
+   src/libpowertweak/Makefile

@@ -1,0 +1,58 @@
+#
+#    Translators, if you are not familiar with the PO format, gettext
+#    documentation is worth reading, especially sections dedicated to
+#    this format, e.g. by running:
+#         info -n '(gettext)PO Files'
+#         info -n '(gettext)Header Entry'
+#
+#    Some information specific to po-debconf are available at
+#            /usr/share/doc/po-debconf/README-trans
+#         or http://www.debian.org/intl/l10n/po-debconf/README-trans
+#
+#    Developers do not need to manually edit POT or PO files.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2003-03-05 22:07+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. Description
+#: ../powertweakd.templates:3
+msgid "Creating CPU access device files"
+msgstr ""
+
+#. Description
+#: ../powertweakd.templates:3
+msgid ""
+"Some features of powertweak require access to the kernel CPU ID and machine "
+"status register devices.  If these devices do not exist then they will be "
+"created for you."
+msgstr ""
+
+#. Description
+#: ../powertweakd.templates:10
+msgid "Powertweak daemon can be disabled with /etc/default/powertweakd"
+msgstr ""
+
+#. Description
+#: ../powertweakd.templates:10
+msgid ""
+"By default the powertweak daemon is run at system startup.  This behaviour "
+"may now be disabled by editing /etc/default/powertweakd."
+msgstr ""
+
+#. Description
+#: ../powertweakd.templates:10
+msgid ""
+"When the daemon is running tweaks are performed using it and can be saved "
+"and reapplied whenever the system is restarted.  Otherwise the tweaks are "
+"performed directly by the front end and can not be automatically reapplied "
+"when the computer is restarted."
+msgstr ""

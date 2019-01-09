@@ -1,0 +1,84 @@
+<?xml version = "1.0" encoding ="UTF-8" standalone = "no"?>
+<!DOCTYPE PROCENTRIES SYSTEM "proc.dtd">
+
+<PROCENTRIES>
+
+<!-- Hardware / CDROM -->
+	<PROCENTRY>
+	<MENU>Hardware</MENU>
+	<SUBMENU>CDROM</SUBMENU>
+	<TAB>CDROM settings</TAB>
+	<WIDGETTEXT>Close door on mount</WIDGETTEXT>
+	<CONFIGNAME>dev/cdrom/autoclose</CONFIGNAME>
+	<TYPE>Checkbox</TYPE>
+	<ELEMENT>0</ELEMENT>
+	<FILE>/proc/sys/dev/cdrom/autoclose</FILE>
+	<DESCRIPTION>
+Setting this option will cause the kernel to close the
+door of the CDROM-drive when a mount of the CDROM is 
+attempted. This is generally a good idea, unless you 
+use autofs to automatically mount the drive.</DESCRIPTION>
+	</PROCENTRY>
+
+	<PROCENTRY>
+	<MENU>Hardware</MENU>
+	<SUBMENU>CDROM</SUBMENU>
+	<TAB>CDROM settings</TAB>
+	<WIDGETTEXT>Eject the CDROM on unmount</WIDGETTEXT>
+	<CONFIGNAME>dev/cdrom/autoeject</CONFIGNAME>
+	<TYPE>Checkbox</TYPE>
+	<ELEMENT>0</ELEMENT>
+	<FILE>/proc/sys/dev/cdrom/autoeject</FILE>
+	<DESCRIPTION>
+Setting this option will cause the kernel to open
+door of the CDROM drive when the CDROM is unmounted.
+A lot of people like this, but it can also be an 
+annoyance, hence it is disabled by default.</DESCRIPTION>
+	</PROCENTRY>
+
+	<PROCENTRY>
+	<MENU>Hardware</MENU>
+	<SUBMENU>CDROM</SUBMENU>
+	<TAB>CDROM settings</TAB>
+	<WIDGETTEXT>Check for media-type</WIDGETTEXT>
+	<CONFIGNAME>dev/cdrom/check_media</CONFIGNAME>
+	<TYPE>Checkbox</TYPE>
+	<ELEMENT>0</ELEMENT>
+	<FILE>/proc/sys/dev/cdrom/check_media</FILE>
+	<DESCRIPTION>
+Setting this option will cause the kernel to check the type
+of the CD (data, audio, VCD) before using it.
+In principle, this is a good thing. However, some CDROM drives
+have "issues" with this, hence the option defaults to off.</DESCRIPTION>
+	</PROCENTRY>
+
+	<PROCENTRY>
+	<MENU>Hardware</MENU>
+	<SUBMENU>CDROM</SUBMENU>
+	<TAB>CDROM settings</TAB>
+	<WIDGETTEXT>Lock the tray on use</WIDGETTEXT>
+	<CONFIGNAME>dev/cdrom/lock</CONFIGNAME>
+	<TYPE>Checkbox</TYPE>
+	<ELEMENT>0</ELEMENT>
+	<FILE>/proc/sys/dev/cdrom/lock</FILE>
+	<DESCRIPTION>
+Setting this option will cause the kernel to lock
+the tray when the cdrom is mounted. This is the safe 
+behavior. There might be reasons not to want this though.</DESCRIPTION>
+	</PROCENTRY>
+
+	<PROCENTRY>
+	<MENU>Hardware</MENU>
+	<SUBMENU>CDROM</SUBMENU>
+	<TAB>CDROM settings</TAB>
+	<WIDGETTEXT>Enable debugging</WIDGETTEXT>
+	<CONFIGNAME>dev/cdrom/debug</CONFIGNAME>
+	<TYPE>Checkbox</TYPE>
+	<ELEMENT>0</ELEMENT>
+	<FILE>/proc/sys/dev/cdrom/debug</FILE>
+	<DESCRIPTION>
+Setting this option will enable debug-messages.
+Use this only when you have problems and want to
+help the maintainers fix those.</DESCRIPTION>
+	</PROCENTRY>
+</PROCENTRIES>

@@ -1,0 +1,47 @@
+
+Compiling Powertweak-Linux:
+	./configure
+	make
+	su root
+	make install
+
+Next, run the configuration tool. Either the GTK tool "gpowertweak",
+or the textmode tool "powertweak".
+View (and change if desired) the settings, and choose 'Save'.
+
+Next, you have a choice of behaviour.
+Either
+
+ a. Install the daemon "powertweakd" in your startup.
+  or
+ b. Install "powertweakd --no-daemon" in your startup.
+    This will make the daemon load the plugins apply settings,
+	and then exit.
+
+
+Run-time dependancies:
+ To run Powertweak (From a binary distribution, or self compiled version)
+ - You will need at least version 2.1.0 of PCI utilities.
+   Available from http://atrey.karlin.mff.cuni.cz/~mj/pciutils.html
+ - libXML
+   You will need version 1.8.8 or 2.1.0.
+   Available from http://www.libxml.org
+ - If you want to build the GTK GUI config program, you will need
+   GTK v1.2.0 or higher installed.
+   Available from http://www.gtk.org
+
+Compile-time dependancies:
+
+ To build Powertweak from source, you will need...
+ - libtool
+ - autoconf
+ - automake (1.4 only)
+ - autoheader
+ - libxml developer includes. (1.8.8+ or 2.1.0+)
+ - GTK developer includes. (If GTK GUI is to be built)
+ - GPM developer includes. (If mouse support is desired in textmode UI)
+
+If the configure script is missing (or you get this from cvs) you can use 
+the autogen.sh which will do its best to configure Makefiles for your setup. 
+Then run make to build.
+You will find the built dynamic libraries in the .libs dirs in each backend

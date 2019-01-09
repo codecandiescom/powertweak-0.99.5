@@ -1,0 +1,88 @@
+<?xml version = "1.0" encoding ="UTF-8" standalone = "no"?>
+<!DOCTYPE DEVICE SYSTEM "../pci.dtd">
+<DEVICE vendor="0x1106" id="0x0586">
+	<REGISTER base="0x40" bit="7">
+	<TYPE>Checkbox</TYPE>
+	<WIDGETTEXT>ISA command delay</WIDGETTEXT>
+	<DESCRIPTION>ISA command delay</DESCRIPTION>
+	<CONFIGNAME>ISA_COMMAND_DELAY</CONFIGNAME>
+	</REGISTER>
+
+	<REGISTER base="0x40" bit="6">
+	<TYPE>Checkbox</TYPE>
+	<WIDGETTEXT>Extended ISA bus ready</WIDGETTEXT>
+	<DESCRIPTION>Extended ISA bus ready</DESCRIPTION>
+	<CONFIGNAME>EXTENDED_ISA_READY</CONFIGNAME>
+	</REGISTER>
+
+	<REGISTER base="0x40" bit="5">
+	<TYPE>Checkbox</TYPE>
+	<WIDGETTEXT>4 waitstate ISA SLAVE I/O</WIDGETTEXT>
+	<DESCRIPTION>Use 4 waitstates instead of 5 for ISA SLAVE</DESCRIPTION>
+	<CONFIGNAME>ISA_SLAVE_WS</CONFIGNAME>
+	</REGISTER>
+
+	<REGISTER base="0x40" bit="4">
+	<TYPE>Checkbox</TYPE>
+	<WIDGETTEXT>2 Waitstate chipset I/O</WIDGETTEXT>
+	<DESCRIPTION>Use 2 waitstates instead of 4 for chipset I/O</DESCRIPTION>
+	<CONFIGNAME>CHIPSET_IO_WS</CONFIGNAME>
+	</REGISTER>
+
+	<REGISTER base="0x40" bit="3">
+	<TYPE>Checkbox</TYPE>
+	<WIDGETTEXT>Disable Extended IO recovery time</WIDGETTEXT>
+	<DESCRIPTION>Disable extended IO recovery time</DESCRIPTION>
+	<CONFIGNAME>IO_RECOVERY</CONFIGNAME>
+	</REGISTER>
+
+	<REGISTER base="0x40" bit="2">
+	<TYPE>Checkbox</TYPE>
+	<WIDGETTEXT>Extend ALE</WIDGETTEXT>
+	<DESCRIPTION>Extend ALE</DESCRIPTION>
+	<CONFIGNAME>EXTEND_ALE</CONFIGNAME>
+	</REGISTER>
+
+	<REGISTER base="0x40" bit="1">
+	<TYPE>Checkbox</TYPE>
+	<WIDGETTEXT>0 wait states ROM reads</WIDGETTEXT>
+	<DESCRIPTION>Use 0 wait states instead of 1 for ROM reads</DESCRIPTION>
+	<CONFIGNAME>ROM_WS</CONFIGNAME>
+	</REGISTER>
+
+	<REGISTER base="0x46" bit="1">
+	<TYPE>Checkbox</TYPE>
+	<WIDGETTEXT>Disallow PCI burst read interrupting</WIDGETTEXT>
+	<DESCRIPTION>Don't allow PCI burst reads to be interrupted</DESCRIPTION>
+	<CONFIGNAME>PCI_BURST_INTERRUPTING</CONFIGNAME>
+	</REGISTER>
+
+	<REGISTER base="0x46" bit="0">
+	<TYPE>Checkbox</TYPE>
+	<WIDGETTEXT>Post memory write enable</WIDGETTEXT>
+	<DESCRIPTION>Post memory write enable</DESCRIPTION>
+	<CONFIGNAME>POST_MEM_WRITE</CONFIGNAME>
+	</REGISTER>
+
+	<REGISTER base="0x47" bit="6">
+	<TYPE>Checkbox</TYPE>
+	<WIDGETTEXT>PCI delayed transactions</WIDGETTEXT>
+	<DESCRIPTION>PCI delayed transactions</DESCRIPTION>
+	<CONFIGNAME>PCI_DELAY_TRANSACTIONS</CONFIGNAME>
+	</REGISTER>
+
+	<REGISTER base="0x47" bit="2">
+	<TYPE>Checkbox</TYPE>
+	<WIDGETTEXT>Disable write delay transaction timeout timer</WIDGETTEXT>
+	<DESCRIPTION>Disable write delay transaction timeout timer</DESCRIPTION>
+	<CONFIGNAME>WR_DELAY_TRANSACTION_TO</CONFIGNAME>
+	</REGISTER>
+
+	<REGISTER base="0x47" bit="1">
+	<TYPE>Checkbox</TYPE>
+	<WIDGETTEXT>Disable read delay transaction timeout timer</WIDGETTEXT>
+	<DESCRIPTION>Disable read delay transaction timeout timer</DESCRIPTION>
+	<CONFIGNAME>RD_DELAY_TRANSACTION_TO</CONFIGNAME>
+	</REGISTER>
+
+</DEVICE>

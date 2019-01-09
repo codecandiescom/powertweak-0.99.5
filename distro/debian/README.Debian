@@ -1,0 +1,14 @@
+powertweak for Debian
+----------------------
+
+In Debian powertweak is split into a number of smaller packages:
+
+  powertweakd      - The powertweak daemon.
+  powertweak-gtk   - GTK GUI to configure hardware tweaks.
+  powertweak-text  - Text UI to configure hardware tweaks.
+  powertweak-extra - Additional backends.
+
+The powertweak convenience package depends on all these packages and can
+be used to cause all components to be installed.
+
+ -- Mark Brown <broonie@debian.org>

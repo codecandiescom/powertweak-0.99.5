@@ -1,0 +1,113 @@
+<?xml version = "1.0" encoding ="UTF-8" standalone = "no"?>
+<!DOCTYPE DEVICE SYSTEM "../pci.dtd">
+<DEVICE vendor="0x1106" id="0x8598">
+
+	<REGISTER base="0x40" bit="7">
+	<TYPE>Checkbox</TYPE>
+	<WIDGETTEXT>AGP posted write</WIDGETTEXT>
+	<DESCRIPTION>Enables write posting to the AGP bus</DESCRIPTION>
+	<CONFIGNAME>AGP_POSTED_WR</CONFIGNAME>
+	</REGISTER>
+
+	<REGISTER base="0x40" bit="6">
+	<TYPE>Checkbox</TYPE>
+	<WIDGETTEXT>AGP dynamic burst</WIDGETTEXT>
+	<DESCRIPTION>Enables dynamic bursting to the AGP bus</DESCRIPTION>
+	<CONFIGNAME>AGP_DYNAMIC_BURST</CONFIGNAME>
+	</REGISTER>
+
+	<REGISTER base="0x40" bit="5">
+	<TYPE>Checkbox</TYPE>
+	<WIDGETTEXT>AGP 1 waitstate burst write</WIDGETTEXT>
+	<DESCRIPTION>Enables single waitstate burst writes to the AGP bus</DESCRIPTION>
+	<CONFIGNAME>AGP_1WS_BURST_WR</CONFIGNAME>
+	</REGISTER>
+
+	<REGISTER base="0x40" bit="4">
+	<TYPE>Checkbox</TYPE>
+	<WIDGETTEXT>AGP to DRAM prefetch</WIDGETTEXT>
+	<DESCRIPTION>Enables prefetching data when fetching textures from main memory</DESCRIPTION>
+	<CONFIGNAME>AGP_DRAM_PREFETCH</CONFIGNAME>
+	</REGISTER>
+
+	<REGISTER base="0x40" bit="3">
+	<TYPE>Checkbox</TYPE>
+	<WIDGETTEXT>AGP allowed before CPU->PCI post write not flushed</WIDGETTEXT>
+	<DESCRIPTION>Enables this tweak means that AGP transactions can occur before waiting for
+writes from the CPU to other PCI devices have finished.</DESCRIPTION>
+	<CONFIGNAME>AGP_BEFORE_CPU_TO_PCI_POST_WRITE_FLUSH</CONFIGNAME>
+	</REGISTER>
+
+	<REGISTER base="0x40" bit="1">
+	<TYPE>Checkbox</TYPE>
+	<WIDGETTEXT>AGP Master read caching</WIDGETTEXT>
+	<DESCRIPTION>Enables read caching on AGP bus.</DESCRIPTION>
+	<CONFIGNAME>AGP_MASTER_RD_CACHING</CONFIGNAME>
+	</REGISTER>
+
+	<REGISTER base="0x40" bit="0">
+	<TYPE>Checkbox</TYPE>
+	<WIDGETTEXT>AGP delayed transactions</WIDGETTEXT>
+	<DESCRIPTION>Enables delayed transactions on the AGP bus.</DESCRIPTION>
+	<CONFIGNAME>AGP_DELAY_TRANSACTIONS</CONFIGNAME>
+	</REGISTER>
+
+	<REGISTER base="0x41" bit="2">
+	<TYPE>Checkbox</TYPE>
+	<WIDGETTEXT>CPU backoff on AGP read retry timeout</WIDGETTEXT>
+	<DESCRIPTION>Tells CPU to wait if AGP bus fails to read from DRAM.</DESCRIPTION>
+	<CONFIGNAME>AGP_CPU_BACKOFF_TIMEOUT</CONFIGNAME>
+	</REGISTER>
+
+	<REGISTER base="0x41" bit="1">
+	<TYPE>Checkbox</TYPE>
+	<WIDGETTEXT>CPU to AGP I/O write posting</WIDGETTEXT>
+	<DESCRIPTION>Enables posted writes when performing AGP I/O.</DESCRIPTION>
+	<CONFIGNAME>CPU_TO_AGP_POSTED_WRITE_IO</CONFIGNAME>
+	</REGISTER>
+
+	<REGISTER base="0x42" bit="7">
+	<TYPE>Checkbox</TYPE>
+	<WIDGETTEXT>Read prefetch for enhance command</WIDGETTEXT>
+	<DESCRIPTION>When enabled, the AGP controller will only prefetch if an enhance
+command occurs. When disabled, it always performs prefetch.</DESCRIPTION>
+	<CONFIGNAME>AGP_PREFETCH_ONLY_ENHANCE</CONFIGNAME>
+	</REGISTER>
+
+	<REGISTER base="0x42" bit="6">
+	<TYPE>Checkbox</TYPE>
+	<WIDGETTEXT>AGP master 1 waitstate write</WIDGETTEXT>
+	<DESCRIPTION>Enables single waitstate writes to the AGP bus.</DESCRIPTION>
+	<CONFIGNAME>AGP_MASTER_1WS_WR</CONFIGNAME>
+	</REGISTER>
+
+	<REGISTER base="0x42" bit="5">
+	<TYPE>Checkbox</TYPE>
+	<WIDGETTEXT>AGP master 1 waitstate read</WIDGETTEXT>
+	<DESCRIPTION>Enables single waitstate reads from the AGP bus.</DESCRIPTION>
+	<CONFIGNAME>AGP_MASTER_1WS_RD</CONFIGNAME>
+	</REGISTER>
+
+	<REGISTER base="0x42" bit="4">
+	<TYPE>Checkbox</TYPE>
+	<WIDGETTEXT>Extend AGP master for efficient dummy req cycles</WIDGETTEXT>
+	<DESCRIPTION>Enables more efficient generation of dummy request cycles across the AGP bus.</DESCRIPTION>
+	<CONFIGNAME>AGP_EFFICIENT_DUMMY_CYCLES</CONFIGNAME>
+	</REGISTER>
+
+	<REGISTER base="0x42" bit="3">
+	<TYPE>Checkbox</TYPE>
+	<WIDGETTEXT>AGP write timeout asserts #STOP</WIDGETTEXT>
+	<DESCRIPTION>The #STOP line is asserted when a write timeout occurs.
+Enabling this setting greatly improves the performance on some BTTV capture cards.</DESCRIPTION>
+	<CONFIGNAME>AGP_WR_TIMEOUT_STOP</CONFIGNAME>
+	</REGISTER>
+
+	<REGISTER base="0x42" bit="2">
+	<TYPE>Checkbox</TYPE>
+	<WIDGETTEXT>AGP read timeout asserts #STOP</WIDGETTEXT>
+	<DESCRIPTION>The #STOP line is asserted when a read timeout occurs.</DESCRIPTION>
+	<CONFIGNAME>AGP_RD_TIMEOUT_STOP</CONFIGNAME>
+	</REGISTER>
+
+</DEVICE>

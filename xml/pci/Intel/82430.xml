@@ -1,0 +1,33 @@
+<?xml version = "1.0" encoding ="UTF-8" standalone = "no"?>
+<!DOCTYPE DEVICE SYSTEM "../pci.dtd">
+<DEVICE vendor="0x8086" id="0x0486">
+
+	<REGISTER base="0x53" bit="1">
+	<TYPE>Checkbox</TYPE>
+	<WIDGETTEXT>CPU->PCI posted write</WIDGETTEXT>
+	<DESCRIPTION>Enables CPU->PCI write posting</DESCRIPTION>
+	<CONFIGNAME>CPU_PCI_POSTED_WRITE</CONFIGNAME>
+	</REGISTER>
+
+	<REGISTER base="0x53" bit="0">
+	<TYPE>Checkbox</TYPE>
+	<WIDGETTEXT>CPU->RAM posted write</WIDGETTEXT>
+	<DESCRIPTION>Enables CPU->RAM write posting</DESCRIPTION>
+	<CONFIGNAME>CPU_RAM_POSTED_WRITE</CONFIGNAME>
+	</REGISTER>
+
+	<REGISTER base="0x54" bit="0">
+	<TYPE>Checkbox</TYPE>
+	<WIDGETTEXT>PCI->RAM posted write</WIDGETTEXT>
+	<DESCRIPTION>Enables PCI->RAM write posting</DESCRIPTION>
+	<CONFIGNAME>PCI_RAM_POSTED_WRITE</CONFIGNAME>
+	</REGISTER>
+
+	<REGISTER base="0x54" bit="1">
+	<TYPE>Checkbox</TYPE>
+	<WIDGETTEXT>PCI Burst</WIDGETTEXT>
+	<DESCRIPTION>Enables PCI Bursting</DESCRIPTION>
+	<CONFIGNAME>PCI_BURST</CONFIGNAME>
+	</REGISTER>
+
+</DEVICE>

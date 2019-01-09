@@ -1,0 +1,243 @@
+<!DOCTYPE book PUBLIC "-//OASIS//DTD DocBook V3.1//EN">
+<book>
+<bookinfo> <title>Powertweak Linux plugin writers guide</title>
+<authorgroup>
+<author><firstname>Arjan</firstname><surname>van de Ven</surname></author>
+<author><firstname>Dave</firstname><surname>Jones</surname></author>
+</authorgroup>
+</bookinfo> 
+
+<chapter><title>Introduction</title>
+<section><title>Context</title>
+	<para>
+		This document is intended for people that want to write
+		plugins for <application>Powertweak Linux</application>.
+		Note that you generally don't have to write a plugin if you
+		want to add support for a new chipset or for a new variable
+		in <filename>/proc</filename>.  Such additions should be
+		added as a new <acronym>XML</acronym> file instead.
+	</para>
+	<para>	
+		This document assumes a good knowledge of the C programming language, as Powertweak plugins are written in C.
+	</para>
+</section>
+<section><title>Copyright and other legalise</title>
+	<para>
+		Powertweak Linux is licensed under the terms of the GNU
+		General Public License version 2. 
+	</para>
+	<para>
+	      	This document is Copyright (c)  2000, Arjan van de Ven and
+	      	Dave Jones.  Permission is granted to copy, distribute
+	      	and/or modify this document under the terms of the GNU Free
+	      	Documentation License, Version 1.1 or any later version
+	      	published by the Free Software Foundation; with no Invariant
+	      	Sections, with no Front-Cover Texts, and with no Back-Cover
+	      	Texts.
+	</para>
+	<para>
+		Even though we cannot enforce any license on the plugins, we
+		urge you to put any plugins you may write under the terms of
+		the GNU General Public License.  Plugins which are not GPL'd
+		will not be considered for inclusion in the main source tree.
+	</para>
+</section>
+<section><title>What can plugins do in Powertweak Linux</title>
+	<para>
+	 	A plugin is loaded on startup by the daemon, which runs
+		as a root process. Therefore you have full capabilities
+		that are associated with root tasks. Ability to read
+		arbitrary regions of /dev/kmem, poke IO ports etc.
+	</para>
+</section>
+</chapter>
+<chapter><title>Powertweak from the plugins perspective</title>
+<section><title>The "tweak"</title>
+	<para>
+		In the figure, a typical Powertweak screenshot is shown.
+		<screenshot>
+		<graphic fileref="screenshot1.png" id="screenshot1">A typical Powertweak screen</graphic>
+		</screenshot>
+		Everything the user can adjust <footnote><para>this is not 100% correct, a tweak can also be a 
+		label without user interaction</para></footnote> (for example XXXXXX in the screenshot) is called a tweak. 
+	</para>
+	<para>
+		Inside Powertweak, a <type>tweak</type> is a basic element
+		with a uniform definition.  It is the task of a plugin to
+		create and <function>register</function> tweaks to the
+		Powertweak core, which in turn exports them to frontends
+		such as the GTK GUI.
+	</para>
+</section>
+<section><title>The tree</title>
+	<para>
+		The Powertweak core will arrange all tweaks that are
+		registerd in a multi-level tree, the top part of this tree
+		happens to be visualized on the left side of the GTK GUI
+		(figure YYY).
+	</para>
+	<para>
+		Fortunatly, plugins don't have to deal with this tree. In
+		fact, the tree isn't available at all to the plugins.
+		However, knowing there is a tree hopefully helps in
+		understanding the relation between your tweak and what the
+		GUI sees and shows.
+	</para>
+	<para>
+		All you have to do is <function>register</function> your
+		tweaks in a location, and the Powertweak core will take care
+		of the rest.
+	</para>
+	<para>
+		The tree of tweaks is built at startup of the daemon (powertweakd)
+		and remains in memory. Any user interface communicates with
+		the daemon to find out what tweaks are available.
+		This is currently done using domain sockets.
+		The reasoning behind this is that every user interface doesn't
+		need to know about the individual backends. Much less code
+		duplication.
+	</para>
+</section>
+</chapter>
+
+<chapter><title>Interface specification</title>
+<section><title>The <type>tweak</type> object</title>
+	<para>
+	<programlisting>
+struct tweak {
+	char *WidgetText;
+	char *Description;
+	char *ConfigName;
+
+	int Type;
+
+	int MinValue;
+	int MaxValue;
+
+	change_fn *ChangeValue;
+	value_fn *GetValue;
+	rawvalue_fn *GetValueRaw;
+	valueint_fn *GetValueInt;
+	valid_fn *IsValid;
+	destructor_fn *Destroy;
+
+	void *PrivateData;
+};
+	</programlisting>
+	WidgetText : This is what will be used to label the
+	widget associated with this tweak.
+
+	Description : This is a brief description of what the
+	tweak actually does. It may be displayed by a user interface
+	by means of a tooltip or such.
+
+	ConfigName : This is what Powertweak will call this tweak
+	in its config file. The rule of thumb for deciding confignames
+	is to begin the name with a prefix describing the backend
+	you are writing, followed by a unique identifier.
+
+	Type : This specifies the type of widget that this tweak
+	will use. Currently supported types are..
+	(FIXME: Add descriptions)
+		TYPE_NODE_ONLY
+		TYPE_CHECKBOX
+		TYPE_SPINBOX
+		TYPE_SLIDER
+		TYPE_TEXT
+		TYPE_COMBO
+		TYPE_COMBOELEM
+		TYPE_LABEL
+		TYPE_INFO_INT
+		TYPE_INFO_STRING
+		TYPE_INFO_BOOL
+		TYPE_RADIO_GROUP
+		TYPE_RADIO_OPTION
+		TYPE_TREE
+		TYPE_TAB
+		TYPE_FRAME
+		TYPE_HFRAME
+
+	MinValue :
+	MaxValue : These two entries specify the range of values that
+	this tweak may take. Only valid on types such as TYPE_SLIDER
+	and TYPE_SPINBOX
+
+	ChangeValue : This is a pointer to a function that is called
+	whenever someone clicks apply or save in the user interface.
+
+	GetValue :
+	GetValueInt : These are pointers to functions that will retrieve
+	the current value of this tweak (from hardware or such).
+
+	GetValueRaw : This function will re-read the current state of
+	the tweak from the system. For example, PCI backend will re-read
+	the PCI registers, and put the current value in the tweak structs
+	value field.
+
+	IsValid : This gets called before a tweak is 'applied' to
+	ensure that its values are within range.
+
+	Destroy	: This is a pointer to a destructor routine that gets
+	called when the backend closes. (Usually at daemon exit)
+
+	PrivateData : This is a pointer that may be used for backend
+	specific purposes. Each backend does with this whatever they
+	decide.
+	</para>
+</section>
+</chapter>
+
+<chapter><title>Interface specification</title>
+<section><title>The <type>PrivateData</type> struct</title>
+Every backend is allowed to use this as a pointer to whatever
+data it needs per-tweak. Plugin authors should bear in mind however,
+that as this is per-tweak, choice of data should be chosen wisely.
+
+One thing that is common about the PrivateData structures already
+in use, is the usage of an element to store the current state of
+the tweak. Powertweak defines a value_t, 
+<para>
+<programlisting>
+typedef struct {
+	unsigned int intVal; 
+	char *strVal;
+} value_t;
+</programlisting>
+
+Using this, backends can store/retrieve state, regardless of the
+type of the data.
+
+(Backends are free to store their state in alternative methods,
+perhaps by storing as an unsigned int for backends that only
+have tweaks with one datatype).
+
+Powertweak also provides methods for accessing/manipulating
+the various fields in value_t. These methods are:
+<programlisting>
+/* Makes a full copy of a value_t */
+void copy_values(value_t *dest,value_t src);
+
+/* Releases any memory allocated in a value_t, doesn't release the value_t itself */
+void release_value(value_t *val);
+
+/* Copies a value t and the releases the source */
+void copy_and_release_value(value_t *dest,value_t *src);
+
+#define get_value_int(x) ( (x).intVal )
+#define set_value_int(x,y) do { (x).intVal = (y); } while (0)
+</programlisting>
+
+*BIG FAT WARNING*
+Elements in value_t should not be accessed directly, please use
+the helper functions.
+FIXME: This is contradictory, as we currently have several
+       backends accessing value.strVal etc..
+	   We should have helper functions here too.
+</para>
+
+</section>
+</chapter>
+
+
+</book>
+

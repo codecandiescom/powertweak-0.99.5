@@ -1,0 +1,9 @@
+<?xml version = "1.0" encoding ="UTF-8" standalone = "no"?>
+<!DOCTYPE PROFILE SYSTEM "../profile.dtd">
+<PROFILE>
+	<SETTING>
+	<CONFIGNAME>KERNEL-SHMALL</CONFIGNAME>
+	<OPERATOR>>=</OPERATOR>
+	<VALUE>50</VALUE>
+	</SETTING>
+</PROFILE>

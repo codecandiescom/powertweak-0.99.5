@@ -1,0 +1,846 @@
+<?xml version = "1.0" encoding ="UTF-8" standalone = "no"?>
+<!DOCTYPE PROCENTRIES SYSTEM "proc.dtd">
+<PROCENTRIES>
+
+<!-- Network -->
+
+<!-- Core -->
+	<PROCENTRY>
+	<MENU>Networking</MENU>
+	<SUBMENU>Core</SUBMENU>
+	<TAB>Core</TAB>
+	<WIDGETTEXT>Receive buffer default</WIDGETTEXT>
+	<CONFIGNAME>net/core/rmem_default</CONFIGNAME>
+	<TYPE>Spinbutton</TYPE>
+	<LOW>65535</LOW>
+	<HIGH>262144</HIGH>
+	<ELEMENT>-1</ELEMENT>
+	<FILE>/proc/sys/net/core/rmem_default</FILE>
+	<DESCRIPTION>Size of receive buffer used by TCP sockets.</DESCRIPTION>
+	</PROCENTRY>
+
+	<PROCENTRY>
+	<MENU>Networking</MENU>
+	<SUBMENU>Core</SUBMENU>
+	<TAB>Core</TAB>
+	<WIDGETTEXT>Receive buffer maximum</WIDGETTEXT>
+	<CONFIGNAME>net/core/rmem_max</CONFIGNAME>
+	<TYPE>Spinbutton</TYPE>
+	<LOW>65535</LOW>
+	<HIGH>262144</HIGH>
+	<ELEMENT>-1</ELEMENT>
+	<FILE>/proc/sys/net/core/rmem_max</FILE>
+	<DESCRIPTION>Maximum size of receive buffer used by TCP sockets.</DESCRIPTION>
+	</PROCENTRY>
+
+
+	<PROCENTRY>
+	<MENU>Networking</MENU>
+	<SUBMENU>Core</SUBMENU>
+	<TAB>Core</TAB>
+	<WIDGETTEXT>Send buffer default</WIDGETTEXT>
+	<CONFIGNAME>net/core/wmem_default</CONFIGNAME>
+	<TYPE>Spinbutton</TYPE>
+	<LOW>65535</LOW>
+	<HIGH>262144</HIGH>
+	<ELEMENT>-1</ELEMENT>
+	<FILE>/proc/sys/net/core/wmem_default</FILE>
+	<DESCRIPTION>Size of transmit buffer used by TCP sockets.</DESCRIPTION>
+	</PROCENTRY>
+
+
+	<PROCENTRY>
+	<MENU>Networking</MENU>
+	<SUBMENU>Core</SUBMENU>
+	<TAB>Core</TAB>
+	<WIDGETTEXT>Send buffer maximum</WIDGETTEXT>
+	<CONFIGNAME>net/core/wmem_max</CONFIGNAME>
+	<TYPE>Spinbutton</TYPE>
+	<LOW>65535</LOW>
+	<HIGH>262144</HIGH>
+	<ELEMENT>-1</ELEMENT>
+	<FILE>/proc/sys/net/core/wmem_max</FILE>
+	<DESCRIPTION>Maximum size of transmit buffer used by TCP sockets.</DESCRIPTION>
+	</PROCENTRY>
+
+<!-- TCP -->
+	<PROCENTRY>
+	<MENU>Networking</MENU>
+	<SUBMENU>TCP</SUBMENU>
+	<TAB>TCP</TAB>
+	<WIDGETTEXT>FIN timeout</WIDGETTEXT>
+	<CONFIGNAME>net/ipv4/tcp_fin_timeout</CONFIGNAME>
+	<TYPE>Spinbutton</TYPE>
+	<LOW>100</LOW>
+	<HIGH>500</HIGH>
+	<ELEMENT>-1</ELEMENT>
+	<FILE>/proc/sys/net/ipv4/tcp_fin_timeout</FILE>
+	<DESCRIPTION>The number of seconds to wait for a final FIN before the socket
+is always closed. This is a violation of the TCP standard but required
+for prevention of some denial of service attacks.</DESCRIPTION>
+	</PROCENTRY>
+
+	<PROCENTRY>
+	<MENU>Networking</MENU>
+	<SUBMENU>TCP</SUBMENU>
+	<TAB>TCP</TAB>
+	<WIDGETTEXT>Keepalive time</WIDGETTEXT>
+	<CONFIGNAME>net/ipv4/tcp_keepalive_time</CONFIGNAME>
+	<TYPE>Spinbutton</TYPE>
+	<LOW>0</LOW>
+	<HIGH>65535</HIGH>
+	<ELEMENT>-1</ELEMENT>
+	<FILE>/proc/sys/net/ipv4/tcp_keepalive_time</FILE>
+	<DESCRIPTION>The number of seconds after no data has been
+transmitted before a keep-alive will be sent on a connection.
+If you are behind a NAT gateway, you might want to decrease it to 
+600 or lower.</DESCRIPTION>
+	</PROCENTRY>
+
+	<PROCENTRY>
+	<MENU>Networking</MENU>
+	<SUBMENU>TCP</SUBMENU>
+	<TAB>TCP</TAB>
+	<WIDGETTEXT>Number of keepalive probes</WIDGETTEXT>
+	<CONFIGNAME>net/ipv4/tcp_keepalive_probes</CONFIGNAME>
+	<TYPE>Spinbutton</TYPE>
+	<LOW>0</LOW>
+	<HIGH>50</HIGH>
+	<ELEMENT>-1</ELEMENT>
+	<FILE>/proc/sys/net/ipv4/tcp_keepalive_probes</FILE>
+	<DESCRIPTION>How many keep-alive probes are sent per slow  timer
+run. To prevent bursts, this value should not be set too high.</DESCRIPTION>
+	</PROCENTRY>
+
+	<PROCENTRY>
+	<MENU>Networking</MENU>
+	<SUBMENU>TCP</SUBMENU>
+	<TAB>TCP</TAB>
+	<WIDGETTEXT>Maximum keepalive probes</WIDGETTEXT>
+	<CONFIGNAME>net/ipv4/tcp_max_ka_probes</CONFIGNAME>
+	<TYPE>Spinbutton</TYPE>
+	<LOW>0</LOW>
+	<HIGH>30</HIGH>
+	<ELEMENT>-1</ELEMENT>
+	<FILE>/proc/sys/net/ipv4/tcp_max_ka_probes</FILE>
+	<DESCRIPTION>Holds the number of probes that are sent out per slow timer run.
+This shouldn't be set too high to prevent bursts.</DESCRIPTION>
+	</PROCENTRY>
+
+	<PROCENTRY>
+	<MENU>Networking</MENU>
+	<SUBMENU>TCP</SUBMENU>
+	<TAB>TCP</TAB>
+	<WIDGETTEXT>Maximum SYN retransmit.</WIDGETTEXT>
+	<CONFIGNAME>net/ipv4/tcp_syn_retries</CONFIGNAME>
+	<TYPE>Spinbutton</TYPE>
+	<LOW>5</LOW>
+	<HIGH>255</HIGH>
+	<ELEMENT>-1</ELEMENT>
+	<FILE>/proc/sys/net/ipv4/tcp_syn_retries</FILE>
+	<DESCRIPTION>Number of times initial SYNs for a TCP connection attempt will be
+retransmitted.  This is only the timeout for outgoing connections.
+For incoming connections, see 'Maximum retransmit answer retries'.</DESCRIPTION>
+	</PROCENTRY>
+
+	<PROCENTRY>
+	<MENU>Networking</MENU>
+	<SUBMENU>TCP</SUBMENU>
+	<TAB>TCP</TAB>
+	<WIDGETTEXT>Maximum SYN backlog.</WIDGETTEXT>
+	<CONFIGNAME>net/ipv4/tcp_max_syn_backlog</CONFIGNAME>
+	<TYPE>Spinbutton</TYPE>
+	<LOW>0</LOW>
+	<HIGH>512</HIGH>
+	<ELEMENT>-1</ELEMENT>
+	<FILE>/proc/sys/net/ipv4/tcp_max_syn_backlog</FILE>
+	<DESCRIPTION>Length of the per-socket backlog queue.
+When the queue is full, and there are more connection requests,
+Linux will drop the incoming packets. When SYN Cookies are
+enabled the backlog queue is effectively ignored.</DESCRIPTION>
+	</PROCENTRY>
+
+	<PROCENTRY>
+	<MENU>Networking</MENU>
+	<SUBMENU>TCP</SUBMENU>
+	<TAB>TCP</TAB>
+	<WIDGETTEXT>Maximum retransmit answer retries.</WIDGETTEXT>
+	<CONFIGNAME>net/ipv4/tcp_retries1</CONFIGNAME>
+	<TYPE>Spinbutton</TYPE>
+	<LOW>0</LOW>
+	<HIGH>64</HIGH>
+	<ELEMENT>-1</ELEMENT>
+	<FILE>/proc/sys/net/ipv4/tcp_retries1</FILE>
+	<DESCRIPTION>Defines how often an answer to a TCP connection is retransmitted before giving up.</DESCRIPTION>
+	</PROCENTRY>
+
+	<PROCENTRY>
+	<MENU>Networking</MENU>
+	<SUBMENU>TCP</SUBMENU>
+	<TAB>TCP</TAB>
+	<WIDGETTEXT>Maximum retransmit retries.</WIDGETTEXT>
+	<CONFIGNAME>net/ipv4/tcp_retries2</CONFIGNAME>
+	<TYPE>Spinbutton</TYPE>
+	<LOW>0</LOW>
+	<HIGH>64</HIGH>
+	<ELEMENT>-1</ELEMENT>
+	<FILE>/proc/sys/net/ipv4/tcp_retries2</FILE>
+	<DESCRIPTION>Defines how often a TCP packet is retransmitted before giving up.</DESCRIPTION>
+	</PROCENTRY>
+
+	<PROCENTRY>
+	<MENU>Networking</MENU>
+	<SUBMENU>TCP</SUBMENU>
+	<TAB>TCP</TAB>
+	<WIDGETTEXT>Enable TCP Syncookies</WIDGETTEXT>
+	<CONFIGNAME>net/ipv4/tcp_syncookies</CONFIGNAME>
+	<TYPE>Checkbox</TYPE>
+	<ELEMENT>0</ELEMENT>
+	<FILE>/proc/sys/net/ipv4/tcp_syncookies</FILE>
+	<DESCRIPTION>This option causes 'SYN Cookies' to be sent when the SYN backlog queue of a
+socket overflows. This prevents possible denial of service attacks. Note,
+that the concept of a socket backlog is abandoned, which means the peer may
+not recieve reliable error messages from an overloaded server with SYN
+Cookies enabled.</DESCRIPTION>
+	</PROCENTRY>
+
+	<PROCENTRY>
+	<MENU>Networking</MENU>
+	<SUBMENU>TCP</SUBMENU>
+	<TAB>TCP</TAB>
+	<WIDGETTEXT>Retransmit collapse</WIDGETTEXT>
+	<CONFIGNAME>net/ipv4/tcp_retrans_collapse</CONFIGNAME>
+	<TYPE>Checkbox</TYPE>
+	<ELEMENT>0</ELEMENT>
+	<FILE>/proc/sys/net/ipv4/tcp_retrans_collapse</FILE>
+	<DESCRIPTION>This option enables bug-to-bug compatibility with some broken printers.
+On retransmit it tries to send bigger packets to work around bugs in certain
+TCP stacks. Can be turned off if your printer works fine without it, or you
+don't have a networked printer.</DESCRIPTION>
+	</PROCENTRY>
+
+	<PROCENTRY>
+	<MENU>Networking</MENU>
+	<SUBMENU>TCP</SUBMENU>
+	<TAB>TCP</TAB>
+	<WIDGETTEXT>Select Acknowledgements</WIDGETTEXT>
+	<CONFIGNAME>net/ipv4/tcp_sack</CONFIGNAME>
+	<TYPE>Checkbox</TYPE>
+	<ELEMENT>0</ELEMENT>
+	<FILE>/proc/sys/net/ipv4/tcp_sack</FILE>
+	<DESCRIPTION>This option enables select acknowledgements (See RFC2018).</DESCRIPTION>
+	</PROCENTRY>
+
+	<PROCENTRY>
+	<MENU>Networking</MENU>
+	<SUBMENU>TCP</SUBMENU>
+	<TAB>TCP</TAB>
+	<WIDGETTEXT>TCP Timestamping</WIDGETTEXT>
+	<CONFIGNAME>net/ipv4/tcp_timestamps</CONFIGNAME>
+	<TYPE>Checkbox</TYPE>
+	<ELEMENT>0</ELEMENT>
+	<FILE>/proc/sys/net/ipv4/tcp_timestamps</FILE>
+	<DESCRIPTION>This option enables TCP Timestamping for each packet. (See RFC1323).</DESCRIPTION>
+	</PROCENTRY>
+
+	<PROCENTRY>
+	<MENU>Networking</MENU>
+	<SUBMENU>TCP</SUBMENU>
+	<TAB>TCP</TAB>
+	<WIDGETTEXT>TCP Window scaling</WIDGETTEXT>
+	<CONFIGNAME>net/ipv4/tcp_window_scaling</CONFIGNAME>
+	<TYPE>Checkbox</TYPE>
+	<ELEMENT>0</ELEMENT>
+	<FILE>/proc/sys/net/ipv4/tcp_window_scaling</FILE>
+	<DESCRIPTION>This option enables TCP window scaling (See RFC1323).</DESCRIPTION>
+	</PROCENTRY>
+
+	<PROCENTRY>
+	<MENU>Networking</MENU>
+	<SUBMENU>TCP</SUBMENU>
+	<TAB>TCP</TAB>
+	<WIDGETTEXT>Explicit Congestion Notification</WIDGETTEXT>
+	<CONFIGNAME>net/ipv4/tcp_ecn</CONFIGNAME>
+	<TYPE>Checkbox</TYPE>
+	<ELEMENT>0</ELEMENT>
+	<FILE>/proc/sys/net/ipv4/tcp_ecn</FILE>
+	<DESCRIPTION>This option enables "Explicit Congestion Notification",
+a way of letting both ends know about the state/performance of the link.
+Several sites, however, block traffic with ECN enabled, so for maximum
+compatibility, this setting should be turned off.</DESCRIPTION>
+	</PROCENTRY>
+
+	<PROCENTRY>
+	<MENU>Networking</MENU>
+	<SUBMENU>TCP</SUBMENU>
+	<TAB>TCP</TAB>
+	<WIDGETTEXT>Stdurg</WIDGETTEXT>
+	<CONFIGNAME>net/ipv4/tcp_stdurg</CONFIGNAME>
+	<TYPE>Checkbox</TYPE>
+	<ELEMENT>0</ELEMENT>
+	<FILE>/proc/sys/net/ipv4/tcp_stdurg</FILE>
+	<DESCRIPTION>Enable the strict RFC793 interpretation of the TCP
+urgent-pointer field.  The default is to use the BSD-compatible
+interpretation of the urgent pointer, pointing to the first byte after
+the urgent data. The RFC793 interpretation is to have it point to the
+last byte of urgent data. Enabling this option may lead to
+interoperatibility problems.</DESCRIPTION>
+	</PROCENTRY>
+
+<!-- ICMP -->
+	<PROCENTRY>
+	<MENU>Networking</MENU>
+	<SUBMENU>ICMP</SUBMENU>
+	<TAB>ICMP</TAB>
+	<WIDGETTEXT>Destination unreachable rate</WIDGETTEXT>
+	<CONFIGNAME>net/ipv4/icmp_destunreach_rate</CONFIGNAME>
+	<TYPE>Spinbutton</TYPE>
+	<LOW>100</LOW>
+	<HIGH>500</HIGH>
+	<ELEMENT>-1</ELEMENT>
+	<FILE>/proc/sys/net/ipv4/icmp_destunreach_rate</FILE>
+	<DESCRIPTION>Determines the maximum rate at which ICMP destination
+unreachable messages are generated.</DESCRIPTION>
+	</PROCENTRY>
+
+	<PROCENTRY>
+	<MENU>Networking</MENU>
+	<SUBMENU>ICMP</SUBMENU>
+	<TAB>ICMP</TAB>
+	<WIDGETTEXT>Echo reply rate</WIDGETTEXT>
+	<CONFIGNAME>net/ipv4/icmp_echoreply_rate</CONFIGNAME>
+	<TYPE>Spinbutton</TYPE>
+	<LOW>0</LOW>
+	<HIGH>500</HIGH>
+	<ELEMENT>-1</ELEMENT>
+	<FILE>/proc/sys/net/ipv4/icmp_echoreply_rate</FILE>
+	<DESCRIPTION>Determines the maximum rate at which ICMP echo 
+requests will be answered.</DESCRIPTION>
+	</PROCENTRY>
+
+	<PROCENTRY>
+	<MENU>Networking</MENU>
+	<SUBMENU>ICMP</SUBMENU>
+	<TAB>ICMP</TAB>
+	<WIDGETTEXT>Parameter problem rate</WIDGETTEXT>
+	<CONFIGNAME>net/ipv4/icmp_paramprob_rate</CONFIGNAME>
+	<TYPE>Spinbutton</TYPE>
+	<LOW>100</LOW>
+	<HIGH>500</HIGH>
+	<ELEMENT>-1</ELEMENT>
+	<FILE>/proc/sys/net/ipv4/icmp_paramprob_rate</FILE>
+	<DESCRIPTION>Determines the maximum rate at which ICMP parameter
+problem messages will be generated.</DESCRIPTION>
+	</PROCENTRY>
+
+	<PROCENTRY>
+	<MENU>Networking</MENU>
+	<SUBMENU>ICMP</SUBMENU>
+	<TAB>ICMP</TAB>
+	<WIDGETTEXT>Time exceed rate</WIDGETTEXT>
+	<CONFIGNAME>net/ipv4/icmp_timeexceed_rate</CONFIGNAME>
+	<TYPE>Spinbutton</TYPE>
+	<LOW>100</LOW>
+	<HIGH>500</HIGH>
+	<ELEMENT>-1</ELEMENT>
+	<FILE>/proc/sys/net/ipv4/icmp_timeexceed_rate</FILE>
+	<DESCRIPTION>Determines the maximum rate at which ICMP time
+exceeded messages will be generated.</DESCRIPTION>
+	</PROCENTRY>
+
+
+	<PROCENTRY>
+	<MENU>Networking</MENU>
+	<SUBMENU>ICMP</SUBMENU>
+	<TAB>ICMP</TAB>
+	<WIDGETTEXT>Ignore extraneous error messages</WIDGETTEXT>
+	<CONFIGNAME>net/ipv4/icmp_ignore_bogus_error_responses</CONFIGNAME>
+	<TYPE>Checkbox</TYPE>
+	<ELEMENT>-1</ELEMENT>
+	<FILE>/proc/sys/net/ipv4/icmp_ignore_bogus_error_responses</FILE>
+	<DESCRIPTION>This option ignores all bogus error messages that may arrive.</DESCRIPTION>
+	</PROCENTRY>
+
+	<PROCENTRY>
+	<MENU>Networking</MENU>
+	<SUBMENU>ICMP</SUBMENU>
+	<TAB>ICMP</TAB>
+	<WIDGETTEXT>Ignore all messages</WIDGETTEXT>
+	<CONFIGNAME>net/ipv4/icmp_echo_ignore_all</CONFIGNAME>
+	<TYPE>Checkbox</TYPE>
+	<ELEMENT>-1</ELEMENT>
+	<FILE>/proc/sys/net/ipv4/icmp_echo_ignore_all</FILE>
+	<DESCRIPTION>This option will ignore all ICMP traffic arriving on all ethernet devices.</DESCRIPTION>
+	</PROCENTRY>
+
+	<PROCENTRY>
+	<MENU>Networking</MENU>
+	<SUBMENU>ICMP</SUBMENU>
+	<TAB>ICMP</TAB>
+	<WIDGETTEXT>Ignore broadcast messages</WIDGETTEXT>
+	<CONFIGNAME>net/ipv4/icmp_echo_ignore_broadcasts</CONFIGNAME>
+	<TYPE>Checkbox</TYPE>
+	<ELEMENT>-1</ELEMENT>
+	<FILE>/proc/sys/net/ipv4/icmp_echo_ignore_broadcasts</FILE>
+	<DESCRIPTION>This option will ignore ICMP broadcast messages on all ethernet devices.</DESCRIPTION>
+	</PROCENTRY>
+
+
+<!-- IP -->
+
+	<PROCENTRY>
+	<MENU>Networking</MENU>
+	<SUBMENU>IP</SUBMENU>
+	<TAB>IP</TAB>
+	<WIDGETTEXT>Default time to live (TTL)</WIDGETTEXT>
+	<CONFIGNAME>net/ipv4/ip_default_ttl</CONFIGNAME>
+	<TYPE>Spinbutton</TYPE>
+	<LOW>8</LOW>
+	<HIGH>256</HIGH>
+	<ELEMENT>-1</ELEMENT>
+	<FILE>/proc/sys/net/ipv4/ip_default_ttl</FILE>
+	<DESCRIPTION>The maximum number of hops a packet may travel.</DESCRIPTION>
+	</PROCENTRY>
+
+	<PROCENTRY>
+	<MENU>Networking</MENU>
+	<SUBMENU>IP</SUBMENU>
+	<TAB>Fragmentation</TAB>
+	<FRAME>Memory</FRAME>
+	<WIDGETTEXT>Time to hold IP fragment in memory</WIDGETTEXT>
+	<CONFIGNAME>net/ipv4/ipfrag_time</CONFIGNAME>
+	<TYPE>Spinbutton</TYPE>
+	<LOW>10</LOW>
+	<HIGH>60</HIGH>
+	<ELEMENT>-1</ELEMENT>
+	<FILE>/proc/sys/net/ipv4/ipfrag_time</FILE>
+	<DESCRIPTION>The number of seconds an IP fragment should remain in memory.</DESCRIPTION>
+	</PROCENTRY>
+
+	<PROCENTRY>
+	<MENU>Networking</MENU>
+	<SUBMENU>IP</SUBMENU>
+	<TAB>Fragmentation</TAB>
+	<FRAME>Memory</FRAME>
+	<WIDGETTEXT>IP fragment low threshold</WIDGETTEXT>
+	<CONFIGNAME>net/ipv4/ipfrag_low_thresh</CONFIGNAME>
+	<TYPE>Spinbutton</TYPE>
+	<LOW>196608</LOW>
+	<HIGH>262144</HIGH>
+	<ELEMENT>-1</ELEMENT>
+	<FILE>/proc/sys/net/ipv4/ipfrag_low_thresh</FILE>
+	<DESCRIPTION>Minimum threshold of IP fragment size. Increasing
+can give the defragmenter more breathing space.</DESCRIPTION>
+	</PROCENTRY>
+
+	<PROCENTRY>
+	<MENU>Networking</MENU>
+	<SUBMENU>IP</SUBMENU>
+	<TAB>Fragmentation</TAB>
+	<FRAME>Memory</FRAME>
+	<WIDGETTEXT>IP fragment high threshold</WIDGETTEXT>
+	<CONFIGNAME>net/ipv4/ipfrag_high_thresh</CONFIGNAME>
+	<TYPE>Spinbutton</TYPE>
+	<LOW>262144</LOW>
+	<HIGH>524288</HIGH>
+	<ELEMENT>-1</ELEMENT>
+	<FILE>/proc/sys/net/ipv4/ipfrag_high_thresh</FILE>
+	<DESCRIPTION>Maximum threshold of IP fragment size. Increasing
+can give the defragmenter more breathing space.</DESCRIPTION>
+	</PROCENTRY>
+
+	<PROCENTRY>
+	<MENU>Networking</MENU>
+	<SUBMENU>IP</SUBMENU>
+	<TAB>IP</TAB>
+	<WIDGETTEXT>Dynamic addressing</WIDGETTEXT>
+	<CONFIGNAME>net/ipv4/ip_dynaddr</CONFIGNAME>
+	<TYPE>Checkbox</TYPE>
+	<ELEMENT>-1</ELEMENT>
+	<FILE>/proc/sys/net/ipv4/ip_dynaddr</FILE>
+	<DESCRIPTION>Enabling this can prevent problems if you use dynamic IP and forwarding.</DESCRIPTION>
+	</PROCENTRY>
+
+	<PROCENTRY>
+	<MENU>Networking</MENU>
+	<SUBMENU>IP</SUBMENU>
+	<TAB>IP</TAB>
+	<WIDGETTEXT>Global path MTU discovery disable</WIDGETTEXT>
+	<CONFIGNAME>net/ipv4/ip_no_pmtu_disc</CONFIGNAME>
+	<TYPE>Checkbox</TYPE>
+	<ELEMENT>-1</ELEMENT>
+	<FILE>/proc/sys/net/ipv4/ip_no_pmtu_disc</FILE>
+	<DESCRIPTION>Enabling this option will turn off path MTU discovery (MTU is the Maximum Transmission Unit).
+Some very, very broken ISPs require this.</DESCRIPTION>
+	</PROCENTRY>
+
+	<PROCENTRY>
+	<MENU>Networking</MENU>
+	<SUBMENU>IP</SUBMENU>
+	<TAB>Fragmentation</TAB>
+	<WIDGETTEXT>Always defragment incoming IP packets</WIDGETTEXT>
+	<CONFIGNAME>net/ipv4/ip_always_defrag</CONFIGNAME>
+	<TYPE>Checkbox</TYPE>
+	<ELEMENT>-1</ELEMENT>
+	<FILE>/proc/sys/net/ipv4/ip_always_defrag</FILE>
+	<DESCRIPTION>All incoming fragments (parts of IP packets that arose when some
+host between source and destination decided that the packets were too large and
+cut them into pieces) will be reassembled (defragmented) before being processed,
+even if the packet is to be forwarded.</DESCRIPTION>
+	</PROCENTRY>
+
+	<PROCENTRY>
+	<MENU>Networking</MENU>
+	<SUBMENU>IP</SUBMENU>
+	<TAB>IP</TAB>
+	<WIDGETTEXT>Debugging of IP Masquerading</WIDGETTEXT>
+	<CONFIGNAME>net/ipv4/ip_masq_debug</CONFIGNAME>
+	<TYPE>Checkbox</TYPE>
+	<ELEMENT>-1</ELEMENT>
+	<FILE>/proc/sys/net/ipv4/ip_masq_debug</FILE>
+	<DESCRIPTION>This option toggles debug message output for IP masquerading.</DESCRIPTION>
+	</PROCENTRY>
+
+	<PROCENTRY>
+	<MENU>Networking</MENU>
+	<SUBMENU>IP</SUBMENU>
+	<TAB>IP</TAB>
+	<WIDGETTEXT>IP Forwarding</WIDGETTEXT>
+	<CONFIGNAME>net/ipv4/ip_forward</CONFIGNAME>
+	<TYPE>Checkbox</TYPE>
+	<ELEMENT>-1</ELEMENT>
+	<FILE>/proc/sys/net/ipv4/ip_forward</FILE>
+	<DESCRIPTION>This option enables forwarding of IP packets. E.g. from eth0 to eth1.</DESCRIPTION>
+	</PROCENTRY>
+
+	<PROCENTRY>
+	<MENU>Networking</MENU>
+	<SUBMENU>IP</SUBMENU>
+	<TAB>IP</TAB>
+	<WIDGETTEXT>RP Filter</WIDGETTEXT>
+	<CONFIGNAME>net/ipv4/conf/all/rp_filter</CONFIGNAME>
+	<TYPE>Checkbox</TYPE>
+	<ELEMENT>-1</ELEMENT>
+	<FILE>/proc/sys/net/ipv4/conf/all/rp_filter</FILE>
+	<DESCRIPTION>Enables source route verification</DESCRIPTION>
+	</PROCENTRY>
+
+	<PROCENTRY>
+	<MENU>Networking</MENU>
+	<SUBMENU>IP</SUBMENU>
+	<TAB>IP</TAB>
+	<WIDGETTEXT>UDP Dloose</WIDGETTEXT>
+	<CONFIGNAME>net/ipv4/ip_masq_udp_dloose</CONFIGNAME>
+	<TYPE>Checkbox</TYPE>
+	<ELEMENT>-1</ELEMENT>
+	<FILE>/proc/sys/net/ipv4/ip_masq_udp_dloose</FILE>
+	<DESCRIPTION>If you are trying to get an Internet game to work through your IP MASQ box,
+and you have set it up to the best of your ability without it working, try
+enabling this option.  This option is disabled by default due to possible
+internal machine UDP port scanning vunerabilities.</DESCRIPTION>
+	</PROCENTRY>
+
+
+<!-- Networking / Unix -->
+
+	<PROCENTRY>
+	<MENU>Networking</MENU>
+	<SUBMENU>Unix domain</SUBMENU>
+	<TAB>Unix domain</TAB>
+	<WIDGETTEXT>Delete delay</WIDGETTEXT>
+	<CONFIGNAME>net/unix/delete_delay</CONFIGNAME>
+	<TYPE>Spinbutton</TYPE>
+	<LOW>1</LOW>
+	<HIGH>60</HIGH>
+	<ELEMENT>-1</ELEMENT>
+	<FILE>/proc/sys/net/unix/delete_delay</FILE>
+	<DESCRIPTION>Time in seconds to wait after closure before first attempting to
+delete a unix domain socket</DESCRIPTION>
+	</PROCENTRY>
+
+	<PROCENTRY>
+	<MENU>Networking</MENU>
+	<SUBMENU>Unix domain</SUBMENU>
+	<TAB>Unix domain</TAB>
+	<WIDGETTEXT>Destroy delay</WIDGETTEXT>
+	<CONFIGNAME>net/unix/destrory_delay</CONFIGNAME>
+	<TYPE>Spinbutton</TYPE>
+	<LOW>1</LOW>
+	<HIGH>60</HIGH>
+	<ELEMENT>-1</ELEMENT>
+	<FILE>/proc/sys/net/unix/destroy_delay</FILE>
+	<DESCRIPTION>Time in seconds to wait after closure between repeat attempts to
+destroy a unix domain socket</DESCRIPTION>
+	</PROCENTRY>
+
+	<PROCENTRY>
+	<MENU>Networking</MENU>
+	<SUBMENU>Unix domain</SUBMENU>
+	<TAB>Unix domain</TAB>
+	<WIDGETTEXT>Max Datagram Queue Length</WIDGETTEXT>
+	<CONFIGNAME>net/unix/max_dgram_qlen</CONFIGNAME>
+	<TYPE>Spinbutton</TYPE>
+	<LOW>5</LOW>
+	<HIGH>100</HIGH>
+	<ELEMENT>-1</ELEMENT>
+	<FILE>/proc/sys/net/unix/max_dgram_qlen</FILE>
+	<DESCRIPTION>Sets the maximum number of datagram messages that may be pending on
+a Unix domain socket before further writes block or error.</DESCRIPTION>
+	</PROCENTRY>
+
+
+<!-- Networking / Routing -->
+
+	<PROCENTRY>
+	<MENU>Networking</MENU>
+	<SUBMENU>Routing</SUBMENU>
+	<TAB>Routing</TAB>
+	<WIDGETTEXT>Error burst</WIDGETTEXT>
+	<CONFIGNAME>net/ipv4/route/error_burst</CONFIGNAME>
+	<TYPE>Spinbutton</TYPE>
+	<LOW>100</LOW>
+	<HIGH>1000</HIGH>
+	<ELEMENT>-1</ELEMENT>
+	<FILE>/proc/sys/net/ipv4/route/error_burst</FILE>
+	<DESCRIPTION>Controls the maximum frequency with which ICMP destination
+unreachable messages will be issued.  Specified in Hz.</DESCRIPTION>
+	</PROCENTRY>
+
+	<PROCENTRY>
+	<MENU>Networking</MENU>
+	<SUBMENU>Routing</SUBMENU>
+	<TAB>Routing</TAB>
+	<WIDGETTEXT>Error cost</WIDGETTEXT>
+	<CONFIGNAME>net/ipv4/route/error_cost</CONFIGNAME>
+	<TYPE>Spinbutton</TYPE>
+	<LOW>10</LOW>
+	<HIGH>1000</HIGH>
+	<ELEMENT>-1</ELEMENT>
+	<FILE>/proc/sys/net/ipv4/route/error_cost</FILE>
+	<DESCRIPTION>Controls the rate at which ICMP destination unreachable
+messages will be sent.  Specified in Hz.</DESCRIPTION>
+	</PROCENTRY>
+
+	<PROCENTRY>
+	<MENU>Networking</MENU>
+	<SUBMENU>Routing</SUBMENU>
+	<TAB>Garbage collection</TAB>
+	<WIDGETTEXT>GC Elasticity</WIDGETTEXT>
+	<CONFIGNAME>net/ipv4/route/gc_elasticity</CONFIGNAME>
+	<TYPE>Spinbutton</TYPE>
+	<LOW>1</LOW>
+	<HIGH>100</HIGH>
+	<ELEMENT>-1</ELEMENT>
+	<FILE>/proc/sys/net/ipv4/route/gc_elasticity</FILE>
+	<DESCRIPTION>Controls the size of the routing cache considered to 
+require immediate garbage collection</DESCRIPTION>
+	</PROCENTRY>
+
+	<PROCENTRY>
+	<MENU>Networking</MENU>
+	<SUBMENU>Routing</SUBMENU>
+	<TAB>Garbage collection</TAB>
+	<WIDGETTEXT>ARP cache garbage collection interval</WIDGETTEXT>
+	<CONFIGNAME>net/ipv4/route/gc_interval</CONFIGNAME>
+	<TYPE>Spinbutton</TYPE>
+	<LOW>10</LOW>
+	<HIGH>300</HIGH>
+	<ELEMENT>-1</ELEMENT>
+	<FILE>/proc/sys/net/ipv4/route/gc_interval</FILE>
+	<DESCRIPTION>Interval (in seconds) between every run of
+the garbage collector for stale ARP-cache entries.</DESCRIPTION>
+	</PROCENTRY>
+
+	<PROCENTRY>
+	<MENU>Networking</MENU>
+	<SUBMENU>Routing</SUBMENU>
+	<TAB>Garbage collection</TAB>
+	<WIDGETTEXT>GC Min interval</WIDGETTEXT>
+	<CONFIGNAME>net/ipv4/route/gc_min_internal</CONFIGNAME>
+	<TYPE>Spinbutton</TYPE>
+	<LOW>1</LOW>
+	<HIGH>60</HIGH>
+	<ELEMENT>-1</ELEMENT>
+	<FILE>/proc/sys/net/ipv4/route/gc_min_interval</FILE>
+	<DESCRIPTION>Minimum interval (in seconds) between routing table
+garbage collection runs.</DESCRIPTION>
+	</PROCENTRY>
+
+	<PROCENTRY>
+	<MENU>Networking</MENU>
+	<SUBMENU>Routing</SUBMENU>
+	<TAB>Garbage collection</TAB>
+	<WIDGETTEXT>GC Thresh</WIDGETTEXT>
+	<CONFIGNAME>net/ipv4/route/gc_thresh</CONFIGNAME>
+	<TYPE>Spinbutton</TYPE>
+	<LOW>128</LOW>
+	<HIGH>1024</HIGH>
+	<ELEMENT>-1</ELEMENT>
+	<FILE>/proc/sys/net/ipv4/route/gc_thresh</FILE>
+	<DESCRIPTION>Controls the number of routing cache entries removed
+in a garbage collection run.</DESCRIPTION>
+	</PROCENTRY>
+
+	<PROCENTRY>
+	<MENU>Networking</MENU>
+	<SUBMENU>Routing</SUBMENU>
+	<TAB>Garbage collection</TAB>
+	<WIDGETTEXT>GC Timeout</WIDGETTEXT>
+	<CONFIGNAME>net/ipv4/route/gc_timeout</CONFIGNAME>
+	<TYPE>Spinbutton</TYPE>
+	<LOW>60</LOW>
+	<HIGH>900</HIGH>
+	<ELEMENT>-1</ELEMENT>
+	<FILE>/proc/sys/net/ipv4/route/gc_timeout</FILE>
+	<DESCRIPTION>Linux will wait at least gc_timeout before it will skip to another route because the previous one has died </DESCRIPTION>
+	</PROCENTRY>
+
+	<PROCENTRY>
+	<MENU>Networking</MENU>
+	<SUBMENU>Routing</SUBMENU>
+	<TAB>Routing</TAB>
+	<WIDGETTEXT>Max delay</WIDGETTEXT>
+	<CONFIGNAME>net/ipv4/route/max_delay</CONFIGNAME>
+	<TYPE>Spinbutton</TYPE>
+	<LOW>1</LOW>
+	<HIGH>1000</HIGH>
+	<ELEMENT>-1</ELEMENT>
+	<FILE>/proc/sys/net/ipv4/route/max_delay</FILE>
+	<DESCRIPTION>Maximum delay in routing cache flushes.</DESCRIPTION>
+	</PROCENTRY>
+
+	<PROCENTRY>
+	<MENU>Networking</MENU>
+	<SUBMENU>Routing</SUBMENU>
+	<TAB>Routing</TAB>
+	<WIDGETTEXT>Max size</WIDGETTEXT>
+	<CONFIGNAME>net/ipv4/route/max_size</CONFIGNAME>
+	<TYPE>Spinbutton</TYPE>
+	<LOW>1024</LOW>
+	<HIGH>81920</HIGH>
+	<ELEMENT>-1</ELEMENT>
+	<FILE>/proc/sys/net/ipv4/route/max_size</FILE>
+	<DESCRIPTION>Maximum number of routing cache entries.</DESCRIPTION>
+	</PROCENTRY>
+
+	<PROCENTRY>
+	<MENU>Networking</MENU>
+	<SUBMENU>Routing</SUBMENU>
+	<TAB>Routing</TAB>
+	<WIDGETTEXT>Min ADV MSS</WIDGETTEXT>
+	<CONFIGNAME>net/ipv4/route/min_adv_mss</CONFIGNAME>
+	<TYPE>Spinbutton</TYPE>
+	<LOW>576</LOW>
+	<HIGH>1500</HIGH>
+	<ELEMENT>-1</ELEMENT>
+	<FILE>/proc/sys/net/ipv4/route/min_adv_mss</FILE>
+	<DESCRIPTION>Minimum advertised TCP minimum segment size.</DESCRIPTION>
+	</PROCENTRY>
+
+	<PROCENTRY>
+	<MENU>Networking</MENU>
+	<SUBMENU>Routing</SUBMENU>
+	<TAB>Routing</TAB>
+	<WIDGETTEXT>Min delay</WIDGETTEXT>
+	<CONFIGNAME>net/ipv4/route/min_delay</CONFIGNAME>
+	<TYPE>Spinbutton</TYPE>
+	<LOW>1</LOW>
+	<HIGH>10</HIGH>
+	<ELEMENT>-1</ELEMENT>
+	<FILE>/proc/sys/net/ipv4/route/min_delay</FILE>
+	<DESCRIPTION>Minimum routing flush delay.</DESCRIPTION>
+	</PROCENTRY>
+
+	<PROCENTRY>
+	<MENU>Networking</MENU>
+	<SUBMENU>Routing</SUBMENU>
+	<TAB>Routing</TAB>
+	<WIDGETTEXT>Min PMTU</WIDGETTEXT>
+	<CONFIGNAME>net/ipv4/route/min_pmtu</CONFIGNAME>
+	<TYPE>Spinbutton</TYPE>
+	<LOW>552</LOW>
+	<HIGH>1500</HIGH>
+	<ELEMENT>-1</ELEMENT>
+	<FILE>/proc/sys/net/ipv4/route/min_pmtu</FILE>
+	<DESCRIPTION>The minimum path MTU.</DESCRIPTION>
+	</PROCENTRY>
+
+	<PROCENTRY>
+	<MENU>Networking</MENU>
+	<SUBMENU>Routing</SUBMENU>
+	<TAB>Routing</TAB>
+	<WIDGETTEXT>MTU Expires</WIDGETTEXT>
+	<CONFIGNAME>net/ivp4/route/mtu_expires</CONFIGNAME>
+	<TYPE>Spinbutton</TYPE>
+	<LOW>60</LOW>
+	<HIGH>6000</HIGH>
+	<ELEMENT>-1</ELEMENT>
+	<FILE>/proc/sys/net/ipv4/route/mtu_expires</FILE>
+	<DESCRIPTION>The maximum time (in seconds) the path MTU for a
+certain connection is cached. Set this to a shorter time if your
+network-conditions change rapidly.</DESCRIPTION>
+	</PROCENTRY>
+
+	<PROCENTRY>
+	<MENU>Networking</MENU>
+	<SUBMENU>Routing</SUBMENU>
+	<TAB>ICMP redirect</TAB>
+	<WIDGETTEXT>Redirect load</WIDGETTEXT>
+	<CONFIGNAME>net/ipv4/route/redirect_load</CONFIGNAME>
+	<TYPE>Spinbutton</TYPE>
+	<LOW>1</LOW>
+	<HIGH>10</HIGH>
+	<ELEMENT>-1</ELEMENT>
+	<FILE>/proc/sys/net/ipv4/route/redirect_load</FILE>
+	<DESCRIPTION>Controls backoff rate in ICMP redirect generation.</DESCRIPTION>
+	</PROCENTRY>
+
+	<PROCENTRY>
+	<MENU>Networking</MENU>
+	<SUBMENU>Routing</SUBMENU>
+	<TAB>ICMP redirect</TAB>
+	<WIDGETTEXT>Redirect number</WIDGETTEXT>
+	<CONFIGNAME>net/ipv4/route/redirect_number</CONFIGNAME>
+	<TYPE>Spinbutton</TYPE>
+	<LOW>1</LOW>
+	<HIGH>100</HIGH>
+	<ELEMENT>-1</ELEMENT>
+	<FILE>/proc/sys/net/ipv4/route/redirect_number</FILE>
+	<DESCRIPTION>Number of ignored ICMP redirect messages before assuming
+the sender ignores them and stop sending.</DESCRIPTION>
+	</PROCENTRY>
+
+	<PROCENTRY>
+	<MENU>Networking</MENU>
+	<SUBMENU>Routing</SUBMENU>
+	<TAB>ICMP redirect</TAB>
+	<WIDGETTEXT>Redirect silence</WIDGETTEXT>
+	<CONFIGNAME>net/ipv4/route/redirect_silence</CONFIGNAME>
+	<TYPE>Spinbutton</TYPE>
+	<LOW>512</LOW>
+	<HIGH>10240</HIGH>
+	<ELEMENT>-1</ELEMENT>
+	<FILE>/proc/sys/net/ipv4/route/redirect_silence</FILE>
+	<DESCRIPTION>Length of time after which we assume that remote systems
+have forgotten ICMP redirections and reset the ICMP redirection generation
+algorithm.</DESCRIPTION>
+	</PROCENTRY>
+
+<!-- Networking / Token Ring -->
+
+	<PROCENTRY>
+	<MENU>Networking</MENU>
+	<SUBMENU>Token Ring</SUBMENU>
+	<TAB>Timeouts</TAB>
+	<WIDGETTEXT>RIF Cache Timeout</WIDGETTEXT>
+	<CONFIGNAME>net/token-ring/rif_timeout</CONFIGNAME>
+	<TYPE>Spinbutton</TYPE>
+	<LOW>20000</LOW>
+	<HIGH>1000000</HIGH>
+	<ELEMENT>-1</ELEMENT>
+	<FILE>/proc/sys/net/token-ring/rif_timeout</FILE>
+	<DESCRIPTION>Controls the number of hundredths of seconds before RIF
+routing cache entries for the token ring subsystem are purged.</DESCRIPTION>
+	</PROCENTRY>
+
+</PROCENTRIES>

@@ -1,0 +1,62 @@
+#! /bin/sh
+
+PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin
+DAEMON=/usr/sbin/powertweakd
+PIDFILE=/var/run/powertweakd.pid
+NAME=powertweak
+DESC=powertweak
+
+# This only inhibits startup - the init script will still stop the
+# daemon.
+RUN_DAEMON=yes
+
+test -f $DAEMON || exit 0
+
+set -e
+
+cd /
+
+# Get configuration
+if [ -r /etc/default/powertweakd ]; then
+	. /etc/default/powertweakd
+fi
+
+case "$1" in
+  start)
+	echo -n "Starting $DESC: "
+	if [ "$RUN_DAEMON" = "yes" ]; then
+		start-stop-daemon --start --quiet --exec $DAEMON --pidfile $PIDFILE
+		echo done
+	else
+		echo disabled
+	fi
+	;;
+  restart)
+	echo -n "Restarting $DESC: "
+	start-stop-daemon --stop --quiet --oknodo --exec $DAEMON --pidfile $PIDFILE
+	if [ "$RUN_DAEMON" = "yes" ]; then
+		start-stop-daemon --start --quiet --exec $DAEMON --pidfile $PIDFILE
+		echo done
+	else
+		echo disabled
+	fi
+	;;
+  reload)
+  	echo -n "Reloading $DESC: "
+	start-stop-daemon --stop --signal 1 --quiet --exec $DAEMON --pidfile $PIDFILE
+	echo done
+	;;
+  stop)
+  	echo -n "Stopping $DESC: "
+	start-stop-daemon --stop --quiet --oknodo --exec $DAEMON --pidfile $PIDFILE
+	echo done
+	;;
+  *)
+	N=/etc/init.d/$NAME
+	# echo "Usage: $N {start|stop|restart|reload|force-reload}" >&2
+	echo "Usage: $N {start|restart}" >&2
+	exit 1
+	;;
+esac
+
+exit 0

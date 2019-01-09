@@ -1,0 +1,56 @@
+<?xml version = "1.0" encoding ="UTF-8" standalone = "no"?>
+<!DOCTYPE DEVICE SYSTEM "../pci.dtd">
+<DEVICE vendor="0x10b9" id="0x1541">
+	<REGISTER base="0x40" bit="4">
+	<FRAME>Cache features</FRAME>
+	<TYPE>Checkbox</TYPE>
+	<WIDGETTEXT>K6 Write Allocate</WIDGETTEXT>
+	<DESCRIPTION>Check this if you want to enable the "Write Allocate"
+feature	of the K6 processors. Write Allocate will enhance system
+performance by clustering memory accesses.
+</DESCRIPTION>
+	<CONFIGNAME>WRITE_ALLOCATE</CONFIGNAME>
+	</REGISTER>
+
+	<REGISTER base="0x40" bit="3">
+	<FRAME>Cache features</FRAME>
+	<TYPE>Checkbox</TYPE>
+	<WIDGETTEXT>Cyrix Linear Burst</WIDGETTEXT>
+	<DESCRIPTION>Check this if you want to enable the "Linear Burst"
+feature	of the Cyrix M1/M2 processors. Linear Burst will enhance system
+performance by clustering memory accesses.
+</DESCRIPTION>
+	<CONFIGNAME>LINEAR_BURST</CONFIGNAME>
+	</REGISTER>
+
+	<REGISTER base="0x89">
+	<FRAME>PCI bus</FRAME>
+	<TYPE>Slider</TYPE>
+	<LOW>0</LOW>
+	<HIGH>255</HIGH>
+	<WIDGETTEXT>Minimum PCI33 slice on PCI33 bus</WIDGETTEXT>
+	<DESCRIPTION>This number controls the minimum number of
+PCI bus cycles a device gets. If the device wants the bus longer, 
+it might be interrupted. Setting this to a higher value increases
+throughput but decreases latency. Setting this to low might be dangerous
+as some PCI chips (Compaq) have a bug when interrupted.
+</DESCRIPTION>
+	<CONFIGNAME>PCI_SLICE</CONFIGNAME>
+	</REGISTER>
+
+	<REGISTER base="0x8A">
+	<FRAME>PCI bus</FRAME>
+	<TYPE>Slider</TYPE>
+	<LOW>0</LOW>
+	<HIGH>255</HIGH>
+	<WIDGETTEXT>Minimum CPU slice on PCI33 bus</WIDGETTEXT>
+	<DESCRIPTION>This number controls the minimum number of
+PCI33 bus cycles the CPU gets. If the CPU  wants the bus longer, 
+it might be interrupted. Setting this to a higher value increases
+throughput but decreases latency. 
+</DESCRIPTION>
+	<CONFIGNAME>CPU_SLICE</CONFIGNAME>
+	</REGISTER>
+
+
+</DEVICE>

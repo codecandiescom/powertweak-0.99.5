@@ -1,0 +1,15 @@
+<?xml version = "1.0" encoding ="UTF-8" standalone = "no"?>
+<!DOCTYPE PROFILE SYSTEM "../profile.dtd">
+<PROFILE>
+	<SETTING>
+	<CONFIGNAME>net/ipv4/ipfrag_low_thresh</CONFIGNAME>
+	<OPERATOR>=</OPERATOR>
+	<VALUE>262144</VALUE>
+	</SETTING>
+
+	<SETTING>
+	<CONFIGNAME>net/ipv4/ipfrag_high_thresh</CONFIGNAME>
+	<OPERATOR>=</OPERATOR>
+	<VALUE>524288</VALUE>
+	</SETTING>
+</PROFILE>

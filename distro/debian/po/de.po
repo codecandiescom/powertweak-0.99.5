@@ -1,0 +1,63 @@
+#
+# This file is from the DDTP, the Debian Description Translation Project
+#
+# See http://ddtp.debian.org/ for more information.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2002-12-19 19:30+0100\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: Debian Description Translation Project <debconf@ddtp.debian.org>\n"
+"Language-Team: de <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=ISO-8859-1\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. Description
+#  Template: powertweak/creating_device_files
+#  ddtp-prioritize: 41
+#
+# msgid ""
+# "Creating CPU access device files"
+# msgstr ""
+
+#
+# msgid ""
+# "Some features of powertweak require access to the kernel CPU ID and "
+# "machine status register devices.  If these devices do not exist then they "
+# "will be created for you."
+# msgstr ""
+
+
+#. Description
+#  Template: powertweak/daemon_config
+#  ddtp-prioritize: 41
+#
+msgid ""
+"Powertweak daemon can be disabled with /etc/default/powertweakd"
+msgstr ""
+"Der Powertweak-Dämon kann mit /etc/default/powertweakd inaktiviert werden"
+
+#
+msgid ""
+"By default the powertweak daemon is run at system startup.  This behaviour "
+"may now be disabled by editing /etc/default/powertweakd."
+msgstr ""
+"Per Voreinstellung läuft der Powertweak-Dämon beim Systemstart.  Das "
+"Verhalten kann jetzt durch Anpassen von /etc/default/powertweakd "
+"inaktiviert werden."
+
+#
+msgid ""
+"When the daemon is running tweaks are performed using it and can be saved "
+"and reapplied whenever the system is restarted.  Otherwise the tweaks are "
+"performed directly by the front end and can not be automatically reapplied "
+"when the computer is restarted."
+msgstr ""
+"Wenn der Dämon läuft, werden Tweaks mit diesem durchgeführt und können "
+"gespeichert und beim Restart wiederverwendet werden.  Sonst werden "
+"Tweaks direkt vom Frontend durchgeführt und können nicht automatisch "
+"beim Neustart wiederverwendet werden."
+
+

@@ -1,0 +1,37 @@
+<?xml version = "1.0" encoding ="UTF-8" standalone = "no"?>
+<!DOCTYPE MSRENTRY SYSTEM "x86.dtd">
+
+<!-- MSR's on the Intel Pentium IV -->
+
+<MSRENTRY>
+	<MSR register="0x0000002A" bit="26">
+	    <WIDGETTEXT>Low power mode</WIDGETTEXT>
+	    <CONFIGNAME>PIV_LOW_POWER_MODE</CONFIGNAME>
+	    <TYPE>Checkbox</TYPE>
+	    <DESCRIPTION>When set, low power mode is enabled.</DESCRIPTION>
+	</MSR>
+
+	<MSR register="0x000001A0" bit="0">
+	    <WIDGETTEXT>Fast strings enable</WIDGETTEXT>
+	    <CONFIGNAME>PIV_ENABLE_FAST_STRINGS</CONFIGNAME>
+	    <TYPE>Checkbox</TYPE>
+	    <DESCRIPTION>When set, the fast-string operations
+of the Pentium IV are enabled.</DESCRIPTION>
+	</MSR>
+
+	<MSR register="0x000001A0" bit="2">
+	    <WIDGETTEXT>Fast strings enable</WIDGETTEXT>
+	    <CONFIGNAME>PIV_FOPCODE_COMPATABILITY</CONFIGNAME>
+	    <TYPE>Checkbox</TYPE>
+	    <DESCRIPTION>When set, fopcode compatability mode is enabled.
+</DESCRIPTION>
+	</MSR>
+
+	<MSR register="0x000001A0" bit="4">
+	    <WIDGETTEXT>Split Lock Disable</WIDGETTEXT>
+	    <CONFIGNAME>PIV_SPLIT_LOCK</CONFIGNAME>
+	    <TYPE>Checkbox</TYPE>
+	    <DESCRIPTION>When set, the split-lock feature of the Pentium IV
+is disabled.</DESCRIPTION>
+	</MSR>
+</MSRENTRY>

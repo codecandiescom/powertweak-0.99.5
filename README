@@ -1,0 +1,44 @@
+This package contains Powertweak Linux, version 0.99.5
+
+Copyright (c) 1999 - 2003 Dave Jones <davej@suse.de>
+
+All files in this package can be freely distributed and used according
+to the terms of the GNU General Public License. See the COPYING file
+in the root directory of this archive for more details.
+
+
+Related mailing lists:
+
+ - Powertweak Linux mail list
+   This is principally for developers of Powertweak-Linux, but is also
+   the place you should send any bug-reports, suggestions, requests
+   e.t.c.
+   For archives & (un)subscribing information, visit this URL:
+   http://lists.sourceforge.net/mailman/listinfo/powertweak-linux
+
+ - Linux PCI utilities.
+   Send "subscribe linux-pci Your Full Name" to
+   listproc@atrey.karlin.mff.cuni.cz 
+
+   Release notes about pciutils will be sent to the list and problems
+   with the Linux PCI support will be probably discussed there, too.
+
+   *note*, that Powertweak currently uses a forked version of PCILIB
+   based upon the current release with some extra fixes. If you have
+   problems with Powertweak & PCI, you should report the bug to the
+   Powertweak list first, as it may be related to one of our changes.
+
+Related web sites:
+
+ - Powertweak Linux home page.
+   http://www.powertweak.org (http://powertweak.sourceforge.net)
+   http://www.sourceforge.net/projects/powertweak
+
+ - Main Powertweak home page (Links to Windows & BeOS versions)
+   http://www.powertweak.com
+
+ - Linux PCI utils home page
+   http://atrey.karlin.mff.cuni.cz/~mj/pciutils.html
+
+ - libXML home page
+   http://www.libxml.org

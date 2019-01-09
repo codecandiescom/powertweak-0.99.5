@@ -1,0 +1,3 @@
+?package(powertweak-text):needs=text section=Apps/System/\
+  title="Configure powertweak - Text"\
+  command="/usr/sbin/su-to-root -c /usr/bin/powertweak"

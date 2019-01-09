@@ -1,0 +1,24 @@
+#!/bin/sh
+
+set -e
+
+. /usr/share/debconf/confmodule
+db_version 2.0
+
+# We only use the CPU devices on i386 Linux so only try to make them there
+if [ "$(uname -s)" = "Linux" ]; then
+case "$(uname -m)" in
+        i?86)
+		if [ ! -c /dev/cpu/0/cpuid -a -x /dev/MAKEDEV ]; then
+			db_get low powertweak/creating_device_files || true
+			(cd /dev ; ./MAKEDEV cpu )
+		fi
+                ;;
+        *)
+                ;;
+esac
+fi
+
+db_stop
+
+#DEBHELPER#

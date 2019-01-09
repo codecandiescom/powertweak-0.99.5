@@ -1,0 +1,34 @@
+<?xml version = "1.0" encoding ="UTF-8" standalone = "no"?>
+<!DOCTYPE PROFILE SYSTEM "../profile.dtd">
+<PROFILE>
+	<SETTING>
+	<CONFIGNAME>net/ipv4/tcp_syncookies</CONFIGNAME>
+	<OPERATOR>=</OPERATOR>
+	<VALUE>1</VALUE>
+	</SETTING>
+
+	<SETTING>
+	<CONFIGNAME>net/ipv4/tcp_ecn</CONFIGNAME>
+	<OPERATOR>=</OPERATOR>
+	<VALUE>0</VALUE>
+	</SETTING>
+
+	<SETTING>
+	<CONFIGNAME>kernel/panic</CONFIGNAME>
+	<OPERATOR>geq</OPERATOR>
+	<VALUE>1</VALUE>
+	</SETTING>
+
+	<SETTING>
+	<CONFIGNAME>fs/file_max</CONFIGNAME>
+	<OPERATOR>geq</OPERATOR>
+	<VALUE>10240</VALUE>
+	</SETTING>
+
+	<SETTING>
+	<CONFIGNAME>fs/inode_max</CONFIGNAME>
+	<OPERATOR>geq</OPERATOR>
+	<VALUE>30720</VALUE>
+	</SETTING>
+
+</PROFILE>

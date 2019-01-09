@@ -1,0 +1,12 @@
+<?xml version = "1.0" encoding ="UTF-8" standalone = "no"?>
+<!DOCTYPE DEVICE SYSTEM "../pci.dtd">
+<DEVICE vendor="0x1073" id="0x0010">
+	<REGISTER base="0x4f" bit="4">
+	<TYPE>Checkbox</TYPE>
+	<WIDGETTEXT>Power save joystick.</WIDGETTEXT>
+	<DESCRIPTION>When enabled, this tweak disables the comparitor
+on the joystick interface.</DESCRIPTION>
+	<CONFIGNAME>POWERSAVE_JOYSTICK</CONFIGNAME>
+	</REGISTER>
+
+</DEVICE>

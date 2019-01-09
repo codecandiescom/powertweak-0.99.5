@@ -1,0 +1,117 @@
+<?xml version = "1.0" encoding ="UTF-8" standalone = "no"?>
+<!DOCTYPE DEVICE SYSTEM "../pci.dtd">
+<DEVICE vendor="0x1106" id="0x0691">
+
+	<REGISTER base="0x51" bit="2">
+	<FRAME>Host CPU protocol</FRAME>
+	<TYPE>Checkbox</TYPE>
+	<WIDGETTEXT>4-level prefetch buffer</WIDGETTEXT>
+	<DESCRIPTION>This option increases the buffer-depth for prefetches
+from 1 to 4, giving higher throughput.</DESCRIPTION>
+	<CONFIGNAME>CPU_PREFETCH_BUFFER</CONFIGNAME>
+	</REGISTER>
+
+	<REGISTER base="0x51" bit="1">
+	<FRAME>Host CPU protocol</FRAME>
+	<TYPE>Checkbox</TYPE>
+	<WIDGETTEXT>4-level write buffer</WIDGETTEXT>
+	<DESCRIPTION>This option increases the buffer-depth for writes
+from 1 to 4, giving higher throughput.</DESCRIPTION>
+	<CONFIGNAME>CPU_WRITE_BUFFER</CONFIGNAME>
+	</REGISTER>
+
+	<REGISTER base="0x71" bit="7">
+	<FRAME>PCI Bus behavior</FRAME>
+	<TYPE>Checkbox</TYPE>
+	<WIDGETTEXT>Dynamic Burst</WIDGETTEXT>
+	<DESCRIPTION>This option enables automatic detection of PCI bursts.
+This is often the optimal setting.</DESCRIPTION>
+	<CONFIGNAME>DYNAMIC_BURST</CONFIGNAME>
+	</REGISTER>
+
+	<REGISTER base="0x71" bit="3">
+	<FRAME>PCI Bus behavior</FRAME>
+	<TYPE>Checkbox</TYPE>
+	<WIDGETTEXT>PCI Burst</WIDGETTEXT>
+	<DESCRIPTION>This option forces all PCI transaction to be bursts.
+This option has no effect if Dynamic Burst is enabled.</DESCRIPTION>
+	<CONFIGNAME>FORCE_BURST</CONFIGNAME>
+	</REGISTER>
+
+<!--
+// This set of tweaks disabled for now.
+These tweaks should be tristate rather than boolean.
+
+00-none
+01-2 way interleave
+10-4 way interleave
+11-invalid
+
+	<REGISTER base="0x64">
+	<FRAME>Memory Interleave settings</FRAME>
+	<BITMASK>00000011</BITMASK>
+	<ONBITS> 00000001</ONBITS>
+	<OFFBITS>00000000</OFFBITS>
+	<TYPE>Checkbox</TYPE>
+	<WIDGETTEXT>Bank 0/1 interleaving 2x</WIDGETTEXT>
+	<DESCRIPTION>Enable Memory interleaving. This is known to
+improve memory throughput by 20% on some sytems.</DESCRIPTION>
+	<CONFIGNAME>BANK1_INTERLEAVE</CONFIGNAME>
+	</REGISTER>
+
+	<REGISTER base="0x65">
+	<FRAME>Memory Interleave settings</FRAME>
+	<BITMASK>00000011</BITMASK>
+	<ONBITS> 00000001</ONBITS>
+	<OFFBITS>00000000</OFFBITS>
+	<TYPE>Checkbox</TYPE>
+	<WIDGETTEXT>Bank 2/3 interleaving 2x</WIDGETTEXT>
+	<DESCRIPTION>Enable Memory interleaving. This is known to
+improve memory throughput by 20% on some sytems.</DESCRIPTION>
+	<CONFIGNAME>BANK2_INTERLEAVE</CONFIGNAME>
+	</REGISTER>
+
+	<REGISTER base="0x66">
+	<FRAME>Memory Interleave settings</FRAME>
+	<BITMASK>00000011</BITMASK>
+	<ONBITS> 00000001</ONBITS>
+	<OFFBITS>00000000</OFFBITS>
+	<TYPE>Checkbox</TYPE>
+	<WIDGETTEXT>Bank 4/5 interleaving 2x</WIDGETTEXT>
+	<DESCRIPTION>Enable Memory interleaving. This is known to
+improve memory throughput by 20% on some sytems.</DESCRIPTION>
+	<CONFIGNAME>BANK3_INTERLEAVE</CONFIGNAME>
+	</REGISTER>
+
+	<REGISTER base="0x67">
+	<FRAME>Memory Interleave settings</FRAME>
+	<BITMASK>00000011</BITMASK>
+	<ONBITS> 00000001</ONBITS>
+	<OFFBITS>00000000</OFFBITS>
+	<TYPE>Checkbox</TYPE>
+	<WIDGETTEXT>Bank 6/7 interleaving 2x</WIDGETTEXT>
+	<DESCRIPTION>Enable Memory interleaving. This is known to
+improve memory throughput by 20% on some sytems.</DESCRIPTION>
+	<CONFIGNAME>BANK4_INTERLEAVE</CONFIGNAME>
+	</REGISTER>
+-->
+
+	<REGISTER base="0x68" bit="2">
+	<FRAME>DRAM settings</FRAME>
+	<TYPE>Checkbox</TYPE>
+	<WIDGETTEXT>Burst refresh</WIDGETTEXT>
+	<DESCRIPTION>This option enables `bursting' during
+refresh cycles. Enabled is faster.</DESCRIPTION>
+	<CONFIGNAME>DRAM_BURSTREFRESH</CONFIGNAME>
+	</REGISTER>
+
+	<REGISTER base="0x68" bit="6">
+	<FRAME>DRAM settings</FRAME>
+	<TYPE>Checkbox</TYPE>
+	<WIDGETTEXT>Allow multiple banks active</WIDGETTEXT>
+	<DESCRIPTION>This option allows multiple memory banks to be 
+active at the same time. Enabled is faster.</DESCRIPTION>
+	<CONFIGNAME>DRAM_MULTIBANK</CONFIGNAME>
+	</REGISTER>
+
+</DEVICE>

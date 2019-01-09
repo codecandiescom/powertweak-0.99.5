@@ -1,0 +1,39 @@
+<?xml version = "1.0" encoding ="UTF-8" standalone = "no"?>
+<!DOCTYPE MSRENTRY SYSTEM "x86.dtd">
+
+<!-- MSR's on the AMD K5 -->
+
+<MSRENTRY>
+	<MSR register="0x00000083" bit="7">
+		<WIDGETTEXT>Disable data cache</WIDGETTEXT>
+		<CONFIGNAME>MSR_AMD_K5_DISABLE_DCACHE</CONFIGNAME>
+		<TYPE>Checkbox</TYPE>
+		<DESCRIPTION>Setting this will switch off the data cache.
+This setting should be disabled for best performance.</DESCRIPTION>
+	</MSR>
+
+	<MSR register="0x00000083" bit="6">
+		<WIDGETTEXT>Disable instruction cache</WIDGETTEXT>
+		<CONFIGNAME>MSR_AMD_K5_DISABLE_ICACHE</CONFIGNAME>
+		<TYPE>Checkbox</TYPE>
+		<DESCRIPTION>Setting this will switch off the instruction cache.
+This setting should be disabled for best performance.</DESCRIPTION>
+	</MSR>
+
+	<MSR register="0x00000083" bit="5">
+		<WIDGETTEXT>Disable branch prediction</WIDGETTEXT>
+		<CONFIGNAME>MSR_AMD_K5_DISABLE_ICACHE</CONFIGNAME>
+		<TYPE>Checkbox</TYPE>
+		<DESCRIPTION>Setting this will switch off the CPU branch
+prediction feature. This setting should be disabled for best performance.</DESCRIPTION>
+	</MSR>
+
+	<MSR register="0x00000083" bit="0">
+		<WIDGETTEXT>Disable Stopping CPU clock in HLT state</WIDGETTEXT>
+		<CONFIGNAME>MSR_AMD_K5_DISABLE_ICACHE</CONFIGNAME>
+		<TYPE>Checkbox</TYPE>
+		<DESCRIPTION>Whilst idle the CPU can halt the clock.
+This setting should be disabled for best performance.</DESCRIPTION>
+	</MSR>
+
+</MSRENTRY>

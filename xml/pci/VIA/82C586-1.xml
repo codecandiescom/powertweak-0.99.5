@@ -1,0 +1,37 @@
+<?xml version = "1.0" encoding ="UTF-8" standalone = "no"?>
+<!DOCTYPE DEVICE SYSTEM "../pci.dtd">
+<DEVICE vendor="0x1106" id="0x0571">
+
+	<REGISTER base="0x41" bit="7">
+	<FRAME>IDE Controller tweaks</FRAME>
+	<TYPE>Checkbox</TYPE>
+	<WIDGETTEXT>IDE 0 prefetch</WIDGETTEXT>
+	<DESCRIPTION>Enables read prefetch on primary IDE bus</DESCRIPTION>
+	<CONFIGNAME>IDE0_PREFETCH</CONFIGNAME>
+	</REGISTER>
+
+	<REGISTER base="0x41" bit="6">
+	<FRAME>IDE Controller tweaks</FRAME>
+	<TYPE>Checkbox</TYPE>
+	<WIDGETTEXT>IDE 0 posted writes</WIDGETTEXT>
+	<DESCRIPTION>Enables delayed writes on primary IDE bus</DESCRIPTION>
+	<CONFIGNAME>IDE0_POST_WRITE</CONFIGNAME>
+	</REGISTER>
+
+	<REGISTER base="0x41" bit="5">
+	<FRAME>IDE Controller tweaks</FRAME>
+	<TYPE>Checkbox</TYPE>
+	<WIDGETTEXT>IDE 1 prefetch</WIDGETTEXT>
+	<DESCRIPTION>Enables read prefetch on secondary IDE bus</DESCRIPTION>
+	<CONFIGNAME>IDE1_PREFETCH</CONFIGNAME>
+	</REGISTER>
+
+	<REGISTER base="0x41" bit="4">
+	<FRAME>IDE Controller tweaks</FRAME>
+	<TYPE>Checkbox</TYPE>
+	<WIDGETTEXT>IDE 1 posted writes</WIDGETTEXT>
+	<DESCRIPTION>Enables delayed writes on secondary IDE bus</DESCRIPTION>
+	<CONFIGNAME>IDE1_POST_WRITE</CONFIGNAME>
+	</REGISTER>
+
+</DEVICE>

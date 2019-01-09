@@ -1,0 +1,4 @@
+?package(powertweak-gtk):needs=text section=Apps/System/\
+  title="Configure powertweak - Graphical"\
+  icon="/usr/X11R6/include/X11/pixmaps/powertweak.xpm"\
+  command="/usr/sbin/su-to-root -c /usr/bin/gpowertweak"
